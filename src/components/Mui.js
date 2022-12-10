@@ -11,6 +11,7 @@ import HomeNavBar from './homePage/HomeNavBar';
 import Popup from 'reactjs-popup';
 import { Email, LocationOn, Phone, WhatsApp } from '@mui/icons-material';
 import ReactWhatsapp from 'react-whatsapp';
+import Timer from './timer/Timer';
 
 
 export default function Mui() {
@@ -68,7 +69,7 @@ export default function Mui() {
                         <p><span>Est. Budget</span>Ksh 450</p>
                     </bottom>
                     <div className='job-time'>
-                    
+                    <Timer />
                     <Popup trigger={<Button variant='contained'>Bid</Button> } modal>
                              <h2>{job.title}</h2>
                             <h3>Connect with {job.employer}</h3>
