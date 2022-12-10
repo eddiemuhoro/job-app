@@ -11,7 +11,7 @@ import HomeNavBar from './homePage/HomeNavBar';
 import Popup from 'reactjs-popup';
 import { Email, LocationOn, Phone, WhatsApp } from '@mui/icons-material';
 import ReactWhatsapp from 'react-whatsapp';
-import Timer from './countdown/Expire';
+import Timer from './countdown/Timer';
 
 export default function Mui() {
     const [jobs, setJobs] = useState([])
