@@ -8,7 +8,6 @@ import SignUp from './components/authenticatioin/SignUp'
 import Login from './components/authenticatioin/login';
 import Home from './components/homePage/Home';
 import HomeNavBar from './components/homePage/HomeNavBar';
-import Footer from './components/Footer/Jfooter';
 
 function App() {
   //vhangesd
