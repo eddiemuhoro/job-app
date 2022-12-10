@@ -3,18 +3,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import HomeNavBar from './HomeNavBar'
 import Imagee from '../myImages/image.png'
+import PopUp from '../popup/PopUp'
+
 
 const Home = () => {
   return (
     <div>
+        
         <HomeNavBar/>
+        {/* <div style={{width:'100%', display:'flex', justifyContent:'right'}}>
+           <PopUp />
+        </div> */}
         <main className='home-page'>
             <div className='home-wrapper' >
-                {/* <section style={{width:'25%'}}>
-                    <h2>About Us</h2>
-                    <p>We see your vision, and everything we do is an effort to help you make the connections that will turn that vision into reality, by building your Virtual Talent Bench of trusted people.  
-                </p>
-                </section> */}
+             
                
                 <section className='image-home'>
                     <img src={Imagee} alt='kenya' />
@@ -25,13 +27,12 @@ const Home = () => {
                     <p>
                         We make every work available for you
                     </p>
-                    <Button variant='contained'><Link to='/home/jobs'>View Jobs</Link></Button>
+                    <Button variant='contained'><Link to='/jobs'>View Jobs</Link></Button>
                 </section>
           </div>
-          <footer>
-          </footer>
+        
         </main>
-
+        
     </div>
   )
 }

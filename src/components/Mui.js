@@ -7,10 +7,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 import React, { useEffect, useState } from 'react'
 import HomeNavBar from './homePage/HomeNavBar';
-import PopUp from './PopUp/PopUp';
+
 import Popup from 'reactjs-popup';
-import { Email, LocationCityRounded, LocationOff, LocationOn, Map, MapRounded, Phone, ThumbsUpDown, WhatsApp } from '@mui/icons-material';
+import { Email, LocationOn, Phone, WhatsApp } from '@mui/icons-material';
 import ReactWhatsapp from 'react-whatsapp';
+import Timer from './countdown/Expire';
 
 export default function Mui() {
     const [jobs, setJobs] = useState([])
@@ -18,13 +19,23 @@ export default function Mui() {
         axios.request('https://jobsy.up.railway.app/job')
             .then((response) => {
                 setJobs(response.data);
+                const deadline =response.data.title
+                console.log(deadline)
             }).catch((error) => {
                 console.log(error);
             })
+            
     })
+    
     return (
         <>
         <HomeNavBar />
+        <Paper style={{margin:'30px', textAlign: 'left'}}>
+            <div className='time'>
+            <h2>Saturday, December 10th</h2>
+            <h1>Good Evening</h1>
+            </div>
+        </Paper>
         <Box
             sx={{
                 display: 'grid',
@@ -56,18 +67,20 @@ export default function Mui() {
                         </div>
                         <p><span>Est. Budget</span>Ksh 450</p>
                     </bottom>
+                    <div className='job-time'>
+                    <Timer />
                     <Popup trigger={<Button variant='contained'>Bid</Button> } modal>
-
-                        <div className='bid-popup'>
                              <h2>{job.title}</h2>
-                            <h3>Connect!!</h3>
-                            <div className='social-icons'>
-                                <Phone />
-                                <ReactWhatsapp number="+254705982249" message="Hello World!!!"><WhatsApp /></ReactWhatsapp>
-                                <Email />
+                            <h3>Connect with {job.employer}</h3>
+                            <div className='social-icon'>
+                            <Phone /><a href="tel:+254 791849836"> <span>Call</span></a> 
+                                 <p>+254 705982249</p>
+                                <ReactWhatsapp number="+254705982249" message="Hello World!!!"><WhatsApp /></ReactWhatsapp><span>WhatsApp</span>
+                               
                             </div>
-                        </div>
+                      
                     </Popup>
+                    </div>
             </Paper>
             ))}
            

@@ -1,13 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@200;400&display=swap");
+
 body{
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #f5f5f5;
-  
+  background-color: #dbd8d8;
+  font-family: "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.App{
+  width: 80%;
+  margin: auto;
+  background-color: #e2dfdf;
+  position: relative;
 }
 a{
   text-decoration: none;
   color: white;
+}
+/* JOBS STYLES */
+.timer{
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.timer > div{
+  margin: 0 10px;
+}
+@media screen and (max-width: 768px){
+  .timer{
+   font-size: 15px;
+  }
+
+}
+  
+
+.job-time{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
 }
 .job-title{
   display: flex;
@@ -51,6 +85,7 @@ h2,h3,h4,h5,h6{
   width: 100%;
   flex-direction: column;
   margin-bottom: 20px;
+  z-index: -1;
 }
 
 /* SIGNUP SECTION */
@@ -64,6 +99,9 @@ h2,h3,h4,h5,h6{
 }
 
 /* HOME NAVBAR STYLES */
+.menu-icon{
+  display: none;
+}
 .navbar{
   display: flex;
   justify-content: space-between;
@@ -83,6 +121,12 @@ h2,h3,h4,h5,h6{
   font-weight: 500;
   letter-spacing: 0.6px;
  
+}
+
+.active{
+  color: #e2e2e2;
+  background-color: #929292;
+  transition: .3s ease-in-out;
 }
 
 .nav-links ul a{
@@ -109,8 +153,49 @@ h2,h3,h4,h5,h6{
 @media screen and (max-width: 768px){
   .jobsy-logo h1{
     display: none;
-
   }
+  .menu-icon{
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: black;
+    cursor: pointer;
+  }
+  .nav-links.mobile ul{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+   z-index: 999;
+    top: 30px;
+    right: -0;
+    background-color: #fff;
+    width: 50%;
+    height: 50vh;
+    margin-right: 0;
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  .nav-links.mobile ul a{
+    padding: 20px 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+    color: #083b6e;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .nav-links.mobile ul a:hover{
+    color: #e2e2e2;
+     background-color: #083b6e;
+     transition: .3s ease-in-out;
+  }
+
+  .nav-links ul{
+    display: none;
+  }
+ 
 }
   
 
@@ -123,6 +208,26 @@ h2,h3,h4,h5,h6{
 }
 
 /* HOME PAGE STYLES */
+.time{
+  padding: 20px;
+}
+.time h1, h2{
+  color: #083b6e;
+  margin:0 ;
+  
+}
+.home-page h1{
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  font-weight: bolder;
+}
+.home-page p{
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: #2a323d;
+}
 .home-page{
   display: flex;
   flex-direction: column;
@@ -135,6 +240,7 @@ h2,h3,h4,h5,h6{
 .home-wrapper{
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
 }
 
 @media screen and (max-width: 500px){
@@ -172,11 +278,8 @@ section{
   border-radius: 15px;
   width: 300px;
 }
-.social-icons{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
+.social-icon span{
+  color: #083b6e;
 }
 .enquire-popup > .close {
   cursor: pointer;
