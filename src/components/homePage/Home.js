@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import HomeNavBar from './HomeNavBar'
 import Imagee from '../myImages/image.png'
-import PopUp from '../popup/PopUp'
+import PopUp from '../popUp/PopUp'
 
 
 const Home = () => {
