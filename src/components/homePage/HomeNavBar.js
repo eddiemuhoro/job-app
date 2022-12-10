@@ -17,7 +17,7 @@ const HomeNavBar = () => {
                     <Link to='/home/jobs' style={{textDecoration: 'none'}}><li>Jobs</li></Link>
                     <Link to='/post' style={{textDecoration: 'none'}}><li>Post</li></Link>
                     <Link to='/home' style={{textDecoration: 'none'}}><li>Home</li></Link>
-                    <Button sx={{borderRadius:'20px'}}  variant='contained'><Link style={{color:'white'}} to='/login'>Log Out</Link></Button>
+                    <Button sx={{borderRadius:'20px'}}  variant='contained'><Link style={{color:'white', margin: 0}} to='/login'>Log Out</Link></Button>
                 </ul>
             </div>
         </nav>

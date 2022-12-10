@@ -18,7 +18,7 @@ const Login = () => {
          <TextField type='email' variant='filled' label='Your email'/>
          <TextField type='password' variant='filled' label='Your password'/>
          <Button variant='contained'><Link to='/home'>LOG IN</Link></Button>
-         <p>Don't have an account? <Link to='/'>Sign Up</Link></p>
+         <p>Don't have an account? <Link style={{color:'black'}} to='/'>Sign Up</Link></p>
      </FormControl>
     </div>
   )
