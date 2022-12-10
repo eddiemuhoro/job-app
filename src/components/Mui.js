@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react'
 import HomeNavBar from './homePage/HomeNavBar';
 import PopUp from './PopUp/PopUp';
 import Popup from 'reactjs-popup';
-import { Email, Phone, WhatsApp } from '@mui/icons-material';
+import { Email, LocationCityRounded, LocationOff, LocationOn, Map, MapRounded, Phone, ThumbsUpDown, WhatsApp } from '@mui/icons-material';
 import ReactWhatsapp from 'react-whatsapp';
 
 export default function Mui() {
@@ -48,12 +48,13 @@ export default function Mui() {
                         <FavoriteIcon  />
                     </top>
                     <main className='job-description'>
-                        <h3>{job.description}</h3>
-                        <p>We have a site that has been running for a couple of years. Recently, it has started looking “unusual” and the JavaScrip</p>
+                        <p>{job.description}</p>
                     </main>
                     <bottom className='job-bottom'>
-                        <p>{job.Location}</p>
-                        <p>Ksh 450</p>
+                        <div style={{display:'flex', alignItems:'center'}}>
+                            <LocationOn /><p>{job.location}</p>
+                        </div>
+                        <p><span>Est. Budget</span>Ksh 450</p>
                     </bottom>
                     <Popup trigger={<Button variant='contained'>Bid</Button> } modal>
 

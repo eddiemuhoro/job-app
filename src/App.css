@@ -20,7 +20,7 @@ a{
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.6px;
-  color: #083b6e;
+  color: #2a323d;
 }
 
 h2,h3,h4,h5,h6{
@@ -28,11 +28,20 @@ h2,h3,h4,h5,h6{
   color: #083b6e;
 }
 
+.job-bottom span{
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: rgb(45, 44, 51);
+
+  border-radius: 5px;
+  padding: 3px;
+}
+
 .job-bottom{
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 /* FORM STYLES. */
@@ -122,6 +131,20 @@ h2,h3,h4,h5,h6{
   margin: 20px;
   height: 60vh;
 }
+
+.home-wrapper{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 500px){
+  .home-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+}
+  
+
 
 .home-page a{
   color: #fff;

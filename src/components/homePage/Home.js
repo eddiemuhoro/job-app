@@ -9,12 +9,16 @@ const Home = () => {
     <div>
         <HomeNavBar/>
         <main className='home-page'>
-            <div style={{display:'flex', alignItems:'center'}}>
+            <div className='home-wrapper' >
                 {/* <section style={{width:'25%'}}>
                     <h2>About Us</h2>
                     <p>We see your vision, and everything we do is an effort to help you make the connections that will turn that vision into reality, by building your Virtual Talent Bench of trusted people.  
                 </p>
                 </section> */}
+               
+                <section className='image-home'>
+                    <img src={Imagee} alt='kenya' />
+                </section>  
                 <section>
                     <p>Hi! , we're</p>
                     <h1>JOBSY</h1>
@@ -23,9 +27,6 @@ const Home = () => {
                     </p>
                     <Button variant='contained'><Link to='/home/jobs'>View Jobs</Link></Button>
                 </section>
-                <section className='image-home'>
-                    <img src={Imagee} alt='kenya' />
-                </section>  
           </div>
           <footer>
           </footer>
