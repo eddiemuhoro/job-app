@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button, FormControl } from '@mui/material';
 import axios from 'axios';
-import { Checkbox } from 'react-input-checkbox';
+
 
 const Post = () => {
   const [postjob, setpostjob] = useState({
