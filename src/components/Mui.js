@@ -82,7 +82,7 @@ export default function Mui() {
                     <div className=''>
                     <top className='job-title'>
                         <h1>{job.title}</h1>
-                        <FavoriteIcon  />
+                        <div title='add to favorite'><FavoriteIcon  title='fav'/></div>
                     </top>
                     <main className='job-description'>
                         <p>{job.description}</p>

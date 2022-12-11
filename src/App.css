@@ -97,8 +97,14 @@ h2,h3,h4,h5,h6{
   justify-content: center;
   width: 100%;
   margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
 }
-
+.signup-form:hover{
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: .3s ease-in-out;
+}
 /* HOME NAVBAR STYLES */
 .menu-icon{
   display: none;
