@@ -19,7 +19,7 @@ const HomeNavBar = () => {
                 <ul className='nav-list'>
                     <NavLink to='/jobs' style={{textDecoration: 'none'}}><li>Jobs</li></NavLink>
                     <NavLink to='/post' style={{textDecoration: 'none'}}><li>Post</li></NavLink>
-                    <NavLink to='/home' style={{textDecoration: 'none'}}><li>Home</li></NavLink>
+                    <NavLink to='/aboutus' style={{textDecoration: 'none'}}><li>About Us</li></NavLink>
                     <Button sx={{borderRadius:'20px'}}  variant='contained'><Link style={{color:'white', margin: 0}} to='/login'>Log Out</Link></Button>
                 </ul>
             </div>

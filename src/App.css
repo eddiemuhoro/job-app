@@ -21,6 +21,12 @@ a{
   color: white;
 }
 /* JOBS STYLES */
+.paper-container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
 .timer{
   display: flex;
   align-items: center;
@@ -41,7 +47,7 @@ a{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 20px 0;
+  margin:0 0 20px 0;
 }
 .job-title{
   display: flex;
@@ -175,7 +181,7 @@ h2,h3,h4,h5,h6{
     right: -0;
     background-color: #fff;
     width: 50%;
-    height: 50vh;
+    height: auto;
     margin-right: 0;
     padding: 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);

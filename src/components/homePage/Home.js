@@ -15,8 +15,6 @@ const Home = () => {
         </div> */}
         <main className='home-page'>
             <div className='home-wrapper' >
-             
-               
                 <section className='image-home'>
                     <img src={Imagee} alt='kenya' />
                 </section>  
