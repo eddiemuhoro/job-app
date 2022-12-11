@@ -17,7 +17,7 @@ const Login = () => {
          <h1>Log In</h1>
          <TextField type='email' variant='filled' label='Your email'/>
          <TextField type='password' variant='filled' label='Your password'/>
-         <Button variant='contained'><Link to='/home'>LOG IN</Link></Button>
+         <Link style={{width:'100%', margin:"auto"}} to='/home'><Button fullWidth variant='contained'>LOG IN</Button></Link>
          <p>Don't have an account? <Link style={{color:'black'}} to='/'>Sign Up</Link></p>
      </FormControl>
     </div>

@@ -79,7 +79,7 @@ export default function Mui() {
            
             {jobs.map(job => (
                 <Paper sx={{position:'relative', padding:'10px'}} elevation={4}>
-                    <div className='paper-container'>
+                    <div className=''>
                     <top className='job-title'>
                         <h1>{job.title}</h1>
                         <FavoriteIcon  />
@@ -96,7 +96,7 @@ export default function Mui() {
                             <p><span>Est. Budget</span>Ksh 450</p>
                         </bottom>
                         <div className='job-time'>                       
-                        <Timer deadline={deadline} />
+                        
                             <Popup trigger={<Button variant='contained'>Bid</Button> } modal>
                                 <div className='bid-popup'>
                                     <h2>{job.title}</h2>
@@ -104,8 +104,9 @@ export default function Mui() {
                                     <div className='social-icon'>
                                     <Phone /><a href="tel:+254 791849836"> <span>Call</span></a> 
                                         <p>+254 705982249</p>
-                                        <ReactWhatsapp number="+254705982249" message="Hello World!!!"><WhatsApp /></ReactWhatsapp><span>WhatsApp</span>
-                                    
+                                        <ReactWhatsapp number="+254705982249" message="Hello World!!!">
+                                            <WhatsApp />
+                                        </ReactWhatsapp><span>WhatsApp</span>
                                     </div>
                                     </div>
                             

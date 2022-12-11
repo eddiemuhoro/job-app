@@ -13,7 +13,7 @@ const Footer = () => {
             <div className='contact-us'>
                 <h3>CONTACT US</h3>
                 <ul>
-                   <li><Link to='/home/jobs'>Find Job</Link> </li>
+                   <li><Link to='/jobs'>Find Job</Link> </li>
 
                     <li><a href="tel:+254 791849836">+254 794183313</a></li>
 
