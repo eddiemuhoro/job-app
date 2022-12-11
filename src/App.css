@@ -287,6 +287,12 @@ section{
   border-radius: 15px;
   width: 300px;
 }
+.bid-popup h3{
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: #083b6e;
+  margin: 0;
+}
 .social-icon span{
   color: #083b6e;
 }
