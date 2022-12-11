@@ -16,6 +16,7 @@ import Counter from '../counter/Counter';
 
 
 export default function Mui() {
+    //solutiom
     const [jobs, setJobs] = useState([])
     useEffect(() => {
         axios.request('https://jobsy.up.railway.app/job')
