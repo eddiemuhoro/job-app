@@ -25,7 +25,7 @@ const SignUp = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
+//removed pass
   return (
     <div className='signup-form'>   
     <SideBar />
