@@ -74,6 +74,7 @@ export default function Mui() {
                     <div className='job-time'>
                    <Timer deadline={deadline} />
                     <Popup trigger={<Button variant='contained'>Bid</Button> } modal>
+                        <div className='bid-popup'>
                              <h2>{job.title}</h2>
                             <h3>Connect with {job.employer}</h3>
                             <div className='social-icon'>
@@ -81,6 +82,7 @@ export default function Mui() {
                                  <p>+254 705982249</p>
                                 <ReactWhatsapp number="+254705982249" message="Hello World!!!"><WhatsApp /></ReactWhatsapp><span>WhatsApp</span>
                                
+                            </div>
                             </div>
                       
                     </Popup>
