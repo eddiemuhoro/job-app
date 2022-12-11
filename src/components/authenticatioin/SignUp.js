@@ -1,5 +1,5 @@
 import { Visibility, VisibilityOff } from '@mui/icons-material'
-import { Button, FilledInput, FormControl, IconButton, InputAdornment, TextField } from '@mui/material'
+import { Button, FilledInput, FormControl, IconButton, InputAdornment, OutlinedInput, TextField } from '@mui/material'
 import React from 'react'
 import { Link, Router } from 'react-router-dom'
 import SideBar from './SideBar'
@@ -35,12 +35,15 @@ const SignUp = () => {
             borderRadius:'5px',
             padding:'20px',
             width:'50%',
-            '& .MuiTextField-root .MuiFilledInput-root': { m: 1, width: 'auto',  },
+            '& .MuiTextField-root ': { m: 1, width: '95%',  },
+            '&  .MuiFilledInput': { m: 1, width: '100%',  },           
           }}>
             <h1>Sign Up</h1>
-            <TextField type='text' variant='filled' label='Your name'/>
-            <TextField type='email' variant='filled' label='Your email'/>
-            <FilledInput  variant='filled' label='Your password' placeholder='Your password'
+            <TextField type='text' label='Your name'/>
+            <TextField type='email' variant='outlined' label='Your email'/>
+            <TextField type='password' variant='outlined' label='Your password'/>
+            <TextField type='password' variant='outlined' label='confirm password'/>
+            {/* <OutlinedInput sx={{m:1}}  variant='filled' label='Your password' placeholder='Your password'
             id="filled-adornment-password"
             type={values.showPassword ? 'text' : 'password'}
             value={values.password}
@@ -58,8 +61,8 @@ const SignUp = () => {
               </InputAdornment>
             }/>
           
-            <FilledInput
-            variant='filled' placeholder='Confirm password'
+            <OutlinedInput
+            variant='filled' placeholder='confirm '
             id="filled-adornment-password"
             type={values.showPassword ? 'text' : 'password'}
             value={values.cpassword}
@@ -76,7 +79,7 @@ const SignUp = () => {
                 </IconButton>
               </InputAdornment>
             }
-          />
+          /> */}
             <Link style={{margin:'5px'}} to='/home'><Button fullWidth variant='contained'  >SIGN UP</Button></Link>
             <p>Already have an account? <Link style={{color:'black'}} to='/login'>Login</Link></p>
         </FormControl>  
