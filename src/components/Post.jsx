@@ -5,6 +5,7 @@ import { Button, FormControl } from '@mui/material';
 import axios from 'axios';
 import {  useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 
 const Post = () => {
@@ -28,6 +29,16 @@ const Post = () => {
       imageUrl: postjob.imageUrl
     }
     await axios.post('https://jobsy.up.railway.app/job',   newjob)
+    setpostjob({
+      title: '',
+      description: '',
+      employer: '',
+      location: '',
+      salary:'',
+      imageUrl:''
+    })
+    alert('job posted')
+    toast.success('job posted')
   }
 
   const user = useSelector(state => state.auth.user)
@@ -35,7 +46,7 @@ const Post = () => {
 //sdfsf
   return (
     <div className='form-input'>
-    (
+  
          <FormControl component="form" noValidate autoComplete="off"
          sx={{
            border:'1px solid grey',
@@ -58,7 +69,7 @@ const Post = () => {
            onChange={(e) => setpostjob({ ...postjob, imageUrl: e.target.value })} />
          <Button variant='contained' onClick={handleClick}>SUBMIT</Button>
        </FormControl>
-      ) 
+      
      
     </div>
   )

@@ -8,11 +8,7 @@ const Spinner = () => {
     <>
     <HomeNavBar/>
     <div className='spin-container'>
-        
-        <div className='spin'>
-        
-        </div>
-       
+        <div className='spin'></div>
     </div>
     <Footer/>
     </>
