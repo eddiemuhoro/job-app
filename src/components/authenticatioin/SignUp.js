@@ -1,89 +1,135 @@
 import { Visibility, VisibilityOff } from '@mui/icons-material'
-import { Button, FilledInput, FormControl, IconButton, InputAdornment, OutlinedInput, TextField } from '@mui/material'
-import React from 'react'
-import { Link, Router } from 'react-router-dom'
+import { Button, FilledInput, FormControl,  TextField } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import SideBar from './SideBar'
+import { reset, register } from '../../react-redux/features/auth/authSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import './auth.css'
 
 const SignUp = () => {
-  const [values, setValues] = React.useState({
-    amount: '',
+  const dispatch= useDispatch()
+  const navigate= useNavigate()
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
     password: '',
-   cpassword:'',
-    showPassword: false,
-  });
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
+    password2: '',
+  })
 
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
+  const { name, email, password, password2 } = formData
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-//removed pass
+  const { user, isError, isLoading, isSuccess, message }= useSelector (
+    (state)=> state.auth
+  )
+
+  useEffect((dispatch)=>{
+    if(isSuccess || user){
+      toast.success(message)
+      navigate('/home')
+      window.location.reload()
+      dispatch(reset())
+    }
+    if(isError){
+      toast.error(message)
+      dispatch(reset())
+    }
+  }, [user, isSuccess, isError , message, navigate])
+  if(isLoading){
+    return <h1>Loading...</h1>
+  }
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    if (password !== password2) {
+      toast.error('Passwords do not match')
+    } else {
+      const userData = {
+        name,
+        email,
+        password,
+      }
+
+      dispatch(register(userData))
+    }
+  }
+
+  const onChange = (e) => {
+   
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
+
+
   return (
-    <div className='signup-form'>   
-    <SideBar />
-        <FormControl 
-         sx={{
-            border:'1px solid grey',
-            borderRadius:'5px',
-            padding:'20px',
-            width:'50%',
-            '& .MuiTextField-root ': { m: 1, width: '95%',  },
-            '&  .MuiFilledInput': { m: 1, width: '100%',  },           
-          }}>
-            <h1>Sign Up</h1>
-            <TextField type='text' label='Your name'/>
-            <TextField type='email' variant='outlined' label='Your email'/>
-            <TextField type='password' variant='outlined' label='Your password'/>
-            <TextField type='password' variant='outlined' label='confirm password'/>
-            {/* <OutlinedInput sx={{m:1}}  variant='filled' label='Your password' placeholder='Your password'
-            id="filled-adornment-password"
-            type={values.showPassword ? 'text' : 'password'}
-            value={values.password}
-            onChange={handleChange('password')}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <VisibilityOff /> : <Visibility/>}
-                </IconButton>
-              </InputAdornment>
-            }/>
-          
-            <OutlinedInput
-            variant='filled' placeholder='confirm '
-            id="filled-adornment-password"
-            type={values.showPassword ? 'text' : 'password'}
-            value={values.cpassword}
-            onChange={handleChange('cpassword')}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle cpassword visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <VisibilityOff /> : <Visibility/>}
-                </IconButton>
-              </InputAdornment>
-            }
-          /> */}
-            <Link style={{margin:'5px'}} to='/home'><Button fullWidth variant='contained'  >SIGN UP</Button></Link>
-            <p>Already have an account? <Link style={{color:'black'}} to='/login'>Login</Link></p>
-        </FormControl>  
-    </div>
+    <div className='signup-form'>  
+   <SideBar />
+
+    <section className='form'>
+      <div>
+      <h1>
+       Register
+      </h1>
+      <p>Please create an account</p>
+      </div>
+      <form onSubmit={onSubmit}>
+        <div className='form-group'>
+          <input
+            type='text'
+            className='form-control'
+            id='name'
+            name='name'
+            value={name}
+            placeholder='Enter your name'
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group'>
+          <input
+            type='email'
+            className='form-control'
+            id='email'
+            name='email'
+            value={email}
+            placeholder='Enter your email'
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group'>
+          <input
+            type='password'
+            className='form-control'
+            id='password'
+            name='password'
+            value={password}
+            placeholder='Enter password'
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group'>
+          <input
+            type='password'
+            className='form-control'
+            id='password2'
+            name='password2'
+            value={password2}
+            placeholder='Confirm password'
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group'>
+          <button type='submit' className='btn btn-block'>
+            Submit
+          </button>
+          <p>Already have an account? <Link style={{color:'black'}} to='/login'>Login</Link></p>
+        </div>
+      </form>
+    </section>
+  </div>
   )
 }
 

@@ -12,6 +12,8 @@ import Popup from 'reactjs-popup';
 import { Email, LocationOn, Phone, WhatsApp } from '@mui/icons-material';
 import ReactWhatsapp from 'react-whatsapp';
 import Timer from './counter/Counter';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -50,10 +52,22 @@ export default function Mui() {
     }else if(hours >= 17 && hours <= 24){
         var greet = 'Good Evening';
     }
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    
+ 
+
+    const user = useSelector(state => state.auth.user)
+
     
     return (
+        
         <>
-        <HomeNavBar />
+        {user ? (
+            <>
+            <HomeNavBar />
         <Paper style={{margin:'30px', textAlign: 'left'}}>
             <div className='time'>
             <h2>{day}, {month} {date} </h2>
@@ -118,6 +132,13 @@ export default function Mui() {
             ))}
            
         </Box>
+            </>
+        ) : (
+            <>
+               {navigate('/login')}
+            </>
+        )}
+        
 
         </>
     );

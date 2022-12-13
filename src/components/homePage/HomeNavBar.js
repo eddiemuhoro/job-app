@@ -1,10 +1,28 @@
 import {  StackedBarChart } from '@mui/icons-material'
 import { Button, MenuItem } from '@mui/material'
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout, reset } from '../../react-redux/features/auth/authSlice'
+
 
 const HomeNavBar = () => {
     const [isNavExpanded, setIsNavExpanded] = useState(false)
+    
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    
+    const onLogout = ()=>{
+        dispatch(logout())
+        dispatch(reset())
+        navigate('/')
+        window.location.reload()
+    }
+
+    const user = useSelector(state => state.auth.user)
+
+
 
   return (
     <div>
@@ -19,8 +37,16 @@ const HomeNavBar = () => {
                 <ul className='nav-list'>
                     <NavLink to='/jobs' style={{textDecoration: 'none'}}><li>Jobs</li></NavLink>
                     <NavLink to='/post' style={{textDecoration: 'none'}}><li>Post</li></NavLink>
+                    
                     <NavLink to='/aboutus' style={{textDecoration: 'none'}}><li>About Us</li></NavLink>
-                    <Button sx={{borderRadius:'20px'}}  variant='contained'><Link style={{color:'white', margin: 0}} to='/login'>Log Out</Link></Button>
+                    {user ? (  <Button sx={{borderRadius:'20px'}}  variant='contained'>
+
+                        <Link onClick={onLogout} style={{color:'white', margin: 0}} to='/'>Log Out</Link>
+                        </Button>): (  <Button sx={{borderRadius:'20px'}}  variant='contained'>
+
+                        <Link style={{color:'white', margin: 0}} to='/login'>Log In</Link>
+                </Button>)}
+                  
                 </ul>
             </div>
             <div className='menu-icon' >
