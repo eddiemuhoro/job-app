@@ -7,6 +7,7 @@ import { reset, login } from '../../react-redux/features/auth/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import './auth.css'
+import Spinner from '../Spinner/Spinner'
 
 const Login = () => {
   const dispatch= useDispatch()
@@ -34,10 +35,15 @@ const Login = () => {
     }
     if(isError){
       toast.error(message)
+      alert('wrong credentials👀, try again')
       navigate('/login')
+      window.location.reload()
       dispatch(reset())
     }
   }, [user, isSuccess, isError , message, navigate])
+  if(isLoading){
+    return <><Spinner /></>
+  }
   if(isLoading){
     return <h1>Loading...</h1>
   }
@@ -66,6 +72,7 @@ const Login = () => {
 
   return (
     <div className='signup-form'>  
+    
    <div className='login-sidebar'>
             <img src='https://t4.ftcdn.net/jpg/02/60/53/37/360_F_260533737_N1QkCY09mwIy7A0Yph79lkqCl0iB2mvF.jpg' alt='login'/>
       </div> 

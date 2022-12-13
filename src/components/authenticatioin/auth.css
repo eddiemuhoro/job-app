@@ -9,11 +9,18 @@
 .form-group {
   margin-bottom: 10px;
 }
+ h1,
+h2,
+h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
 
 .form-group input,
 .form-group textarea,
 .form-group select {
-  width: 100%;
+  width: 93%;
   padding: 10px;
   border: 1px solid #e6e6e6;
   border-radius: 5px;

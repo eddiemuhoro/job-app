@@ -11,6 +11,7 @@ import HomeNavBar from './components/homePage/HomeNavBar';
 import Footer from './components/Footer/Jfooter';
 import AboutUs from './components/about/AboutUs';
 import Team from './components/about/Team';
+import Spinner from './components/Spinner/Spinner';
 
 function App() {
   //vhangesd

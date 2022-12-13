@@ -66,7 +66,7 @@ export default function Mui() {
     return (
         
         <>
-        {user ? (
+     
             <>
             <HomeNavBar />
         <Paper style={{margin:'30px', textAlign: 'left'}}>
@@ -134,11 +134,6 @@ export default function Mui() {
            
         </Box>
             </>
-        ) : (
-            <>
-               {navigate('/login')}
-            </>
-        )}
         
 
         </>

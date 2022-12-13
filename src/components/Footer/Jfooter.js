@@ -3,9 +3,19 @@ import React from 'react'
 import './footer.css'
 
 import { Facebook, Instagram, LinkedIn, Twitter } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const Footer = () => {
- 
+  const user = useSelector(state => state.auth.user)
+  const navigate = useNavigate()
+  const postJob = ()=>{
+    if(!user){
+        alert("log in to post job")
+        navigate('/login')
+        window.location.reload()
+    }
+}
+
   
   return (
     <footer>
@@ -13,7 +23,7 @@ const Footer = () => {
             <div className='contact-us'>
                 <h3>CONTACT US</h3>
                 <ul>
-                   <li><Link to='/jobs'>Find Job</Link> </li>
+                   <li><Link onClick={postJob}  to='/jobs'>Find Job</Link> </li>
 
                     <li><a href="tel:+254 791849836">+254 794183313</a></li>
 

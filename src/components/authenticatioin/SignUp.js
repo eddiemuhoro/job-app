@@ -7,6 +7,7 @@ import { reset, register } from '../../react-redux/features/auth/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import './auth.css'
+import Spinner from '../Spinner/Spinner'
 
 const SignUp = () => {
   const dispatch= useDispatch()
@@ -38,13 +39,14 @@ const SignUp = () => {
     }
   }, [user, isSuccess, isError , message, navigate])
   if(isLoading){
-    return <h1>Loading...</h1>
+    return <Spinner />
   }
   const onSubmit = (e) => {
     e.preventDefault()
 
     if (password !== password2) {
       toast.error('Passwords do not match')
+      alert('Passwords do not match 🖕')
     } else {
       const userData = {
         name,

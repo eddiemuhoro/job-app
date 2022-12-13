@@ -1,11 +1,23 @@
 import { Button } from '@mui/material'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import HomeNavBar from './HomeNavBar'
 import Imagee from '../myImages/image.png'
+import { useSelector } from 'react-redux'
 
 
 const Home = () => {
+  const navigate = useNavigate()
+  const user = useSelector(state => state.auth.user)
+
+  const postJob = ()=>{
+    if(!user){
+        alert("log in to post job")
+        navigate('/login')
+        window.location.reload()
+    }
+}
+
   return (
     <div>
         
@@ -24,7 +36,7 @@ const Home = () => {
                     <p>
                         We make every work available for you
                     </p>
-                    <Button variant='contained'><Link to='/jobs'>View Jobs</Link></Button>
+                    <Button onClick={postJob} variant='contained'><Link to='/jobs'>View Jobs</Link></Button>
                 </section>
           </div>
         

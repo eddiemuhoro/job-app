@@ -16,11 +16,20 @@ const HomeNavBar = () => {
     const onLogout = ()=>{
         dispatch(logout())
         dispatch(reset())
+        alert('You are now logged out')
         navigate('/')
         window.location.reload()
     }
 
     const user = useSelector(state => state.auth.user)
+
+    const postJob = ()=>{
+        if(!user){
+            alert("log in to post job")
+            navigate('/login')
+            window.location.reload()
+        }
+    }
 
 
 
@@ -35,8 +44,8 @@ const HomeNavBar = () => {
             </Link>
             <div className={isNavExpanded ?  'nav-links mobile' : 'nav-links'}>
                 <ul className='nav-list'>
-                    <NavLink to='/jobs' style={{textDecoration: 'none'}}><li>Jobs</li></NavLink>
-                    <NavLink to='/post' style={{textDecoration: 'none'}}><li>Post</li></NavLink>
+                    <NavLink onClick={postJob} to='/jobs' style={{textDecoration: 'none'}}><li>Jobs</li></NavLink>
+                    <NavLink onClick={postJob} to='/post' style={{textDecoration: 'none'}}><li>Post</li></NavLink>
                     
                     <NavLink to='/aboutus' style={{textDecoration: 'none'}}><li>About Us</li></NavLink>
                     {user ? (  <Button sx={{borderRadius:'20px'}}  variant='contained'>
