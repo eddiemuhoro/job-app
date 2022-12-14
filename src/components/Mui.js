@@ -107,7 +107,7 @@ export default function Mui() {
                              <div style={{display:'flex', alignItems:'center'}}>
                                  <LocationOn /><p>{job.location}</p>
                              </div>
-                             <p><span>Est. Budget</span>Ksh {job.salary}</p>
+                             <p>Ksh. {job.salary}</p>
                          </bottom>
                          <div  className='job-time'>                       
                          
