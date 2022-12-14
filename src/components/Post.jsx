@@ -19,6 +19,7 @@ const Post = () => {
   })
 
   const handleClick =async (e) => {
+    
     e.preventDefault();
     const newjob = {
       title: postjob.title,

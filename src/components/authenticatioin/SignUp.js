@@ -23,6 +23,7 @@ const SignUp = () => {
 
   const { name, email, password, password2 } = formData
 
+
   const { user, isError, isLoading, isSuccess, message }= useSelector (
     (state)=> state.auth
   )
@@ -35,20 +36,28 @@ const SignUp = () => {
       dispatch(reset())
     }
     if(isError){
-      toast.error(message)
+      alert('Enter valid credentials👀 ')
+      navigate('/')
+      window.location.reload()
       dispatch(reset())
     }
   }, [user, isSuccess, isError , message, navigate])
+
+  
   if(isLoading){
     return <Spinner />
   }
   const onSubmit = (e) => {
+
+
     e.preventDefault()
 
-    if (password !== password2) {
+    if ((password !== password2 )) {
       toast.error("🦄 Passwords don't match!");
  
-    } else {
+    } else if((!name || !email || !password || !password2)){
+      toast.error("🦄 Please fill all the fields!");
+    }else {
       const userData = {
         name,
         email,
