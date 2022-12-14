@@ -5,7 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import SideBar from './SideBar'
 import { reset, register } from '../../react-redux/features/auth/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify'
 import './auth.css'
 import Spinner from '../Spinner/Spinner'
 
@@ -45,8 +46,8 @@ const SignUp = () => {
     e.preventDefault()
 
     if (password !== password2) {
-      toast.error('Passwords do not match')
-      alert('Passwords do not match 🖕')
+      toast.error("🦄 Passwords don't match!");
+ 
     } else {
       const userData = {
         name,
@@ -69,9 +70,9 @@ const SignUp = () => {
 
   return (
     <div className='signup-form'>  
-   <SideBar />
-
+        <SideBar />
     <section className='form'>
+    <ToastContainer />
       <div>
       <h1>
        Register

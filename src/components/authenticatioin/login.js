@@ -5,7 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import SideBar from './SideBar'
 import { reset, login } from '../../react-redux/features/auth/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import './auth.css'
 import Spinner from '../Spinner/Spinner'
 
@@ -72,6 +73,7 @@ const Login = () => {
 
   return (
     <div className='signup-form'>  
+      <ToastContainer />
     
    <div className='login-sidebar'>
             <img src='https://t4.ftcdn.net/jpg/02/60/53/37/360_F_260533737_N1QkCY09mwIy7A0Yph79lkqCl0iB2mvF.jpg' alt='login'/>

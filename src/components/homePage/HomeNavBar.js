@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../react-redux/features/auth/authSlice'
+import { toast, ToastContainer } from 'react-toastify'
 
 
 const HomeNavBar = () => {
@@ -24,18 +25,25 @@ const HomeNavBar = () => {
     const user = useSelector(state => state.auth.user)
 
     const postJob = ()=>{
+        if(user){
+            toast.success('view job')
+        }
+
         if(!user){
             alert("log in to post job")
             navigate('/login')
             window.location.reload()
         }
+        
     }
 
 
 
   return (
     <div>
+        <ToastContainer />
         <nav className='navbar'>
+            
             <Link to='/home'>
                 <div className='jobsy-logo'>
                     <img src='https://www.clipartmax.com/png/middle/413-4139811_transparent-background-cool-logo.png' alt='jobsy-logo' />
@@ -54,8 +62,7 @@ const HomeNavBar = () => {
                         </Button>): (  <Button sx={{borderRadius:'20px'}}  variant='contained'>
 
                         <Link style={{color:'white', margin: 0}} to='/login'>Log In</Link>
-                </Button>)}
-                  
+                         </Button>)}                
                 </ul>
             </div>
             <div className='menu-icon' >

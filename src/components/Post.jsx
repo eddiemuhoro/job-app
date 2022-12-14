@@ -15,7 +15,7 @@ const Post = () => {
     employer: '',
     location: '',
     salary:'',
-    imageUrl:''
+
   })
 
   const handleClick =async (e) => {
@@ -26,7 +26,10 @@ const Post = () => {
       employer: postjob.employer,
       location: postjob.location,
       salary: postjob.salary,
-      imageUrl: postjob.imageUrl
+  
+    }
+    if(!newjob.title || !newjob.description || !newjob.employer || !newjob.location || !newjob.salary ){
+      return alert('please fill all the fields')
     }
     await axios.post('https://jobsy.up.railway.app/job',   newjob)
     setpostjob({
@@ -65,8 +68,7 @@ const Post = () => {
            onChange={(e) => setpostjob({ ...postjob, location: e.target.value })} />
           <TextField id="filled-basic" label="salary" type='number' value={postjob.salary} variant="filled"
            onChange={(e) => setpostjob({ ...postjob, salary: e.target.value })} />
-         <TextField id="filled-basic" label="imageurl" value={postjob.imageUrl} variant="filled"
-           onChange={(e) => setpostjob({ ...postjob, imageUrl: e.target.value })} />
+        
          <Button variant='contained' onClick={handleClick}>SUBMIT</Button>
        </FormControl>
       
