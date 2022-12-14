@@ -7,41 +7,50 @@ const Team = () => {
     const team = [
         {
             id:1,
-            name:'John Doe',
+            name:'Erastus Munyao',
             desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
             position:'CEO',
             image:'https://ca-times.brightspotcdn.com/dims4/default/83de13e/2147483647/strip/true/crop/2000x2706+0+0/resize/1200x1624!/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fff%2F2c%2Fdedf568e4af087cab5f0a5c76f32%2Fla-ca-bk-a-promised-land-barack-obama-183.JPG'
         },
         {
             id:2,
-            name:'John Doe',
+            name:'Joseph Kinyua',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-            position:'CEO',
-            image:'https://cdn.vox-cdn.com/thumbor/paFH_ukJN-2HC3cikjQvKnRv9R0=/0x0:5548x3483/1200x800/filters:focal(2331x1299:3217x2185)/cdn.vox-cdn.com/uploads/chorus_image/image/71238437/1413159437.0.jpg'
+            position:'Product Manager',
+            image:'https://firebasestorage.googleapis.com/v0/b/apt-rite-346310.appspot.com/o/Jobsy%2FWhatsApp%20Image%202022-12-14%20at%209.45.34%20PM.jpeg?alt=media&token=2b893e44-5e65-4497-93a0-91bf487926b8'
         },
         {
             id:3,
-            name:'John Doe',
+            name:'Edwin Edward',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-            position:'CEO',
-            image:'https://images-na.ssl-images-amazon.com/images/S/amzn-author-media-prod/4237evohdno3t2rsouqb5med7r.jpg'
+            position:'Web Developer',
+            image:'https://firebasestorage.googleapis.com/v0/b/apt-rite-346310.appspot.com/o/Jobsy%2FWhatsApp%20Image%202022-12-14%20at%209.59.01%20PM.jpeg?alt=media&token=6e26e1cd-e4c0-464c-8309-92eb40ca054f'
         },
         {
             id:4,
-            name:'John Doe',
+            name:'Carol Muthoni',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-            position:'CEO',
+            position:'Secreatary',
             image:'https://i0.wp.com/www.kahawatungu.com/wp-content/uploads/2019/04/ngina-kenyatta.png?fit=768%2C530&ssl=1'
+        },
+        {
+            id:5,
+            name:'Emilio Kariuki',
+            desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
+            position:'BackEnd Developer',
+            image:'https://firebasestorage.googleapis.com/v0/b/apt-rite-346310.appspot.com/o/Jobsy%2FWhatsApp%20Image%202022-12-12%20at%209.34.37%20PM.jpeg?alt=media&token=2d700b38-1db0-44d1-9498-6013d2178781'
         },
     ]
   return (
     <div>
-        <h1>Our Team</h1>
+        <h1 style={
+            {paddingLeft:'20px'}
+        }>Our Team</h1>
           <Box
             sx={{
                 display: 'grid',
                 justifyItems: 'center',
-                gridTemplateColumns: {xs:'repeat(1, 1fr)', sm:'repeat(1, 1fr)', md:'repeat(2, 1fr)', lg:'repeat(4, 1fr)'},
+                gridTemplateColumns: {xs:'repeat(1, 1fr)', sm:'repeat(1, 1fr)', md:'repeat(2, 1fr)', lg:'repeat(5, 1fr)'},
                 flexDirection: 'column',
                 justifyContent: 'center',
                 color: 'text.primary',
