@@ -19,7 +19,7 @@ const Post = () => {
   })
 
   const handleClick =async (e) => {
-    
+
     e.preventDefault();
     const newjob = {
       title: postjob.title,
@@ -39,10 +39,11 @@ const Post = () => {
       employer: '',
       location: '',
       salary:'',
-      imageUrl:''
+
     })
     alert('job posted')
     toast.success('job posted')
+
   }
 
   const user = useSelector(state => state.auth.user)
@@ -67,7 +68,7 @@ const Post = () => {
            onChange={(e) => setpostjob({ ...postjob, employer: e.target.value })} />
          <TextField id="filled-basic" label="location" value={postjob.location} variant="filled"
            onChange={(e) => setpostjob({ ...postjob, location: e.target.value })} />
-          <TextField id="filled-basic" label="salary" type='number' value={postjob.salary} variant="filled"
+          <TextField id="filled-basic" label="salary"  value={postjob.salary} variant="filled"
            onChange={(e) => setpostjob({ ...postjob, salary: e.target.value })} />
         
          <Button variant='contained' onClick={handleClick}>SUBMIT</Button>
