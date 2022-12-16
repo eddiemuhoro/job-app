@@ -12,6 +12,7 @@ import Footer from './components/Footer/Jfooter';
 import AboutUs from './components/about/AboutUs';
 import Team from './components/about/Team';
 import Spinner from './components/Spinner/Spinner';
+import Profile from './components/profile/Profile';
 
 function App() {
   //vhangesd
@@ -25,6 +26,7 @@ function App() {
           <Route path='/home' element={<><Home /><Footer/> </>} />
           <Route path='/aboutus' element={<><HomeNavBar/><AboutUs/><Footer/>  </>} />
           <Route path='/directors' element={<><HomeNavBar/><Team /><Footer/> </>} />
+          <Route path='/myprofile' element={<><HomeNavBar/><Profile /><Footer/> </>} />
           <Route path='/' element={<><SignUp /></>} />
           <Route path='/login' element={<><Login /></>} />
         </Routes>

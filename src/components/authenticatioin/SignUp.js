@@ -23,7 +23,6 @@ const SignUp = () => {
 
   const { name, email, password, password2 } = formData
 
-
   const { user, isError, isLoading, isSuccess, message }= useSelector (
     (state)=> state.auth
   )

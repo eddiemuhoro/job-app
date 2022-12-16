@@ -1,4 +1,4 @@
-import {  StackedBarChart } from '@mui/icons-material'
+import {   LogoutOutlined, Person2, StackedBarChart } from '@mui/icons-material'
 import { Button, MenuItem } from '@mui/material'
 import React, { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
@@ -56,10 +56,16 @@ const HomeNavBar = () => {
                     <NavLink onClick={postJob} to='/post' style={{textDecoration: 'none'}}><li>Post</li></NavLink>
                     
                     <NavLink to='/aboutus' style={{textDecoration: 'none'}}><li>About Us</li></NavLink>
-                    {user ? (  <Button sx={{borderRadius:'20px'}}  variant='contained'>
+                    {user ? (
+                     <>
+                         <NavLink title='profile' to='/myprofile' style={{textDecoration: 'none'}}><li><Person2 /></li></NavLink>
 
-                        <Link onClick={onLogout} style={{color:'white', margin: 0}} to='/'>Log Out</Link>
-                        </Button>): (  <Button sx={{borderRadius:'20px'}}  variant='contained'>
+                         <Button title='logout' sx={{borderRadius:'20px', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}  variant='contained'>
+
+                        <Link onClick={onLogout} style={{color:'white', margin: 0,display:'flex', justifyContent:'center', alignItems:'center'}} to='/'><LogoutOutlined/></Link>
+                        </Button>
+                    </>
+                        ): (  <Button title='login' sx={{borderRadius:'20px'}}  variant='contained'>
 
                         <Link style={{color:'white', margin: 0}} to='/login'>Log In</Link>
                          </Button>)}                

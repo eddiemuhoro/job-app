@@ -14,25 +14,26 @@ import ReactWhatsapp from 'react-whatsapp';
 import Timer from './counter/Counter';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { deleteGoal } from '../react-redux/features/jobs/jobSlice';
 
 
 
 export default function Mui() {
+
     //solutiom
     const [jobs, setJobs] = useState([])
     useEffect(() => {
         axios.request('https://jobsy.up.railway.app/job')
             .then((response) => {
                 setJobs(response.data);
-                const deadline =response.data.title
-                console.log(deadline)
+            
             }).catch((error) => {
                 console.log(error);
             })
             
     })
     
-    const deadline = "12/ 31/ 2022";
+
 
     const myDate = new Date();
     const hours = myDate.getHours();
@@ -71,7 +72,7 @@ export default function Mui() {
          <Paper style={{margin:'30px', textAlign: 'left'}}>
              <div className='time'>
              <h2>{day}, {month} {date} </h2>
-             <h1>{greet}</h1>
+             <h1>{greet} {user && user.name}!</h1>
              </div>
          </Paper>
          <Box
@@ -125,6 +126,7 @@ export default function Mui() {
                                      </div>
                              
                              </Popup>
+                             <button onClick={()=> dispatch(deleteGoal(job.id))}>delete</button>
                          </div>
                      </div>
                  </div>

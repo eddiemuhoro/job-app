@@ -4,22 +4,25 @@ import TextField from '@mui/material/TextField';
 import { Button, FormControl } from '@mui/material';
 import axios from 'axios';
 import {  useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { createJob } from '../react-redux/features/jobs/jobSlice';
 
 
 const Post = () => {
+  const dispatch = useDispatch()
   const [postjob, setpostjob] = useState({
     title: '',
     description: '',
     employer: '',
     location: '',
     salary:'',
-
-  })
+  }
+)
 
   const handleClick =async (e) => {
 
+    
     e.preventDefault();
     const newjob = {
       title: postjob.title,
@@ -32,15 +35,17 @@ const Post = () => {
     if(!newjob.title || !newjob.description || !newjob.employer || !newjob.location || !newjob.salary ){
       return alert('please fill all the fields')
     }
-    await axios.post('https://jobsy.up.railway.app/job',   newjob)
-    setpostjob({
-      title: '',
-      description: '',
-      employer: '',
-      location: '',
-      salary:'',
 
-    })
+    dispatch(createJob(newjob))
+    // await axios.post('http://localhost:5000/jobs/new',   newjob)
+    // setpostjob({
+    //   title: '',
+    //   description: '',
+    //   employer: '',
+    //   location: '',
+    //   salary:'',
+
+    // })
     alert('job posted')
     toast.success('job posted')
 
@@ -68,7 +73,8 @@ const Post = () => {
            onChange={(e) => setpostjob({ ...postjob, employer: e.target.value })} />
          <TextField id="filled-basic" label="location" value={postjob.location} variant="filled"
            onChange={(e) => setpostjob({ ...postjob, location: e.target.value })} />
-          <TextField id="filled-basic" label="salary"  value={postjob.salary} variant="filled"
+          <TextField id="filled-basic" label="salary" 
+           value={postjob.salary} variant="filled"
            onChange={(e) => setpostjob({ ...postjob, salary: e.target.value })} />
         
          <Button variant='contained' onClick={handleClick}>SUBMIT</Button>

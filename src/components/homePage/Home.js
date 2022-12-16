@@ -31,12 +31,12 @@ const Home = () => {
                     <img src={Imagee} alt='kenya' />
                 </section>  
                 <section>
-                    <p>Hi! , we're</p>
+                    <p>Hi <span style={{color:'black', fontWeight:'bolder'}}>{user && user.name}</span> , we're</p>
                     <h1>JOBSY</h1>
                     <p>
                         We make every work available for you
                     </p>
-                    <Button onClick={postJob} variant='contained'><Link to='/jobs'>View Jobs</Link></Button>
+                    <Button onClick={postJob} variant='contained'><Link to='/jobs'>Get Started</Link></Button>
                 </section>
           </div>
         
