@@ -1,5 +1,4 @@
-import { Visibility, VisibilityOff } from '@mui/icons-material'
-import { Button, FilledInput, FormControl,  TextField } from '@mui/material'
+
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import SideBar from './SideBar'
@@ -9,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify'
 import './auth.css'
 import Spinner from '../Spinner/Spinner'
+import FileBase from 'react-file-base64'
 
 const SignUp = () => {
   const dispatch= useDispatch()
@@ -19,7 +19,9 @@ const SignUp = () => {
     email: '',
     password: '',
     password2: '',
-  })
+ 
+})
+ 
 
   const { name, email, password, password2 } = formData
 
@@ -48,7 +50,6 @@ const SignUp = () => {
   }
   const onSubmit = (e) => {
 
-
     e.preventDefault()
 
     if ((password !== password2 )) {
@@ -61,19 +62,20 @@ const SignUp = () => {
         name,
         email,
         password,
+        
       }
 
       dispatch(register(userData))
     }
   }
 
-  const onChange = (e) => {
+  // const onChange = (e) => {
    
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }))
-  }
+  //   setFormData((prevState) => ({
+  //     ...prevState,
+  //     [e.target.name]: e.target.value,
+  //   }))
+  // }
 
 
   return (
@@ -94,9 +96,9 @@ const SignUp = () => {
             className='form-control'
             id='name'
             name='name'
-            value={name}
+            value={formData.name}
             placeholder='Enter your name'
-            onChange={onChange}
+            onChange={(e)=> setFormData({...formData, name:e.target.value})}
           />
         </div>
         <div className='form-group'>
@@ -105,9 +107,9 @@ const SignUp = () => {
             className='form-control'
             id='email'
             name='email'
-            value={email}
+            value={formData.email}
             placeholder='Enter your email'
-            onChange={onChange}
+            onChange={(e)=> setFormData({...formData, email:e.target.value})}
           />
         </div>
         <div className='form-group'>
@@ -116,9 +118,9 @@ const SignUp = () => {
             className='form-control'
             id='password'
             name='password'
-            value={password}
+            value={formData.password}
             placeholder='Enter password'
-            onChange={onChange}
+            onChange={(e)=> setFormData({...formData, password:e.target.value})}
           />
         </div>
         <div className='form-group'>
@@ -127,11 +129,13 @@ const SignUp = () => {
             className='form-control'
             id='password2'
             name='password2'
-            value={password2}
+            value={formData.password2}
             placeholder='Confirm password'
-            onChange={onChange}
+            onChange={(e)=> setFormData({...formData, password2:e.target.value})}
           />
         </div>
+{/*     */}
+
         <div className='form-group'>
           <button type='submit' className='btn btn-block'>
             Submit

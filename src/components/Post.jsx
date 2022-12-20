@@ -30,8 +30,8 @@ const Post = () => {
       employer: postjob.employer,
       location: postjob.location,
       salary: postjob.salary,
-  
     }
+
     if(!newjob.title || !newjob.description || !newjob.employer || !newjob.location || !newjob.salary ){
       return alert('please fill all the fields')
     }
@@ -50,9 +50,6 @@ const Post = () => {
     toast.success('job posted')
 
   }
-
-  const user = useSelector(state => state.auth.user)
-  const navigate = useNavigate()
 //sdfsf
   return (
     <div className='form-input'>

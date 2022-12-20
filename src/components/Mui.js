@@ -11,19 +11,24 @@ import HomeNavBar from './homePage/HomeNavBar';
 import Popup from 'reactjs-popup';
 import { Email, LocationOn, Phone, WhatsApp } from '@mui/icons-material';
 import ReactWhatsapp from 'react-whatsapp';
-import Timer from './counter/Counter';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { deleteGoal } from '../react-redux/features/jobs/jobSlice';
+
 
 
 
 export default function Mui() {
-
+    var token = useSelector(state => state.auth.user.token)
     //solutiom
     const [jobs, setJobs] = useState([])
     useEffect(() => {
-        axios.request('https://jobsy.up.railway.app/job')
+        // const config = {
+        //     headers: {
+        //         Authorization: `Bearer ${token}`,
+        //     },
+        // }
+        axios.request('https://expressjs-production-e1ab.up.railway.app/jobs')
             .then((response) => {
                 setJobs(response.data);
             
@@ -31,7 +36,10 @@ export default function Mui() {
                 console.log(error);
             })
             
-    })
+    },[])
+
+    console.log(token)
+
     
 
 
@@ -50,12 +58,12 @@ export default function Mui() {
     if(hours < 12){
         var greet = 'Good Morning';
     }else if(hours >= 12 && hours <= 17){
-        var greet = 'Good Afternoon';
+         greet = 'Good Afternoon';
     }else if(hours >= 17 && hours <= 24){
-        var greet = 'Good Evening';
+         greet = 'Good Evening';
     }
 
-    const dispatch = useDispatch()
+
     const navigate = useNavigate()
 
 
@@ -126,7 +134,7 @@ export default function Mui() {
                                      </div>
                              
                              </Popup>
-                             <button onClick={()=> dispatch(deleteGoal(job.id))}>delete</button>
+                        
                          </div>
                      </div>
                  </div>

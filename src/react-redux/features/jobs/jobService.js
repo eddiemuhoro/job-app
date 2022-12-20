@@ -1,16 +1,27 @@
 import axios from 'axios'
 
-const API_URL = 'https://jobsy.up.railway.app/';
+const API_URL = 'https://expressjs-production-e1ab.up.railway.app/';
 
 const createJob = async(jobData, token)=>{
   
-    const response = await axios.post(API_URL + 'job', jobData,
-    //  { headers: {
-    //   Authorization: `Bearer ${token}`,
-    // },}
+    const response = await axios.post(API_URL + 'jobs/new', jobData,
+     { headers: {
+      Authorization: `Bearer ${token}`,
+    },}
     )
 
     return response.data
+}
+
+const getJob = async( token)=>{
+  
+  const response = await axios.get(API_URL + 'jobs',
+   { headers: {
+    Authorization: `Bearer ${token}`,
+  },}
+  )
+
+  return response.data
 }
 
 const deleteGoal = async (jobId, token) => {
@@ -24,9 +35,18 @@ const deleteGoal = async (jobId, token) => {
   
     return response.data
   }
+
+  const  updateJob = async (jobId, jobData) => {
+  
+    const response = await axios.put(API_URL + 'jobs/' + jobId, jobData)
+
+    return response.data
+  }
   
 const jobService={
     createJob,
-    deleteGoal
+    deleteGoal,
+    getJob,
+    updateJob
 }
 export default jobService

@@ -25,12 +25,43 @@ async(jobData, thunkAPI)=>{
     }
 })
 
+export const getJob = createAsyncThunk('jobs/get',
+async(_, thunkAPI)=>{
+    try {
+
+        const token =thunkAPI.getState().auth.user.token
+        return await jobService.getJob(token)
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+
+        return thunkAPI.rejectWithValue(message);
+    }
+})
+
 export const deleteGoal = createAsyncThunk(
     'jobs/delete',
     async (id, thunkAPI) => {
       try {
         const token = thunkAPI.getState().auth.user.token
         return await jobService.deleteGoal(id, token)
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString()
+        return thunkAPI.rejectWithValue(message)
+      }
+    }
+  )
+
+  export const updateJob = createAsyncThunk(
+    'jobs/delete',
+    async (id,jobData, thunkAPI) => {
+      try {
+ 
+        return await jobService.updateJob(id,jobData)
       } catch (error) {
         const message =
           (error.response &&
@@ -83,10 +114,27 @@ export const jobSlice= createSlice({
             state.message = action.payload
           }
         )
+        .addCase(getJob.pending, (state)=>{
+            state.isLoading= true
+        })
+        .addCase(getJob.fulfilled, (state, action)=>{
+            state.isLoading =false
+            state.isSuccess = true
+            //
+            state.jobs=action.payload
+
+        }
+        )
+        .addCase(getJob.rejected, (state, action)=>{
+            state.isError =true
+            state.isSuccess = false
+            //
+            state.message=(action.payload)
+        }
+        )
         
 
     }
 })
-
 export const {reset} = jobSlice.actions
 export default jobSlice.reducer
