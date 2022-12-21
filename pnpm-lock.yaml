@@ -9,9 +9,13 @@ specifiers:
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^13.4.0
   '@testing-library/user-event': ^13.5.0
+  and: ^0.0.3
   axios: ^1.2.1
+  base-64: ^1.0.0
+  git: ^0.1.5
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-file-base64: ^1.0.3
   react-loader-spinner: ^5.3.4
   react-redux: ^8.0.5
   react-router-dom: ^6.4.5
@@ -20,6 +24,7 @@ specifiers:
   react-toastify: ^9.1.1
   react-whatsapp: ^0.3.0
   reactjs-popup: ^2.0.5
+  status: ^0.0.13
   web-vitals: ^2.1.4
 
 dependencies:
@@ -31,9 +36,13 @@ dependencies:
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@testing-library/user-event': 13.5.0
+  and: 0.0.3
   axios: 1.2.1
+  base-64: 1.0.0
+  git: 0.1.5
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-file-base64: 1.0.3_react@18.2.0
   react-loader-spinner: 5.3.4_biqbaboplfbrettd7655fr4n2y
   react-redux: 8.0.5_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.4.5_biqbaboplfbrettd7655fr4n2y
@@ -42,6 +51,7 @@ dependencies:
   react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
   react-whatsapp: 0.3.0
   reactjs-popup: 2.0.5_biqbaboplfbrettd7655fr4n2y
+  status: 0.0.13
   web-vitals: 2.1.4
 
 packages:
@@ -3170,6 +3180,13 @@ packages:
     resolution: {integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==}
     dev: false
 
+  /BetterRegExp/0.0.2:
+    resolution: {integrity: sha512-BE+bbCfV/4C+NSSfWOPiG4jlIxq+aLnOWrn6kCht19p2GFCylbQBJv1Hzo3mFGB9upeO9V70oSqFq3adO6eCvw==}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      coffee-script: 1.12.7
+    dev: false
+
   /abab/2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
     dev: false
@@ -3296,6 +3313,10 @@ packages:
       uri-js: 4.4.1
     dev: false
 
+  /and/0.0.3:
+    resolution: {integrity: sha512-ns0tgq+jQFbDhAu5wrE+M7V87E4L3N8ZTJfRKVxafi7g0BSEM6JnwhL57HyR1XMHBeRfGPWZxq+SH1bZeUTiTw==}
+    dev: false
+
   /ansi-escapes/4.3.2:
     resolution: {integrity: sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ==}
     engines: {node: '>=8'}
@@ -3358,6 +3379,14 @@ packages:
 
   /argparse/2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+    dev: false
+
+  /argus/0.0.3:
+    resolution: {integrity: sha512-WGBvoDE8RSGaSJUchiQPOuGD40f07Oh9n08DfqFBDlmPC77NoFeRxYVk3uP34IqnXm7CRVcF+gGhAR8rtumt4g==}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      coffee-script: 1.12.7
+      pegjs: 0.7.0
     dev: false
 
   /aria-query/4.2.2:
@@ -3445,6 +3474,10 @@ packages:
 
   /ast-types-flow/0.0.7:
     resolution: {integrity: sha512-eBvWn1lvIApYMhzQMsu9ciLfkBY499mFZlNqG+/9WR7PVlroQw0vG30cOQQbaKz3sCEc44TAOu2ykzqXSNnwag==}
+    dev: false
+
+  /async/0.9.2:
+    resolution: {integrity: sha512-l6ToIJIotphWahxxHyzK9bnLR6kM4jJIIgLShZeqLY7iboHoGkdgFl7W2/Ivi4SkMJYGKqW8vSuk0uKUj6qsSw==}
     dev: false
 
   /async/3.2.4:
@@ -3688,6 +3721,10 @@ packages:
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+    dev: false
+
+  /base-64/1.0.0:
+    resolution: {integrity: sha512-kwDPIFCGx0NZHog36dj+tHiwP4QMzsZ3AgMViUBKI0+V5n4U0ufTCUMhnQ04diaRI8EX/QcPfql7zlhZ7j4zgg==}
     dev: false
 
   /batch/0.6.1:
@@ -3968,6 +4005,13 @@ packages:
       q: 1.5.1
     dev: false
 
+  /coffee-script/1.12.7:
+    resolution: {integrity: sha512-fLeEhqwymYat/MpTPUjSKHVYYl0ec2mOyALEMLmzr5i1isuG+6jfI2j2d5oBO3VIzgUXgBVIcOT9uH1TFxBckw==}
+    engines: {node: '>=0.8.0'}
+    deprecated: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+    hasBin: true
+    dev: false
+
   /collect-v8-coverage/1.0.1:
     resolution: {integrity: sha512-iBPtljfCNcTKNAto0KEtDfZ3qzjJvqE3aTGZsbhjSBlorqpXJlaWWtPO35D+ZImoC3KWejX64o+yPGxhWSTzfg==}
     dev: false
@@ -4001,11 +4045,23 @@ packages:
     resolution: {integrity: sha512-3tlv/dIP7FWvj3BsbHrGLJ6l/oKh1O3TcgBqMn+yyCagOxc23fyzDS6HypQbgxWbkpDnf52p1LuR4eWDQ/K9WQ==}
     dev: false
 
+  /colors/1.4.0:
+    resolution: {integrity: sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==}
+    engines: {node: '>=0.1.90'}
+    dev: false
+
   /combined-stream/1.0.8:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
+    dev: false
+
+  /commander/1.3.2:
+    resolution: {integrity: sha512-uoVVA5dchmxZeTMv2Qsd0vhn/RebJYsWo4all1qtrUL3BBhQFn4AQDF4PL+ZvOeK7gczXKEZaSCyMDMwFBlpBg==}
+    engines: {node: '>= 0.6.x'}
+    dependencies:
+      keypress: 0.1.0
     dev: false
 
   /commander/2.20.3:
@@ -4410,6 +4466,16 @@ packages:
       whatwg-mimetype: 2.3.0
       whatwg-url: 8.7.0
     dev: false
+
+  /dbus/0.2.23:
+    resolution: {integrity: sha512-Cw1hMUGnaJ8Embvz2/dArHEC65AleFlcHjy/k7b81TS8JzGnPsI0W2uuOJQ2H5fsDlTEk3e5Cxpc2Ai52D8ZLA==}
+    engines: {node: '>= 0.8.0'}
+    os: ['!win32']
+    requiresBuild: true
+    dependencies:
+      nan: 2.17.0
+    dev: false
+    optional: true
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -5539,6 +5605,14 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
+  /fractal/0.0.3:
+    resolution: {integrity: sha512-VSayIvpZIRVV+Nq3sXeZKxKtIp7z7BrKPOmdg5JVYBRb6dKur+W7BXIts9DXfMU20PUYTBoRBqC8+AuWquPYMA==}
+    engines: {node: '>= 0.8.0'}
+    dependencies:
+      coffee-script: 1.12.7
+      xemplar: 0.0.8
+    dev: false
+
   /fraction.js/4.2.0:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
     dev: false
@@ -5639,6 +5713,13 @@ packages:
     dependencies:
       call-bind: 1.0.2
       get-intrinsic: 1.1.3
+    dev: false
+
+  /git/0.1.5:
+    resolution: {integrity: sha512-N+bfOrXyKMU/fQtCj6D/U9MQOEN0DAA8TLHSLdUQRSWBOkeRvsjJHdrdkvcq05xO7GSDKWc3nDEGoTZ4DfCCSg==}
+    engines: {node: '>=0.4.0'}
+    dependencies:
+      mime: 1.2.9
     dev: false
 
   /glob-parent/5.1.2:
@@ -7054,6 +7135,10 @@ packages:
       object.assign: 4.1.4
     dev: false
 
+  /keypress/0.1.0:
+    resolution: {integrity: sha512-x0yf9PL/nx9Nw9oLL8ZVErFAk85/lslwEP7Vz7s5SI1ODXZIgit3C5qyWjw4DxOuO/3Hb4866SQh28a1V1d+WA==}
+    dev: false
+
   /kind-of/6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
@@ -7174,6 +7259,14 @@ packages:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: false
 
+  /loggo/0.0.4:
+    resolution: {integrity: sha512-F2LwLAi/oq2/fU5z7lAf4qQIdMK0mHClP4jBYv0JXqbPiFfJ4CYVJ5fvk9UetK7bCKaXDgkUcFdqNJfMZfifWQ==}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      coffee-script: 1.12.7
+      colors: 1.4.0
+    dev: false
+
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
@@ -7276,6 +7369,10 @@ packages:
       mime-db: 1.52.0
     dev: false
 
+  /mime/1.2.9:
+    resolution: {integrity: sha512-WiLgbHTIq5AYUvU/Luli4mZ1bUcHpGNHyCsbl+KPMg4zt+XUDpQehWjuBjdLaEvDTinvKj/FgfQt3fPoT7j08g==}
+    dev: false
+
   /mime/1.6.0:
     resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
     engines: {node: '>=4'}
@@ -7349,6 +7446,11 @@ packages:
       dns-packet: 5.4.0
       thunky: 1.1.0
     dev: false
+
+  /nan/2.17.0:
+    resolution: {integrity: sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==}
+    dev: false
+    optional: true
 
   /nanoid/3.3.4:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
@@ -7693,6 +7795,12 @@ packages:
   /path-type/4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
+    dev: false
+
+  /pegjs/0.7.0:
+    resolution: {integrity: sha512-LKb5vROzG2N6FVpITS8zy4BSB8M5z8JgiM0LzgvUVRIdScHys8RYlYvHVSL3WeXMLowF9MZj1hPusuVvTgeq4w==}
+    engines: {node: '>= 0.6.6'}
+    hasBin: true
     dev: false
 
   /performance-now/2.1.0:
@@ -8725,6 +8833,14 @@ packages:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
     dev: false
 
+  /react-file-base64/1.0.3_react@18.2.0:
+    resolution: {integrity: sha512-itGMFH6IkJUZF2p0YXQnUBqzUHFaMYcs+ssD9e4j1XJGHRibGe8kiLr6y46oAIw1JknX/bJUUogDJOk/o91TMg==}
+    peerDependencies:
+      react: ^15.0.2
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
@@ -9335,6 +9451,11 @@ packages:
       node-forge: 1.3.1
     dev: false
 
+  /semver/4.3.6:
+    resolution: {integrity: sha512-IrpJ+yoG4EOH8DFWuVg+8H1kW1Oaof0Wxe7cPcXW3x9BjkN/eVo54F15LyqemnDIUYskQWr9qvl/RihmSy6+xQ==}
+    hasBin: true
+    dev: false
+
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
@@ -9569,6 +9690,22 @@ packages:
 
   /stackframe/1.3.4:
     resolution: {integrity: sha512-oeVtt7eWQS+Na6F//S4kJ2K2VbRlS9D43mAlMyVpVWovy9o+jfgH8O9agzANzaiLjclA0oYzUXEM4PurhSUChw==}
+    dev: false
+
+  /status/0.0.13:
+    resolution: {integrity: sha512-4+IeMCPZvN6RR0Dbi8KM6TunIYZ5xFYFBEZO6L2lRV64iJISzf1612H90s7PLOMCREn5FHJZwjQCEHN5S3B6og==}
+    engines: {node: '>= 0.6.0'}
+    hasBin: true
+    dependencies:
+      argus: 0.0.3
+      async: 0.9.2
+      coffee-script: 1.12.7
+      commander: 1.3.2
+      fractal: 0.0.3
+      loggo: 0.0.4
+      semver: 4.3.6
+    optionalDependencies:
+      dbus: 0.2.23
     dev: false
 
   /statuses/1.5.0:
@@ -10704,6 +10841,14 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dev: false
+
+  /xemplar/0.0.8:
+    resolution: {integrity: sha512-4IeLx2/6/ROhy01n/kchiwkmdg1U/ZXps/Ah8xYOBYlcVq4n1qMKQG/VpfuYCFNnRPottPMLSs8Mko5y2KXQ/w==}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      BetterRegExp: 0.0.2
+      coffee-script: 1.12.7
     dev: false
 
   /xml-name-validator/3.0.0:
