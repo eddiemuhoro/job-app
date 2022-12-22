@@ -3,6 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import MyPosts from './MyPosts'
 import './profile.css'
+//pnpm :(
 const Profile = () => {
     const user = useSelector(state => state.auth.user)
   return (
