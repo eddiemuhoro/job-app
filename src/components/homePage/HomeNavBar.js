@@ -51,25 +51,27 @@ const HomeNavBar = () => {
                 </div>
             </Link>
             <div className={isNavExpanded ?  'nav-links mobile' : 'nav-links'}>
-                <ul className='nav-list'>
-                    <NavLink onClick={postJob} to='/jobs' style={{textDecoration: 'none'}}><li>Jobs</li></NavLink>
-                    <NavLink onClick={postJob} to='/post' style={{textDecoration: 'none'}}><li>Post</li></NavLink>
-                    
-                    <NavLink to='/aboutus' style={{textDecoration: 'none'}}><li>About Us</li></NavLink>
-                    {user ? (
-                     <>
-                         <NavLink title='profile' to='/myprofile' style={{textDecoration: 'none'}}><li><Person2 /></li></NavLink>
+                    <ul className='nav-list'>
+                        <NavLink onClick={postJob} to='/jobs' style={{textDecoration: 'none'}}><li>Jobs</li></NavLink>
+                        <NavLink onClick={postJob} to='/post' style={{textDecoration: 'none'}}><li>Post</li></NavLink>
+                        
+                        <NavLink to='/aboutus' style={{textDecoration: 'none'}}><li>About Us</li></NavLink>
+                        {user ? (
+                        <>
+                            <Link title='profile' to='/myprofile' style={{textDecoration: 'none'}}><li>
+                                <img style={{borderRadius:'50%'}} src={user && user.selectedFile}  alt={user && user.name} width= '46px' height='46px'/>
+                            </li></Link>
 
-                         <Button title='logout' sx={{borderRadius:'20px', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}  variant='contained'>
+                            <Button title='logout' sx={{borderRadius:'20px', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}  variant='contained'>
 
-                        <Link onClick={onLogout} style={{color:'white', margin: 0,display:'flex', justifyContent:'center', alignItems:'center'}} to='/'><LogoutOutlined/></Link>
-                        </Button>
-                    </>
-                        ): (  <Button title='login' sx={{borderRadius:'20px'}}  variant='contained'>
+                            <Link onClick={onLogout} style={{color:'white', margin: 0,display:'flex', justifyContent:'center', alignItems:'center'}} to='/'><LogoutOutlined/></Link>
+                            </Button>
+                        </>
+                            ): (  <Button title='login' sx={{borderRadius:'20px'}}  variant='contained'>
 
-                        <Link style={{color:'white', margin: 0}} to='/login'>Log In</Link>
-                         </Button>)}                
-                </ul>
+                            <Link style={{color:'white', margin: 0}} to='/login'>Log In</Link>
+                            </Button>)}                
+                    </ul>
             </div>
             <div className='menu-icon' >
                 <StackedBarChart onClick={()=> setIsNavExpanded(!isNavExpanded)}/>

@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
+import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import HomeNavBar from './homePage/HomeNavBar';
 
@@ -28,7 +28,7 @@ export default function Mui() {
         //         Authorization: `Bearer ${token}`,
         //     },
         // }
-        axios.request('https://expressjs-production-e1ab.up.railway.app/jobs')
+        axios.request('https://busy-red-deer-toga.cyclic.app/jobs')
             .then((response) => {
                 setJobs(response.data);
             
@@ -87,7 +87,7 @@ export default function Mui() {
              sx={{
                  display: 'grid',
                  justifyItems: 'center',
-                 gridTemplateColumns: {xs:'repeat(1, 1fr)', sm:'repeat(1, 1fr)', md:'repeat(2, 1fr)', lg:'repeat(3, 1fr)'},
+                 gridTemplateColumns: {xs:'repeat(1, 1fr)', sm:'repeat(1, 1fr)', md:'repeat(1, 1fr)', lg:'repeat(1, 1fr)'},
                  color: 'text.primary',
                  '& > :not(style)': {
                      m: 1,
@@ -101,7 +101,7 @@ export default function Mui() {
          >
             
              {jobs.map(job => (
-                 <Paper sx={{position:'relative', padding:'10px'}} elevation={4}>
+                 <Paper sx={{position:'relative', padding:'20px'}} elevation={4}>
                      <div className=''>
                      <top className='job-title'>
                          <h1>{job.title}</h1>
@@ -118,7 +118,8 @@ export default function Mui() {
                              </div>
                              <p>Ksh. {job.salary}</p>
                          </bottom>
-                         <div  className='job-time'>                       
+                         <div  className='job-time'>   
+                         <div style={{color:'#1976d2', fontSize:"13px"}}>{moment(job.createdAt).fromNow()}</div>                    
                          
                              <Popup trigger={<Button variant='contained'>Bid</Button> } modal>
                                  <div className='bid-popup'>
@@ -132,7 +133,6 @@ export default function Mui() {
                                          </ReactWhatsapp><span>WhatsApp</span>
                                      </div>
                                      </div>
-                             
                              </Popup>
                         
                          </div>

@@ -19,6 +19,7 @@ const SignUp = () => {
     email: '',
     password: '',
     password2: '',
+    selectedFile:''
  
 })
  
@@ -62,6 +63,7 @@ const SignUp = () => {
         name,
         email,
         password,
+        selectedFile:formData.selectedFile
         
       }
 
@@ -91,6 +93,7 @@ const SignUp = () => {
       </div>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
+         
           <input
             type='text'
             className='form-control'
@@ -132,6 +135,12 @@ const SignUp = () => {
             value={formData.password2}
             placeholder='Confirm password'
             onChange={(e)=> setFormData({...formData, password2:e.target.value})}
+          />
+          <label>Your image</label>
+          <FileBase
+            type='file'
+            multiple={false}
+            onDone={({base64})=> setFormData({...formData, selectedFile:base64})}
           />
         </div>
 {/*     */}

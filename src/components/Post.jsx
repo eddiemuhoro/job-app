@@ -11,6 +11,7 @@ import { createJob } from '../react-redux/features/jobs/jobSlice';
 
 const Post = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [postjob, setpostjob] = useState({
     title: '',
     description: '',
@@ -48,6 +49,7 @@ const Post = () => {
     // })
     alert('job posted')
     toast.success('job posted')
+    navigate('/jobs')
 
   }
 //sdfsf

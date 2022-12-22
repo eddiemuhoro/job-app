@@ -22,7 +22,7 @@ const MyPosts = () => {
                 Authorization: `Bearer ${token}`,
             },
         }
-        axios.request('https://expressjs-production-e1ab.up.railway.app/jobs/mypost', config)
+        axios.request('https://busy-red-deer-toga.cyclic.app/jobs/mypost', config)
             .then((response) => {
                 setJobs(response.data);
             
@@ -34,12 +34,15 @@ const MyPosts = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
-    const deleteJob=(e, id)=>{
-        e.preventDefault();
-        dispatch(deleteGoal(id))
-        navigate('/jobs')
-    }
+//DELETE JOB
+   
+        var deleteJob=(e, id)=>{
+            e.preventDefault();
+            if(window.confirm('Are you sure you want to delete this job?')){
+                dispatch(deleteGoal(id))
+                navigate('/myprofile')
+             }
+        }
 
 
     
@@ -62,7 +65,7 @@ const MyPosts = () => {
             return alert('Please fill all fields')
         }
         
-      await  axios.put (`https://expressjs-production-e1ab.up.railway.app/jobs/${id}`, {title: newTitle, description:newDescription, location:newLocation, employer: newEmployer,  salary: newSalary, id:id})
+      await  axios.put (`https://busy-red-deer-toga.cyclic.app/jobs/${id}`, {title: newTitle, description:newDescription, location:newLocation, employer: newEmployer,  salary: newSalary, id:id})
 
         .then((response)=>{
             console.log(response)
@@ -73,14 +76,13 @@ const MyPosts = () => {
             console.log(error)
         }
     )
-
-
+    navigate('/jobs')
  }
 
   return (
     <div>
         <>
-        {jobs.length === 0 && <div style={{height:'50vh'}}><h1>No jobs posted</h1></div>}
+        {jobs.length === 0 && <div style={{height:'60vh'}}><h1>No jobs posted</h1></div>}
         {jobs.map(job => (
                  <Paper sx={{position:'relative', padding:'10px', width:'70%', m:1}} elevation={4}>
                      <div className=''>

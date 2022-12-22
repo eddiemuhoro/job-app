@@ -48,7 +48,6 @@ a{
 .job-title{
   display: flex;
   justify-content: space-between;
-  align-items: center;
   color: #1976d2;
 }
 
