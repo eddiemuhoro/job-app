@@ -10,6 +10,9 @@ import './auth.css'
 import Spinner from '../Spinner/Spinner'
 import FileBase from 'react-file-base64'
 
+
+
+
 const SignUp = () => {
   const dispatch= useDispatch()
   const navigate= useNavigate()

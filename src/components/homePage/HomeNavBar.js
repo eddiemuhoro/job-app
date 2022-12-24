@@ -58,7 +58,7 @@ const HomeNavBar = () => {
                         <NavLink to='/aboutus' style={{textDecoration: 'none'}}><li>About Us</li></NavLink>
                         {user ? (
                         <>
-                            <Link title='profile' to='/myprofile' style={{textDecoration: 'none'}}><li>
+                            <Link title={user && user.name} to='/myprofile' style={{textDecoration: 'none'}}><li>
                                 <img style={{borderRadius:'50%'}} src={user && user.selectedFile}  alt={user && user.name} width= '46px' height='46px'/>
                             </li></Link>
 
