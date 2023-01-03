@@ -10,14 +10,22 @@ const Profile = () => {
     <div className='profile-wrapper'>
       <section className='profile-details'>
         <h2>Account Details</h2>
-             <img src={(user && user.selectedFile)|| 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJkC07QFuZvIeLEadibGh6ZkDXshm8PakYYzPMMZywg&s'} alt='profile' />
-             <h4>Name</h4>
-                <p>{user && user.name}</p>
-              <h4>Email</h4>
-                <p>{user && user.email}</p>
-              <h4>Phone</h4>
-                <p>{(user && user.phone )|| 'N/A'}</p>
-      
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <img src={(user && user.selectedFile) || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJkC07QFuZvIeLEadibGh6ZkDXshm8PakYYzPMMZywg&s'} alt='profile' />
+          <h4 style={{marginLeft:'5px'}}>{user && user.name}</h4>
+        </div>
+
+     
+          <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+            <h4>Email</h4>
+            <p>{user && user.email}</p>
+          </div>
+          <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+            <h4>Phone</h4>
+            <p>{(user && user.phoneNum) || 'N/A'}</p>
+          </div>
+     
+
       </section>
         <h2>My Posts</h2>
         <MyPosts/>

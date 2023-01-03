@@ -16,6 +16,7 @@ const Post = () => {
     title: '',
     description: '',
     employer: '',
+    phone: '',
     location: '',
     salary:'',
   }
@@ -29,6 +30,7 @@ const Post = () => {
       title: postjob.title,
       description: postjob.description,
       employer: postjob.employer,
+      phone: postjob.phone,
       location: postjob.location,
       salary: postjob.salary,
     }
@@ -70,11 +72,14 @@ const Post = () => {
            onChange={(e) => setpostjob({ ...postjob, description: e.target.value })} />
          <TextField id="standard-basic" label="employer" value={postjob.employer} variant="filled"
            onChange={(e) => setpostjob({ ...postjob, employer: e.target.value })} />
+          <TextField id="filled-basic" label="phone number" value={postjob.phone} variant="filled"
+            onChange={(e) => setpostjob({ ...postjob, phone: e.target.value })} />
          <TextField id="filled-basic" label="location" value={postjob.location} variant="filled"
            onChange={(e) => setpostjob({ ...postjob, location: e.target.value })} />
           <TextField id="filled-basic" label="salary" 
            value={postjob.salary} variant="filled"
            onChange={(e) => setpostjob({ ...postjob, salary: e.target.value })} />
+
         
          <Button variant='contained' onClick={handleClick}>SUBMIT</Button>
        </FormControl>

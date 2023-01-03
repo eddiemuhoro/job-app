@@ -55,10 +55,6 @@ const MyPosts = () => {
     const [newSalary, setNewSalary] = useState('')
 
 
-
-
-
-
     const updateTitle =async (e, id)=>{
         e.preventDefault();
         if(!newTitle || !newDescription || !newLocation || !newEmployer || !newSalary){

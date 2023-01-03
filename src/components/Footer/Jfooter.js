@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
 
        
-          <a className="copyright">© JobSy 2022</a>
+          <a className="copyright">© JobSy 2023</a>
     </footer>
   )
 }

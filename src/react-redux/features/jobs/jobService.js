@@ -13,7 +13,7 @@ const createJob = async(jobData, token)=>{
     return response.data
 }
 
-const getJob = async( token)=>{
+const getJob = async(token)=>{
   
   const response = await axios.get(API_URL + 'jobs',
    { headers: {

@@ -22,7 +22,9 @@ export default function Mui() {
     var token = useSelector(state => state.auth.user.token)
     //solutiom
     const [jobs, setJobs] = useState([])
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
+        setLoading(true)
         // const config = {
         //     headers: {
         //         Authorization: `Bearer ${token}`,
@@ -34,7 +36,10 @@ export default function Mui() {
             
             }).catch((error) => {
                 console.log(error);
-            })
+            }).finally(() => {
+                setLoading(false)
+            }
+            )
             
     },[])
 
@@ -77,12 +82,18 @@ export default function Mui() {
         {user ? (
              <>
              <HomeNavBar />
+           
          <Paper style={{margin:'30px', textAlign: 'left'}}>
              <div className='time'>
              <h2>{day}, {month} {date} </h2>
              <h1>{greet} {user && user.name}!</h1>
              </div>
          </Paper>
+          { loading ? <h1>Loading...</h1> :(
+               <>
+               
+               </>
+            )}
          <Box
              sx={{
                  display: 'grid',
@@ -127,8 +138,9 @@ export default function Mui() {
                                      <h3>Connect with {job.employer}</h3>
                                      <div className='social-icon'>
                                      <Phone /><a href="tel:+254 791849836"> <span>Call</span></a> 
-                                         <p>+254 705982249</p>
-                                         <ReactWhatsapp number="+254705982249" message="Hello World!!!">
+                                        
+                                         <p>{job.phone}</p>
+                                         <ReactWhatsapp number={`+254${job.phone}`} message={`Hello ${job.employer}`}>
                                              <WhatsApp />
                                          </ReactWhatsapp><span>WhatsApp</span>
                                      </div>
@@ -140,7 +152,6 @@ export default function Mui() {
                  </div>
              </Paper>
              ))}
-            
          </Box>
              </>
         ):(
