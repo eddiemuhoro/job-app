@@ -1,6 +1,7 @@
 import { Box, Paper } from '@mui/material'
 import React from 'react'
 import { Facebook, Instagram, LinkedIn, Twitter } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 
 const Team = () => {
@@ -70,12 +71,12 @@ const Team = () => {
                     <p>{member.desc}</p>
                     <p className='member-position'>{member.position}</p>
 
-                    <ul className="social-icons">
-                    <li><Facebook/></li>
-                    <li><Twitter /></li>
-                    <li><LinkedIn/></li>
-                    <li><Instagram /></li>
-                </ul>
+                    <ul className="social-icons material-icons">
+                        <li><Link to='instagram/jobsydekut'><Facebook/></Link></li>
+                        <li><Link to='instagram/jobsydekut'><Twitter /></Link></li>
+                        <li><Link to='instagram/jobsydekut'><LinkedIn/></Link></li>
+                        <li><Link to='instagram/jobsydekut'><Instagram /></Link></li>
+                    </ul>
 
                   </div>
               </Paper>

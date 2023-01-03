@@ -82,6 +82,10 @@ footer{
     margin: 0 10px;
   }
 
+  .social-icons svg{
+    color: white;
+  }
+
   .partners{
     color: aliceblue;
     text-align: center;

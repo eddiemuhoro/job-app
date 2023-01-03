@@ -86,12 +86,14 @@
     justify-content: center;
     margin: 0;    
     padding-left: 0;
-
   }
-
+ .material-icons svg{
+    color: #2a323d;
+  }
   .social-icons > li{
     list-style: none;
     cursor: pointer;
+    color: #2a323d;
 }
 
 .social-icons > li:hover{

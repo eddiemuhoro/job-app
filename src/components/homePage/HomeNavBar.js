@@ -59,7 +59,7 @@ const HomeNavBar = () => {
                         {user ? (
                         <>
                             <Link title={user && user.name} to='/myprofile' style={{textDecoration: 'none'}}><li>
-                                <img style={{borderRadius:'50%'}} src={user && user.selectedFile}  alt={user && user.name} width= '46px' height='46px'/>
+                                <img style={{borderRadius:'50%'}} src={(user && user.selectedFile)|| 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJkC07QFuZvIeLEadibGh6ZkDXshm8PakYYzPMMZywg&s'}  alt={user && user.name} width= '46px' height='46px'/>
                             </li></Link>
 
                             <Button title='logout' sx={{borderRadius:'20px', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}  variant='contained'>

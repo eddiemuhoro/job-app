@@ -9,10 +9,19 @@
     right: 0;
     width: auto;
     height: 50vh;
+    padding: 10px;
+    text-align: center;
 }
 
 .profile-details h4{
     margin:0;
+}
+
+.profile-details img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 @media (max-width: 768px) {

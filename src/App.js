@@ -13,12 +13,13 @@ import AboutUs from './components/about/AboutUs';
 import Team from './components/about/Team';
 import Spinner from './components/Spinner/Spinner';
 import Profile from './components/profile/Profile';
+import SocialMedia from './components/SocialMedia/Instagram';
+
+
 
 function App() {
-  //vhangesd
   return (
     <div className="App">
-     
       
         <Routes>
           <Route path='/jobs' element={<><Mui /><Footer/>  </>} />
@@ -29,11 +30,9 @@ function App() {
           <Route path='/myprofile' element={<><HomeNavBar/><Profile /><Footer/> </>} />
           <Route path='/' element={<><SignUp /></>} />
           <Route path='/login' element={<><Login /></>} />
+          <Route path='aboutus/instagram/jobsydekut' element={<SocialMedia />} />
         </Routes>
-       
-     
-      
-      
+
   </div>
   );
 }
