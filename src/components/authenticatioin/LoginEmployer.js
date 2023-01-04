@@ -3,14 +3,14 @@ import { Button, FilledInput, FormControl,  TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import SideBar from './SideBar'
-import { reset, login } from '../../react-redux/features/auth/authSlice'
+import { reset, login, loginEmployer } from '../../react-redux/features/auth/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import './auth.css'
 import Spinner from '../Spinner/Spinner'
 
-const Login = () => {
+const LoginEmployer = () => {
   const dispatch= useDispatch()
   const navigate= useNavigate()
 
@@ -30,7 +30,7 @@ const Login = () => {
   useEffect((dispatch)=>{
     if(isSuccess || user){
       toast.success(message)
-      navigate('/')
+      navigate('/employer')
       window.location.reload()
       dispatch(reset())
     }
@@ -58,7 +58,7 @@ const Login = () => {
         password,
       }
 
-      dispatch(login(userData))
+      dispatch(loginEmployer(userData))
     }
   
 
@@ -84,7 +84,7 @@ const Login = () => {
       <h1>
        Login
       </h1>
-      <p>Please login to view jobs</p>
+      <p>Log in as employer</p>
       </div>
       <form onSubmit={onSubmit}>
       
@@ -115,7 +115,7 @@ const Login = () => {
           <button type='submit' className='btn btn-block'>
             Submit
           </button>
-          <p>Don't have an account? <Link style={{color:'black'}} to='/signup'>Sign Up</Link></p>
+          <p>Don't have an account? <Link style={{color:'black'}} to='/registerEmployer'>Sign Up</Link></p>
         </div>
       </form>
     </section>
@@ -123,4 +123,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginEmployer

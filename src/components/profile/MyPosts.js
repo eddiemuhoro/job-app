@@ -15,14 +15,14 @@ import { Button, FormControl } from '@mui/material';
 
 const MyPosts = () => {
     const [jobs, setJobs] = useState([])
-    var token = useSelector(state => state.auth.user.token)
+    var token = useSelector(state => state.auth.employer.token)
     useEffect((jobData) => {
         const config = {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         }
-        axios.request('https://busy-red-deer-toga.cyclic.app/jobs/mypost', config)
+        axios.request('http://localhost:4000/jobs/mypost', config)
             .then((response) => {
                 setJobs(response.data);
             

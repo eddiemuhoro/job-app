@@ -3,7 +3,7 @@ import { Button, MenuItem } from '@mui/material'
 import React, { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { logout, reset } from '../../react-redux/features/auth/authSlice'
+import { logout, logoutEmployer, reset } from '../../react-redux/features/auth/authSlice'
 import { toast, ToastContainer } from 'react-toastify'
 //sad:(
 
@@ -16,6 +16,7 @@ const HomeNavBar = () => {
     
     const onLogout = ()=>{
         dispatch(logout())
+        dispatch(logoutEmployer())
         dispatch(reset())
         alert('You are now logged out')
         navigate('/')
@@ -23,13 +24,14 @@ const HomeNavBar = () => {
     }
 
     const user = useSelector(state => state.auth.user)
+    const employer = useSelector(state => state.auth.employer)
 
     const postJob = ()=>{
-        if(user){
+        if(employer){
             toast.success('view job')
         }
 
-        if(!user){
+        if(!employer){
             alert("log in to post job")
             navigate('/login')
             window.location.reload()
@@ -37,6 +39,17 @@ const HomeNavBar = () => {
         
     }
 
+    const viewJob = ()=>{
+        if(user){
+            toast.success('view job')
+        }
+
+        if(!user){
+            alert("log in to view job")
+            navigate('/login')
+            window.location.reload()
+        }
+    }
 
 
   return (
@@ -44,7 +57,7 @@ const HomeNavBar = () => {
         <ToastContainer />
         <nav className='navbar'>
             
-            <Link to='/home'>
+            <Link to='/'>
                 <div className='jobsy-logo'>
                     <img src='https://www.clipartmax.com/png/middle/413-4139811_transparent-background-cool-logo.png' alt='jobsy-logo' />
                     <h1>JOBSY</h1>
@@ -52,14 +65,30 @@ const HomeNavBar = () => {
             </Link>
             <div className={isNavExpanded ?  'nav-links mobile' : 'nav-links'}>
                     <ul className='nav-list'>
-                        <NavLink onClick={postJob} to='/jobs' style={{textDecoration: 'none'}}><li>Jobs</li></NavLink>
-                        <NavLink onClick={postJob} to='/post' style={{textDecoration: 'none'}}><li>Post</li></NavLink>
+                        {user  ? (
+                            <>
+                            <NavLink onClick={viewJob} to='/jobs' style={{textDecoration: 'none'}}><li>Jobs</li></NavLink>
+                            </>
+                            ):(
+                                ' '
+                            )}
+                            
+                            {employer ? (
+                                <>
+                                <NavLink onClick={postJob} to='/post' style={{textDecoration: 'none'}}><li>Post</li></NavLink>
+                                </>
+                                ):(
+                                    ' '
+                                )
+                                }
+
+                            
                         
                         <NavLink to='/aboutus' style={{textDecoration: 'none'}}><li>About Us</li></NavLink>
-                        {user ? (
+                        {user || employer ? (
                         <>
-                            <Link title={user && user.name} to='/myprofile' style={{textDecoration: 'none'}}><li>
-                                <img style={{borderRadius:'50%'}} src={(user && user.selectedFile)|| 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJkC07QFuZvIeLEadibGh6ZkDXshm8PakYYzPMMZywg&s'}  alt={user && user.name} width= '46px' height='46px'/>
+                            <Link title={(user && user.name)|| (employer && employer.name)} to='/myprofile' style={{textDecoration: 'none'}}><li>
+                                <img style={{borderRadius:'50%'}} src={((user && user.selectedFile) ||((employer && employer.selectedFile)))|| 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJkC07QFuZvIeLEadibGh6ZkDXshm8PakYYzPMMZywg&s'}  alt={user && user.name} width= '46px' height='46px'/>
                             </li></Link>
 
                             <Button title='logout' sx={{borderRadius:'20px', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}  variant='contained'>
@@ -67,10 +96,18 @@ const HomeNavBar = () => {
                             <Link onClick={onLogout} style={{color:'white', margin: 0,display:'flex', justifyContent:'center', alignItems:'center'}} to='/'><LogoutOutlined/></Link>
                             </Button>
                         </>
-                            ): (  <Button title='login' sx={{borderRadius:'20px'}}  variant='contained'>
+                            ): (  
+                                <div style={{display:"flex", flexDirection:'column', alignItems:'center'}}>
+                                <div>Login as</div>
+                                <div className='signup-section'>
+ 
+                                    <Link style={{ margin: '3px', background:"#1976d2", padding:'3px', color:"white"}} to='/login'>Freelancer</Link>
 
-                            <Link style={{color:'white', margin: 0}} to='/login'>Log In</Link>
-                            </Button>)}                
+                                    <Link style={{ margin: '3px', background:"#1976d2", padding:'3px', color:"white"}} to='/registerEmployer'>Employer</Link>
+
+                                </div>
+                                </div>
+                            )}                
                     </ul>
             </div>
             <div className='menu-icon' >

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import SideBar from './SideBar'
-import { reset, register } from '../../react-redux/features/auth/authSlice'
+import { reset, registerEmployer } from '../../react-redux/features/auth/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify'
@@ -13,7 +13,7 @@ import FileBase from 'react-file-base64'
 
 
 
-const SignUp = () => {
+const RegisterEmployer = () => {
   const dispatch= useDispatch()
   const navigate= useNavigate()
 
@@ -37,13 +37,13 @@ const SignUp = () => {
   useEffect((dispatch)=>{
     if(isSuccess || user){
       toast.success(message)
-      navigate('/')
+      navigate('/employer')
       window.location.reload()
       dispatch(reset())
     }
     if(isError){
       alert('Enter valid credentials👀 ')
-      navigate('/')
+      navigate('/employer')
       window.location.reload()
       dispatch(reset())
     }
@@ -72,7 +72,7 @@ const SignUp = () => {
         
       }
 
-      dispatch(register(userData))
+      dispatch(registerEmployer(userData))
     }
   }
 
@@ -94,7 +94,7 @@ const SignUp = () => {
       <h1>
        Register
       </h1>
-      <p>Please create an account</p>
+      <p>Please create an account as employer</p>
       </div>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
@@ -167,7 +167,7 @@ const SignUp = () => {
           <button type='submit' className='btn btn-block'>
             Submit
           </button>
-          <p>Already have an account? <Link style={{color:'black'}} to='/login'>Login</Link></p>
+          <p>Already have an account? <Link style={{color:'black'}} to='/loginEmployer'>Login</Link></p>
         </div>
       </form>
     </section>
@@ -175,4 +175,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default RegisterEmployer

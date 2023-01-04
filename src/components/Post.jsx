@@ -51,7 +51,7 @@ const Post = () => {
     // })
     alert('job posted')
     toast.success('job posted')
-    navigate('/jobs')
+    navigate('/myprofile')
 
   }
 //sdfsf
