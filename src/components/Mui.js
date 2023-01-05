@@ -135,12 +135,12 @@ export default function Mui() {
                              <Popup trigger={<Button variant='contained'>Bid</Button> } modal>
                                  <div className='bid-popup'>
                                      <h2>{job.title}</h2>
-                                     <h3>Connect with {job.employer}</h3>
+                                     <h3>Connect with {job.name}</h3>
                                      <div className='social-icon'>
                                      <Phone /><a href="tel:+254 791849836"> <span>Call</span></a> 
                                         
                                          <p>{job.phone}</p>
-                                         <ReactWhatsapp number={`+254${job.phone}`} message={`Hello ${job.employer}`}>
+                                         <ReactWhatsapp number={`+254${job.phone}`} message={`Hello ${job.name}`}>
                                              <WhatsApp />
                                          </ReactWhatsapp><span>WhatsApp</span>
                                      </div>

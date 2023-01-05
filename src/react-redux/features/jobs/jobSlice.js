@@ -28,9 +28,7 @@ async(jobData, thunkAPI)=>{
 export const getJob = createAsyncThunk('jobs/get',
 async(_, thunkAPI)=>{
     try {
-
-        const token =thunkAPI.getState().auth.user.token
-        return await jobService.getJob(token)
+        return await jobService.getJob()
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
 
@@ -38,11 +36,24 @@ async(_, thunkAPI)=>{
     }
 })
 
+//get employer info
+export const getEmployer = createAsyncThunk('jobs/getemployer',
+async(_, thunkAPI)=>{
+    try {
+        return await jobService.getEmployer()
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+
+        return thunkAPI.rejectWithValue(message);
+    }
+}
+)
+
 export const deleteGoal = createAsyncThunk(
     'jobs/delete',
     async (id, thunkAPI) => {
       try {
-        const token = thunkAPI.getState().auth.user.token
+        const token = thunkAPI.getState().auth.employer.token
         return await jobService.deleteGoal(id, token)
       } catch (error) {
         const message =
@@ -126,6 +137,25 @@ export const jobSlice= createSlice({
         }
         )
         .addCase(getJob.rejected, (state, action)=>{
+            state.isError =true
+            state.isSuccess = false
+            //
+            state.message=(action.payload)
+        }
+        )
+
+        .addCase(getEmployer.pending, (state)=>{
+            state.isLoading= true
+        }
+        )
+        .addCase(getEmployer.fulfilled, (state, action)=>{
+            state.isLoading =false
+            state.isSuccess = true
+            //
+            state.employer=action.payload
+        }
+        )
+        .addCase(getEmployer.rejected, (state, action)=>{
             state.isError =true
             state.isSuccess = false
             //

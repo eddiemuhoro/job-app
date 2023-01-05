@@ -30,7 +30,7 @@ const MyPosts = () => {
                 console.log(error);
             })
             
-    },[])
+    })
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
