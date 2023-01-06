@@ -18,7 +18,7 @@ const getJob = async()=>{
   const response = await axios.get(API_URL + 'jobs',
 
   )
-
+//data response
   return response.data
 }
 
