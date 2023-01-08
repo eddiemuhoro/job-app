@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:4000/';
+const API_URL = 'https://busy-red-deer-toga.cyclic.app//';
 
 const createJob = async(jobData, token)=>{
   

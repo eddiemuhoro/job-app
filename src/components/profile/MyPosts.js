@@ -22,7 +22,7 @@ const MyPosts = () => {
                 Authorization: `Bearer ${token}`,
             },
         }
-        axios.request('http://localhost:4000/jobs/mypost', config)
+        axios.request('https://busy-red-deer-toga.cyclic.app//jobs/mypost', config)
             .then((response) => {
                 setJobs(response.data);
             
