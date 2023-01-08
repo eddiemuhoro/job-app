@@ -14,6 +14,7 @@ import ReactWhatsapp from 'react-whatsapp';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { createMessage } from '../react-redux/features/jobs/jobSlice';
 
 
 
@@ -21,12 +22,26 @@ import { useNavigate } from 'react-router-dom';
 export default function Mui() {
     var token = useSelector(state => state.auth.user.token)
     const [message, setMessage] = useState('')
-    const [name, setName] = useState('')
+    const dispatch = useDispatch()
 
-    const handleClick= async()=>{
-        await axios.post('https://busy-red-deer-toga.cyclic.app/message', message)
+    // const handleClick= async(e)=>{
+    //     e.preventDefault()
+       
+       
+      
+    //     await axios.post('http://localhost:4000/message', message, {
+    //         headers: {
+    //              Authorization: `Bearer ${token}`,
+    //             },
+    //     })
+    //     .then((response) => {
+    //         console.log(response.data);
+    //     }, (error) => {
+    //         console.log(error);
+    //     });
 
-    }
+        
+    // }
 
     //solutiom
     const [jobs, setJobs] = useState([])
@@ -52,9 +67,6 @@ export default function Mui() {
     }, [])
 
     console.log(token)
-
-
-
 
     const myDate = new Date();
     const hours = myDate.getHours();
@@ -162,12 +174,9 @@ export default function Mui() {
                                                             '& .MuiTextField-root': { m: 1, width: {md:'50ch', lg:'70ch'}},
                                                         }}>
                                                             <h2>JOB POSTING FORM</h2>
-                                                        <TextField id="outlined-basic" label="job title" value={message} variant="filled"
-                                                            onChange={(e) => setMessage({ ...message, title: e.target.value })} />
-                                                        <TextField id="outlined-basic" label="employer" defaultValue={job.employer} variant="filled"
-                                                            onChange={(e) => setMessage({ ...name, description: e.target.value })} />
-
-
+                                                        <TextField id="outlined-basic" label="message" value={message} variant="filled"
+                                                            onChange={(e) => setMessage( e.target.value )} />
+                                                      
                                                         
                                                         <Button variant='contained' onClick={handleClick}>SUBMIT</Button>
                                                         </FormControl>

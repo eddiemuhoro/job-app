@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://busy-red-deer-toga.cyclic.app/';
+const API_URL = 'http://localhost:4000/';
 
 const createJob = async(jobData, token)=>{
   
@@ -13,12 +13,28 @@ const createJob = async(jobData, token)=>{
     return response.data
 }
 
+const createMessage = async (messageData, token) => {
+
+  const response = await axios.post(
+      API_URL + "message",
+      messageData,
+      {
+      headers: {
+          Authorization: `Bearer ${token}`,
+      },
+      }
+  );
+  return response.data;
+    }
+
+
 const getJob = async()=>{
   
   const response = await axios.get(API_URL + 'jobs',
 
   )
 //data response
+  localStorage.setItem('job', JSON.stringify(response.data))
   return response.data
 }
 
@@ -50,6 +66,7 @@ const deleteGoal = async (jobId, token) => {
   
 const jobService={
     createJob,
+    createMessage,
     deleteGoal,
     getJob,
     getEmployer,
