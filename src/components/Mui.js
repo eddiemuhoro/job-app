@@ -9,34 +9,49 @@ import React, { useEffect, useState } from 'react'
 import HomeNavBar from './homePage/HomeNavBar';
 
 import Popup from 'reactjs-popup';
-import { Email, LocationOn, Phone, WhatsApp } from '@mui/icons-material';
+import {LocationOn, Phone, WhatsApp } from '@mui/icons-material';
 import ReactWhatsapp from 'react-whatsapp';
+
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createMessage } from '../react-redux/features/jobs/jobSlice';
+import { useParams } from 'react-router-dom';
 
 
 
 
 export default function Mui() {
+    const params = useParams()
+   
+
     var token = useSelector(state => state.auth.user.token)
     const dispatch = useDispatch()
     const [postMessage, setpostMessage] = useState({
-        message: ''
+        description: '',
+        name:''
       }
     )
 
     
-    const handleClick= async(e)=>{
+    const handleClick= async(id, e, job)=>{
         e.preventDefault();
         const newMessage = {
-          message: postMessage.message,
-     
+            description: postMessage.description,
+            name: (user.name),
+            belongToJob: id,
+            employeeId: (user.id),
+            job: job
+           
+
         }
       
         dispatch(createMessage(newMessage))
+        console.log(newMessage)
+        alert('You will know if you have been selected in the next 24 hours')
+       
     }
+   
 
     //solutiom
     const [jobs, setJobs] = useState([])
@@ -48,20 +63,18 @@ export default function Mui() {
         //         Authorization: `Bearer ${token}`,
         //     },
         // }
-        axios.request(' http://localhost:4000/jobs')
+        axios.request('https://fumbling-amusement-production.up.railway.app/job')
             .then((response) => {
                 setJobs(response.data);
-
             }).catch((error) => {
                 console.log(error);
             }).finally(() => {
                 setLoading(false)
             }
-            )
-
+        )
     }, [])
 
-    console.log(token)
+ 
 
     const myDate = new Date();
     const hours = myDate.getHours();
@@ -169,12 +182,15 @@ export default function Mui() {
                                                             '& .MuiTextField-root': { m: 1, width: {md:'50ch', lg:'70ch'}},
                                                         }}>
                                                             <h2>JOB APPLICATION FORM</h2>
-                                                            <TextField id="outlined-basic" label="cover letter" value={postMessage.message} variant="filled"
-                                                                 onChange={(e) => setpostMessage({ ...postMessage, message: e.target.value })} />
+                                                            <TextField id="outlined-basic" label="cover letter" value={postMessage.description} variant="filled"
+                                                                 onChange={(e) => setpostMessage({ ...postMessage, description: e.target.value })} />
 
+
+
+   
 
                                                         
-                                                        <Button variant='contained' onClick={handleClick}>SUBMIT</Button>
+                                                        <Button variant='contained' onClick={(e)=>handleClick(job.id, e, job.title)}>SUBMIT</Button>
                                                         </FormControl>
 
 

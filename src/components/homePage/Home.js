@@ -7,16 +7,12 @@ import { useSelector } from 'react-redux'
 
 
 const Home = () => {
+
+  const employer = useSelector(state => state.auth.employer)
   const navigate = useNavigate()
   const user = useSelector(state => state.auth.user)
 
-  const postJob = ()=>{
-    if(!user){
-        alert("log in to post job")
-        navigate('/login')
-        window.location.reload()
-    }
-}
+
 
   return (
     <div>
@@ -36,7 +32,8 @@ const Home = () => {
                     <p>
                         We make every work available for you
                     </p>
-                    <Button onClick={postJob} variant='contained'><Link to='/jobs'>Get Started</Link></Button>
+                    {employer ? <Button variant='contained'><Link to='/post'>Get Started</Link></Button> : <Button  variant='contained'><Link to='/jobs'>Get Started</Link></Button>}
+                  
                 </section>
           </div>
         

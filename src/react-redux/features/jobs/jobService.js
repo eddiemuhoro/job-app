@@ -1,28 +1,23 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:4000/';
+const API_URL = 'https://fumbling-amusement-production.up.railway.app/';
 
-const createJob = async(jobData, token)=>{
+const createJob = async(jobData)=>{
   
-    const response = await axios.post(API_URL + 'jobs/new', jobData,
-     { headers: {
-      Authorization: `Bearer ${token}`,
-    },}
+    const response = await axios.post(API_URL + 'job', jobData,
+    
     )
 
     return response.data
 }
 
-const createMessage = async (messageData, token) => {
+const createMessage = async (messageData) => {
 
   const response = await axios.post(
-      API_URL + "message",
+      API_URL + "bid",
       messageData,
-      {
-      headers: {
-          Authorization: `Bearer ${token}`,
-      },
-      }
+   
+      
   );
   return response.data;
     }
@@ -47,14 +42,10 @@ const getEmployer = async()=>{
   return response.data
 }
 
-const deleteGoal = async (jobId, token) => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
+const deleteGoal = async (jobId) => {
+ 
 
-    const response = await axios.delete(API_URL + 'jobs/' + jobId, config)
+    const response = await axios.delete(API_URL + 'job/' + jobId)
   
     return response.data
   }

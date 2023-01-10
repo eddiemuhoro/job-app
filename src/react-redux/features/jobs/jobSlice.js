@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import jobService from './jobService'
+import axios from 'axios'
+import { useEffect, useState } from 'react';
+
+
 
 const user = JSON.parse(localStorage.getItem('user'))
 
@@ -15,8 +19,8 @@ export const createJob = createAsyncThunk('jobs/create',
 async(jobData, thunkAPI)=>{
     try {
 
-        const token =thunkAPI.getState().auth.employer.token
-        return await jobService.createJob(jobData, token)
+      
+        return await jobService.createJob(jobData)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
 
@@ -29,9 +33,8 @@ export const createMessage = createAsyncThunk('message',
 async(messageData, thunkAPI)=>{
     try {
 
-        const token =thunkAPI.getState().auth.user.token
-        return await jobService.createMessage(messageData, token)
-    } catch (error) {
+        return await jobService.createMessage(messageData)
+    }catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
 
         return thunkAPI.rejectWithValue(message);
@@ -67,8 +70,7 @@ export const deleteGoal = createAsyncThunk(
     'jobs/delete',
     async (id, thunkAPI) => {
       try {
-        const token = thunkAPI.getState().auth.employer.token
-        return await jobService.deleteGoal(id, token)
+        return await jobService.deleteGoal(id)
       } catch (error) {
         const message =
           (error.response &&

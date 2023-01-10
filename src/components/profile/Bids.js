@@ -1,49 +1,54 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import Popup from 'reactjs-popup'
 import { Button, Paper } from '@mui/material'
-const Bids = () => {
+const Bids = ({job}) => {
     const [bids, setBids] = React.useState([])
-    const [loading, setLoading] = React.useState(false)
-    var token = useSelector(state => state.auth.employer.token)
-    React.useEffect(() => {
-        setLoading(true)
-        axios.request('http://localhost:4000/message', 
+    console.log(job);
         
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
+     useEffect(()=>{
+        axios.request(`https://fumbling-amusement-production.up.railway.app/bid/${job}`)
+        .then((response) => {
+            setBids(response.data);
+            console.log(response.data);
         }
-                
-                )
+        ).catch((error) => {
+            console.log(error);
+        })
+     },[])
+     const [isSelected , setisSelected] = React.useState(true)
+     const isPicked =(id)=>{
+          axios.put(`https://fumbling-amusement-production.up.railway.app/bid/select/${id}`, isSelected)
             .then((response) => {
-
-                setBids(response.data);
-                console.log(response.data)
-            }).catch((error) => {
-                console.log(error);
-
+                setisSelected(response.data);
+                console.log(response.data);
             }
-            ).finally(() => {
-                setLoading(false)
-            })
-        }, []
-    )
+
+            ).catch((error) => {
+                console.log(error);
+            }
+            )
+
+        }
+        
+     
+    
     
   return (
     <div>
         <h1>Bids</h1>
         {bids.map((bid) =>  {return (
-            <div key={bid._id}>
-                <Paper sx={{position:'relative', padding:'10px', width:{xs: '80%', ls:'60%'}, m:1}} elevation={4}>
+            <div key={bid.id}>
+                <Paper sx={{position:'relative', padding:'10px', m:1}} elevation={4}>
                      <div className=''>
-                     <div className='job-title'>
-                         <h1>Hello</h1>
+                     <div style={{position:'absolute', bottom:"20px", right: '5px', background:'blue', borderRadius:'10px', color:'white'}} className='job-selected'>
+                         {bid.isSelected ? <p >selected</p> : <p>Not selected</p>}
                      </div>
                      <main className='job-description'>
-                         <p>{bid.message}</p>
+                         
+                                <h2 style={{color:"black"}}>Cover letter</h2>
+                         <p>JavaScript offers a wide variety of array methods that make working with arrays simpler. This article demonstrated how to render data from a nested array using a map array method. Apart from map, there are also methods to help you push data to an array, concatenate two arrays, or even sort an array.</p>
                      </main>
                      
                      <div>
@@ -51,13 +56,7 @@ const Bids = () => {
                          <div  className='job-time'>                         
                         
                       
-                         <Popup trigger={<Button variant='contained'>Reply</Button> } modal>
-                                 <div className='bid-popup'>
-
-
-                                 </div>
-                             
-                             </Popup>
+                         <Button variant='contained' onClick={()=> {isPicked(bid.id)}}>Pick</Button>
                          </div>
                         
                      </div>

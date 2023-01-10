@@ -11,14 +11,14 @@ import { createJob } from '../react-redux/features/jobs/jobSlice';
 
 const Post = () => {
   const employer = useSelector(state => state.auth.employer)
+  console.log(employer.id);
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const phone = (employer && employer.phone) || ''
   const [postjob, setpostjob] = useState({
     title: '',
     description: '',
-    name: '',
-    phone: '',
+    employerId: '',
     location: '',
     salary:'',
   }
@@ -31,14 +31,14 @@ const Post = () => {
     const newjob = {
       title: postjob.title,
       description: postjob.description,
-      name:  (employer && employer.name),
-      phone: (employer && employer.phoneNum),
+      employerId:  (employer.id),
       location: postjob.location,
       salary: postjob.salary,
     }
 
    
     dispatch(createJob(newjob))
+  
     // await axios.post('http://localhost:5000/jobs/new',   newjob)
     // setpostjob({
     //   title: '',
@@ -49,6 +49,7 @@ const Post = () => {
 
     // })
     alert('job posted')
+  
     toast.success('job posted')
     navigate('/myprofile')
 
@@ -69,12 +70,10 @@ const Post = () => {
            onChange={(e) => setpostjob({ ...postjob, title: e.target.value })} />
          <TextField id="filled-basic" label="description" value={postjob.description} variant="filled"
            onChange={(e) => setpostjob({ ...postjob, description: e.target.value })} />
-         <TextField sx={{display:'none'}}  id="standard-basic" label="name" defaultValue={(employer && employer.name)} variant="filled"
-           onChange={(e) => setpostjob({ ...postjob, name: (employer && employer.name)})} />
+         <TextField sx={{display:'none'}}  id="standard-basic" label="name" defaultValue={(employer.id)} variant="filled"
+           onChange={(e) => setpostjob({ ...postjob, employerId: (employer.id)})} />
 
-          <TextField sx={{display:'none'}} id="filled-basic" label="phone" defaultValue={(employer && employer.phoneNum)} variant="filled"
-          onChange={(e) => setpostjob({ ...postjob, phone:(employer && employer.phoneNum) })}  />
-            
+   
            <TextField id="filled-basic" label="location/ remote" value={postjob.location} variant="filled"
            onChange={(e) => setpostjob({ ...postjob, location: e.target.value })} />
 

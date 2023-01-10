@@ -11,26 +11,41 @@ import { LocationOn } from '@mui/icons-material'
 import Popup from 'reactjs-popup'
 import TextField from '@mui/material/TextField';
 import { Button, FormControl } from '@mui/material';
+import Bids from './Bids'
 
 
 const MyPosts = () => {
+    const { id }= useParams()
     const [jobs, setJobs] = useState([])
-    var token = useSelector(state => state.auth.employer.token)
-    useEffect((jobData) => {
-        const config = {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }
-        axios.request('https://busy-red-deer-toga.cyclic.app//jobs/mypost', config)
+    const [bids , setBids]= useState([])
+    const employer = useSelector(state => state.auth.employer)
+   
+    useEffect(() => {
+     
+        axios.request(`https://fumbling-amusement-production.up.railway.app/job/employer/${employer.id}`)
             .then((response) => {
                 setJobs(response.data);
+                console.log(response.data)
             
             }).catch((error) => {
                 console.log(error);
             })
             
-    })
+    }, [])
+
+    const viewBid = (id)=>{
+        
+        console.log(id)
+        axios.request(`https://fumbling-amusement-production.up.railway.app/bid/${id}`)
+        .then((response) => {
+            setBids(response.data);
+            console.log(response.data);
+        }
+        ).catch((error) => {
+            console.log(error);
+        })
+    }
+ 
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -60,9 +75,8 @@ const MyPosts = () => {
         if(!newTitle || !newDescription || !newLocation  || !newSalary){
             return alert('Please fill all fields')
         }
-        
-      await  axios.put (`http://localhost:4000/jobs/${id}`, {title: newTitle, description:newDescription, location:newLocation, salary: newSalary, id:id})
-
+        //
+      await axios.put(`https://fumbling-amusement-production.up.railway.app/bid/1`, {title: newTitle, description:newDescription, location:newLocation, salary: newSalary, id:id})
         .then((response)=>{
             console.log(response)
             alert('Job updated')
@@ -72,7 +86,7 @@ const MyPosts = () => {
             console.log(error)
         }
     )
-    navigate('/jobs')
+  
  }
 
   return (
@@ -80,7 +94,7 @@ const MyPosts = () => {
         <>
         {jobs.length === 0 && <div style={{height:'60vh'}}><h1>No jobs posted</h1></div>}
         {jobs.map(job => (
-                 <Paper sx={{position:'relative', padding:'10px',  width:'60%', m:1}} elevation={4}>
+                 <Paper sx={{position:'relative', padding:'10px',  width:{xs:'90%', md:'60%'}, m:1}} elevation={4}>
                      <div className=''>
                      <div className='job-title'>
                          <h1>{job.title}</h1>
@@ -97,7 +111,8 @@ const MyPosts = () => {
                              <p>Ksh. {job.salary}</p>
                          </div>
                          <div  className='job-time'>                         
-                         <Button variant='contained'  onClick={(e, id)=> deleteJob(e, job._id)} >delete</Button>
+                         <Button variant='contained'  onClick={(e, id)=> deleteJob(e, job.id)} >delete</Button>
+                       
                       
                          <Popup trigger={<Button variant='contained'>Update</Button> } modal>
                                  <div className='bid-popup'>
@@ -116,7 +131,7 @@ const MyPosts = () => {
                                         <TextField id="filled-basic" label="location"  value={newLocation}  onChange={(e)=>{setNewLocation(e.target.value)}} />
                                         <TextField id="filled-basic" label="salary" 
                                        value={newSalary}  onChange={(e)=>{setNewSalary(e.target.value)}}/>
-                                        <Button variant='contained' onClick={(e,id)=> updateTitle(e,job._id)}>SUBMIT</Button>
+                                        <Button variant='contained' onClick={(e)=> updateTitle(e,job.id)}>SUBMIT</Button>
                              </FormControl>
 
                                  </div>
@@ -126,7 +141,11 @@ const MyPosts = () => {
                         
                      </div>
                  </div>
+                 <Bids job={job.id} />
              </Paper>
+
+   
+       
              ))}
         </>
     </div>

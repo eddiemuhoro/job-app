@@ -22,7 +22,7 @@ const SignUp = () => {
     email: '',
     password: '',
     password2: '',
-    phoneNum:'',
+    phone:'',
     selectedFile:''
  
 })
@@ -67,9 +67,8 @@ const SignUp = () => {
         name,
         email,
         password,
-        phoneNum:formData.phoneNum,
+        phone:formData.phone,
         selectedFile:formData.selectedFile
-        
       }
 
       dispatch(register(userData))
@@ -147,9 +146,9 @@ const SignUp = () => {
             className='form-control'
             id='phoneNum'
             name='phoneNum'
-            value={formData.phoneNum}
+            value={formData.phone}
             placeholder='Enter your phone number'
-            onChange={(e)=> setFormData({...formData, phoneNum:e.target.value})}
+            onChange={(e)=> setFormData({...formData, phone:e.target.value})}
           />
         </div>
 

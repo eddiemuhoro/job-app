@@ -26,6 +26,15 @@
     border-radius: 50%;
 }
 
+.job-selected{
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    background-color: blue ;
+    color: white;
+    padding: 0 5px;
+}
+
 @media (max-width: 768px) {
     .profile-details{
         position: relative;
