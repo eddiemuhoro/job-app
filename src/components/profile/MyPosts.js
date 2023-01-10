@@ -57,11 +57,11 @@ const MyPosts = () => {
 
     const updateTitle =async (e, id)=>{
         e.preventDefault();
-        if(!newTitle || !newDescription || !newLocation || !newEmployer || !newSalary){
+        if(!newTitle || !newDescription || !newLocation  || !newSalary){
             return alert('Please fill all fields')
         }
         
-      await  axios.put (`https://busy-red-deer-toga.cyclic.app/jobs/${id}`, {title: newTitle, description:newDescription, location:newLocation, employer: newEmployer,  salary: newSalary, id:id})
+      await  axios.put (`http://localhost:4000/jobs/${id}`, {title: newTitle, description:newDescription, location:newLocation, salary: newSalary, id:id})
 
         .then((response)=>{
             console.log(response)
@@ -80,7 +80,7 @@ const MyPosts = () => {
         <>
         {jobs.length === 0 && <div style={{height:'60vh'}}><h1>No jobs posted</h1></div>}
         {jobs.map(job => (
-                 <Paper sx={{position:'relative', padding:'10px', width:'70%', m:1}} elevation={4}>
+                 <Paper sx={{position:'relative', padding:'10px',  width:'60%', m:1}} elevation={4}>
                      <div className=''>
                      <div className='job-title'>
                          <h1>{job.title}</h1>
@@ -111,12 +111,11 @@ const MyPosts = () => {
                                         '& .MuiTextField-root': { m: 1, width: {md:'50ch', lg:'auto'}},
                                         }}>
                                         <h2>JOB POSTING FORM</h2>
-                                        <TextField id="outlined-basic" label="job title"  value={newTitle.title}  onChange={(e)=>{setNewTitle(e.target.value)}} />
-                                        <TextField id="filled-basic" label="description" value={newDescription.description}  onChange={(e)=>{setNewDescription(e.target.value)}} />
-                                        <TextField id="standard-basic" label="employer" value={newEmployer.salary}  onChange={(e)=>{setNewEmployer(e.target.value)}}/>
-                                        <TextField id="filled-basic" label="location"  value={newLocation.location}  onChange={(e)=>{setNewLocation(e.target.value)}} />
+                                        <TextField id="outlined-basic" label="job title"  value={newTitle}  onChange={(e)=>{setNewTitle(e.target.value)}} />
+                                        <TextField id="filled-basic" label="description" value={newDescription}  onChange={(e)=>{setNewDescription(e.target.value)}} />
+                                        <TextField id="filled-basic" label="location"  value={newLocation}  onChange={(e)=>{setNewLocation(e.target.value)}} />
                                         <TextField id="filled-basic" label="salary" 
-                                       value={newSalary.salary}  onChange={(e)=>{setNewSalary(e.target.value)}}/>
+                                       value={newSalary}  onChange={(e)=>{setNewSalary(e.target.value)}}/>
                                         <Button variant='contained' onClick={(e,id)=> updateTitle(e,job._id)}>SUBMIT</Button>
                              </FormControl>
 

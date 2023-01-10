@@ -21,27 +21,22 @@ import { createMessage } from '../react-redux/features/jobs/jobSlice';
 
 export default function Mui() {
     var token = useSelector(state => state.auth.user.token)
-    const [message, setMessage] = useState('')
     const dispatch = useDispatch()
+    const [postMessage, setpostMessage] = useState({
+        message: ''
+      }
+    )
 
-    // const handleClick= async(e)=>{
-    //     e.preventDefault()
-       
-       
+    
+    const handleClick= async(e)=>{
+        e.preventDefault();
+        const newMessage = {
+          message: postMessage.message,
+     
+        }
       
-    //     await axios.post('http://localhost:4000/message', message, {
-    //         headers: {
-    //              Authorization: `Bearer ${token}`,
-    //             },
-    //     })
-    //     .then((response) => {
-    //         console.log(response.data);
-    //     }, (error) => {
-    //         console.log(error);
-    //     });
-
-        
-    // }
+        dispatch(createMessage(newMessage))
+    }
 
     //solutiom
     const [jobs, setJobs] = useState([])
@@ -164,7 +159,7 @@ export default function Mui() {
                                                             <WhatsApp />
                                                         </ReactWhatsapp><span>WhatsApp</span>
                                                     </div>
-                                                     {/* <div className='form-input'>
+                                                     <div className='form-input'>
   
                                                         <FormControl component="form" noValidate autoComplete="off"
                                                         sx={{
@@ -173,16 +168,17 @@ export default function Mui() {
                                                             padding:'20px',
                                                             '& .MuiTextField-root': { m: 1, width: {md:'50ch', lg:'70ch'}},
                                                         }}>
-                                                            <h2>JOB POSTING FORM</h2>
-                                                        <TextField id="outlined-basic" label="message" value={message} variant="filled"
-                                                            onChange={(e) => setMessage( e.target.value )} />
-                                                      
+                                                            <h2>JOB APPLICATION FORM</h2>
+                                                            <TextField id="outlined-basic" label="cover letter" value={postMessage.message} variant="filled"
+                                                                 onChange={(e) => setpostMessage({ ...postMessage, message: e.target.value })} />
+
+
                                                         
                                                         <Button variant='contained' onClick={handleClick}>SUBMIT</Button>
                                                         </FormControl>
 
 
-                                                    </div> */}
+                                                    </div>
                                                 </div>
                                             </Popup>
 

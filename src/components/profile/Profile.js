@@ -1,6 +1,7 @@
 import { Button } from '@mui/material'
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Bids from './Bids'
 import MyPosts from './MyPosts'
 import './profile.css'
 //pnpm :(
@@ -30,12 +31,19 @@ const Profile = () => {
       </section>
         <h2>My Posts</h2>
         { employer ? (
-            <MyPosts/>
+          <>
+           <MyPosts/>
+            <Bids />
+          </>
+           
           ):(
               <h3 style={{height:'50vh', color:'black'}}>Only employers can post jobs<span style={{fontSize:'10px'}}>(Create an employer account to post jobs)</span></h3>
             )}
-        
-        
+
+            
+
+       
+
     </div>
   )
 }
