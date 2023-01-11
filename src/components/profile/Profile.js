@@ -50,7 +50,7 @@ const Profile = () => {
      
 
       </section>
-        <h2>My Posts</h2>
+       
         { employer ? (
           <>
            <MyPosts/>
@@ -59,7 +59,7 @@ const Profile = () => {
            
           ):(
             <>
-           
+           <h1>My bids</h1>
             {
               bids.map(bid => (
                  <div key={bid._id}>

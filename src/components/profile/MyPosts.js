@@ -92,6 +92,7 @@ const MyPosts = () => {
   return (
     <div>
         <>
+        <h1>My Posts</h1>
         {jobs.length === 0 && <div style={{height:'60vh'}}><h1>No jobs posted</h1></div>}
         {jobs.map(job => (
                  <Paper sx={{position:'relative', padding:'10px',  width:{xs:'90%', md:'60%'}, m:1}} elevation={4}>

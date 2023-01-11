@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 const Home = () => {
 
   const employer = useSelector(state => state.auth.employer)
-  const navigate = useNavigate()
+
   const user = useSelector(state => state.auth.user)
 
 
@@ -31,9 +31,8 @@ const Home = () => {
                     <h1>JOBSY</h1>
                     <p>
                         We make every work available for you
-                    </p>
+                    </p>   
                     {employer ? <Button variant='contained'><Link to='/post'>Get Started</Link></Button> : <Button  variant='contained'><Link to='/jobs'>Get Started</Link></Button>}
-                  
                 </section>
           </div>
         

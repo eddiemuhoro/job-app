@@ -163,15 +163,8 @@ export default function Mui() {
                                             <Popup trigger={<Button variant='contained'>Bid</Button>} modal>
                                                 <div className='bid-popup'>
                                                     <h2>{job.title}</h2>
-                                                    <h3>Connect with {job.name}</h3>
-                                                    <div className='social-icon'>
-                                                        <Phone /><a href="tel:+254 791849836"> <span>Call</span></a>
-
-                                                        <p>{job.phone}</p>
-                                                        <ReactWhatsapp number={`+254${job.phone}`} message={`Hello ${job.name}`}>
-                                                            <WhatsApp />
-                                                        </ReactWhatsapp><span>WhatsApp</span>
-                                                    </div>
+                                                    
+                                             
                                                      <div className='form-input'>
   
                                                         <FormControl component="form" noValidate autoComplete="off"
@@ -179,21 +172,13 @@ export default function Mui() {
                                                             border:'1px solid grey',
                                                             borderRadius:'5px',
                                                             padding:'20px',
-                                                            '& .MuiTextField-root': { m: 1, width: {md:'50ch', lg:'70ch'}},
+                                                            '& .MuiTextField-root': { m: 1, width: {md:'50ch', lg:'100%'} , },
                                                         }}>
                                                             <h2>JOB APPLICATION FORM</h2>
                                                             <TextField id="outlined-basic" label="cover letter" value={postMessage.description} variant="filled"
                                                                  onChange={(e) => setpostMessage({ ...postMessage, description: e.target.value })} />
-
-
-
-   
-
-                                                        
                                                         <Button variant='contained' onClick={(e)=>handleClick(job.id, e, job.title)}>SUBMIT</Button>
                                                         </FormControl>
-
-
                                                     </div>
                                                 </div>
                                             </Popup>

@@ -19,6 +19,7 @@ const Bids = ({job}) => {
      },[])
      const [isSelected , setisSelected] = React.useState(true)
      const isPicked =(id)=>{
+        if(window.confirm('Are you sure you want to approve this bid?')){
           axios.put(`https://fumbling-amusement-production.up.railway.app/bid/select/${id}`, isSelected)
             .then((response) => {
                 setisSelected(response.data);
@@ -29,7 +30,7 @@ const Bids = ({job}) => {
                 console.log(error);
             }
             )
-
+        }
         }
         
      
@@ -47,8 +48,9 @@ const Bids = ({job}) => {
                      </div>
                      <main className='job-description'>
                          
-                                <h2 style={{color:"black"}}>Cover letter</h2>
-                         <p>JavaScript offers a wide variety of array methods that make working with arrays simpler. This article demonstrated how to render data from a nested array using a map array method. Apart from map, there are also methods to help you push data to an array, concatenate two arrays, or even sort an array.</p>
+                                <h2 style={{color:"black"}}>{bid.name}</h2>
+                         {/* <p>JavaScript offers a wide variety of array methods that make working with arrays simpler. This article demonstrated how to render data from a nested array using a map array method. Apart from map, there are also methods to help you push data to an array, concatenate two arrays, or even sort an array.</p> */}
+                         <p>{bid.description}</p>
                      </main>
                      
                      <div>
