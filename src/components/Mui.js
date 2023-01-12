@@ -174,7 +174,7 @@ export default function Mui() {
                                                             padding:'20px',
                                                             '& .MuiTextField-root': { m: 1, width: {md:'50ch', lg:'100%'} , },
                                                         }}>
-                                                            <h2>JOB APPLICATION FORM</h2>
+                                                            <h2>APPLICATION FORM</h2>
                                                             <TextField id="outlined-basic" label="cover letter" value={postMessage.description} variant="filled"
                                                                  onChange={(e) => setpostMessage({ ...postMessage, description: e.target.value })} />
                                                         <Button variant='contained' onClick={(e)=>handleClick(job.id, e, job.title)}>SUBMIT</Button>
