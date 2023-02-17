@@ -15,8 +15,8 @@ import Spinner from './components/Spinner/Spinner';
 import Profile from './components/profile/Profile';
 import SocialMedia from './components/SocialMedia/Instagram';
 import RegisterEmployer from './components/authenticatioin/RegisterEmployer';
-import EmployerHomePage from './Employer/EmployerHomePage';
 import LoginEmployer from './components/authenticatioin/LoginEmployer';
+import Joinas from './components/authenticatioin/Joinas';
 
 
 
@@ -31,13 +31,13 @@ function App() {
           <Route path='/aboutus' element={<><HomeNavBar/><AboutUs/><Footer/>  </>} />
           <Route path='/directors' element={<><HomeNavBar/><Team /><Footer/> </>} />
           <Route path='/myprofile' element={<><HomeNavBar/><Profile /><Footer/> </>} />
-          <Route path='/signup' element={<><SignUp /></>} />
+          <Route path='/joinas' element={<><Joinas /></>} />
+          <Route path='/register' element={<><SignUp /></>} />
           <Route path='/registerEmployer' element={<><RegisterEmployer/></>} />
           <Route path='/loginEmployer' element={<><LoginEmployer /></>} />
           <Route path='/login' element={<><Login /></>} />
           <Route path='aboutus/instagram/jobsydekut' element={<SocialMedia />} />
 
-          <Route path='/employer' element={<><EmployerHomePage /><Footer/> </>} />
         </Routes>
 
   </div>
