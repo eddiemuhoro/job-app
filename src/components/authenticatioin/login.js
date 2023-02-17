@@ -115,7 +115,7 @@ const Login = () => {
           <button type='submit' className='btn btn-block'>
             Submit
           </button>
-          <p>Don't have an account? <Link style={{color:'black'}} to='/signup'>Sign Up</Link></p>
+          <p>Don't have an account? <Link style={{color:'black'}} to='/register'>Sign Up</Link></p>
         </div>
       </form>
     </section>
