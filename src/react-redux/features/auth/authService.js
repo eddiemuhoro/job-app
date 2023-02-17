@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const API_URL = 'https://fumbling-amusement-production.up.railway.app/';
+const API_URL = 'http://localhost:8000/';
 
 const register = async(userData)=>{
-    const response = await axios.post(API_URL + 'register/employee', userData)
+    const response = await axios.post(API_URL + 'employee/register', userData)
     if(response.data){
         localStorage.setItem('user', JSON.stringify(response.data));
     }
@@ -30,7 +30,7 @@ const loginEmployer = async (userData)=>{
 
 
 const login = async (userData)=>{
-    const response = await axios.post(API_URL + 'login/employee', userData)
+    const response = await axios.post(API_URL + 'employee/login', userData)
 
     if(response.data){
         localStorage.setItem('user', JSON.stringify(response.data));
