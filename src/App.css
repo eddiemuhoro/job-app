@@ -245,10 +245,10 @@ h2,h3,h4,h5,h6{
 
 /* HOME PAGE STYLES */
 .time{
-  padding: 20px;
+  padding: 20px ;
 }
 .time h1, h2{
-  color: #083b6e;
+  color: #244810;
   margin:0 ;
   
 }
@@ -259,37 +259,86 @@ h2,h3,h4,h5,h6{
   font-weight: bolder;
 }
 .home-page p{
-  font-size: 1.5rem;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.6px;
-  color: #2a323d;
+  color: #162d09;
 }
-.home-page{
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+
+.home-content{
+  width: 70%;
   margin: 20px;
-
 }
 
-.home-wrapper{
+/* make the input strech across the div */
+input[type=search]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.jobs-foryou{
+  width: 100%;
+}
+
+.job-categories{
   display: flex;
-  flex-direction: row-reverse;
+  align-items: cebter;
+  justify-content: flex-start;
+  margin:0 18px 0 0;
+}
+
+.job-categories a{
+  color: #4a6e08;
+  text-decoration: none;
+  margin-right: 8%;
+}
+
+.job-card{
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 10px 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.card-title{
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  margin: 0;
 }
 
-@media screen and (max-width: 500px){
-  .home-wrapper{
-    display: flex;
-    flex-direction: column;
-  }
+.card-skills{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  margin: 0 ;
 }
-  
 
+.card-skills p{
+  color: #5e6d55;
+  background-color: #e4ebe4;
+  margin: 0 5px 0 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.home-page h3{
+  color: #375d06;
+}
 
 .home-page a{
-  color: #fff;
+  color: #375d06;
   text-decoration: none;
 }
 
@@ -317,11 +366,11 @@ section{
 .bid-popup h3{
   font-weight: 800;
   letter-spacing: 0.6px;
-  color: #083b6e;
+  color: #244810;
   margin: 0;
 }
 .social-icon span{
-  color: #083b6e;
+  color: #244810;
 }
 .enquire-popup > .close {
   cursor: pointer;
@@ -338,6 +387,6 @@ section{
 }
 
 .popup-overlay {
-  background-color: #141414bf;
+  background-color: #244810;
 
 }
