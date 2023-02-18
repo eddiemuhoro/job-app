@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createMessage } from '../react-redux/features/jobs/jobSlice';
 import { useParams } from 'react-router-dom';
+import Greetings from './Greetings';
 
 
 
@@ -112,10 +113,7 @@ export default function Mui() {
                     <HomeNavBar />
 
                     <Paper style={{ margin: '30px', textAlign: 'left' }}>
-                        <div className='time'>
-                            <h2>{day}, {month} {date} </h2>
-                            <h1>{greet} {user && user.name}!</h1>
-                        </div>
+                        <Greetings/>
                     </Paper>
                     {loading ? <h1>Loading...</h1> : (
                         <>
