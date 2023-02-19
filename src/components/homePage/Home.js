@@ -6,7 +6,7 @@ import Imagee from '../myImages/image.png'
 import { useSelector } from 'react-redux'
 import Greetings from '../Greetings'
 import { ThumbDown, ThumbUp } from '@mui/icons-material'
-
+import Profile from '../profile/Profile'
 
 const Home = () => {
   const [bestMatches, setBestMatches] = React.useState(true)
@@ -43,6 +43,7 @@ const Home = () => {
         {/* <div style={{width:'100%', display:'flex', justifyContent:'right'}}>
            <PopUp />
         </div> */}
+        <section className='home-2-sections'>
         <div className='home-content'>
           <Paper style={{ margin: '0 0 20px 0', textAlign: 'left' }}>
                   <Greetings/>
@@ -81,9 +82,10 @@ const Home = () => {
           </main>
         </div>
 
-        <div className='profile-content'>
-
+        <div className='profile-info'>
+          <Profile />
         </div>
+        </section>
         
     </div>
   )
