@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux'
 import Greetings from '../Greetings'
 import { ThumbDown, ThumbUp } from '@mui/icons-material'
 import Profile from '../profile/Profile'
+import BestMatch from './categories/BestMatch'
+import MostRecent from './categories/MostRecent'
 
 const Home = () => {
   const [bestMatches, setBestMatches] = React.useState(true)
@@ -38,54 +40,75 @@ const Home = () => {
 
 
   return (
+   
     <div className='home-page'>
+     
         <HomeNavBar/>
         {/* <div style={{width:'100%', display:'flex', justifyContent:'right'}}>
            <PopUp />
         </div> */}
-        <section className='home-2-sections'>
-        <div className='home-content'>
-          <Paper style={{ margin: '0 0 20px 0', textAlign: 'left' }}>
-                  <Greetings/>
-            </Paper>
-          <main style={{width:'100%'}}>
-            <input type='search' placeholder='Search for jobs' />
-            <section className='jobs-foryou'>
-              <h2>Jobs you may like</h2>
-              <div className='job-categories'>
-                <Link onClick={handleBestMatch} style={{textDecoration: bestMatches ? 'underline' : 'none'}}>Best Match</Link>
-                <Link onClick={handleMostRecent} style={{textDecoration: mostRecent ? 'underline' : 'none'}}>Most Recent</Link>
-                <Link onClick={handleSavedJobs} style={{textDecoration: savedJobs ? 'underline' : 'none'}}>Saved Jobs</Link>
-              </div>
-              <div className='job-list'>
-                <div className='job-card'>
-                  <div className='card-title'>
-                    <h3>Software Engineer</h3>
-                    <div style={{display:'flex'}}>
-                    <ThumbUp style={{color:'#375d06', border:'1px solid gray', padding:'5px', borderRadius:'50%'}}/>
-                    <ThumbDown style={{color:'#375d06', border:'1px solid gray', padding:'5px', borderRadius:'50%', marginLeft:"10px"}}/>
-                    </div>
+      {
+        employer || user ?
+          (<section className='home-2-sections'>
+            <div className='home-content'>
+              <Paper style={{ margin: '0 0 20px 0', textAlign: 'left' }}>
+                <Greetings />
+              </Paper>
+              <main style={{ width: '100%' }}>
+                <input type='search' placeholder='Search for jobs' />
+                <section className='jobs-foryou'>
+                  <h2>Jobs you may like</h2>
+                  <div className='job-categories'>
+                    <Link onClick={handleBestMatch} style={{ textDecoration: bestMatches ? 'underline' : 'none' }}>Best Match</Link>
+                    <Link onClick={handleMostRecent} style={{ textDecoration: mostRecent ? 'underline' : 'none' }}>Most Recent</Link>
+                    <Link t onClick={handleSavedJobs} style={{ textDecoration: savedJobs ? 'underline' : 'none' }}>Saved Jobs</Link>
                   </div>
-                  <div className='card-content'>
-                      <div className='card-content-left'>
-                      <p>Hi, we'd be looking to adjust an HTML for a landing page https://spadia.shop/supplements/ We're using an a/b testing tool Google Optimize, for which we'd need to align our text based on a document with the use of HTML in the tool.</p>
-                      </div>
-                   </div>
-                   {/* skills */}
-                    <div className='card-skills'>
-                      <p>HTML</p>
-                      <p>CSS</p>
-                    </div>
-                </div>
-              </div>
-            </section>
-          </main>
-        </div>
+                  <div className='job-list'>
+                    {bestMatches && <BestMatch />}
+                    {mostRecent && <MostRecent />}
 
-        <div className='profile-info'>
-          <Profile />
-        </div>
-        </section>
+
+                  </div>
+
+                </section>
+              </main>
+            </div>
+
+            <div className='profile-info'>
+              <Profile />
+            </div>
+          </section>) :
+          (
+            <div style={{height:'90vh'}} className='unregestered'>
+              <div>
+                <section className='advert'>
+                  <h1>
+                  Hire the best freelancers for any job, online.
+                  </h1>
+                </section>
+
+                <section className='advert'>
+                  <ul>
+                    <li>Any job you can possibly think of</li>
+                    <li>Any skill you can possibly think of</li>
+                    <li>Any budget you can possibly think of</li>
+                  </ul>
+                </section>
+                <Link to='/joinas'> <Button style={{backgroundColor:'green'}} variant='contained' color='primary'>Get Started</Button></Link>
+
+              </div>
+              <div>
+                <section className='image-home'>
+                    <img src={Imagee} alt='kenya' />
+                </section> 
+              </div>
+             
+            </div>
+          
+          )
+      }
+
+      
         
     </div>
   )
