@@ -1,4 +1,4 @@
-import { Forward } from '@mui/icons-material'
+import { Add, Flag, Forward } from '@mui/icons-material'
 import { Button, Paper } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
@@ -107,14 +107,26 @@ const Profile = () => {
               <button
                 className="slider-next"
                 onClick={handleNextClick}
-                
               >
                 <Forward/>
               </button>
             </div>
           </div>
 
+          {/* show balance */}
         </section>
+
+        <section className='profile-balance'>
+          <header>
+            <h4>Balance</h4>
+            <Link to='/' ><Add style={{padding:'2px', border:'1px solid gray', borderRadius:'50%'}}/></Link>
+
+          </header>
+          <section className='balance'> 
+            <Flag/>           
+            <p>0.00</p>
+          </section>
+          </section>
 
 
 

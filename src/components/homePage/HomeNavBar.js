@@ -43,7 +43,6 @@ const HomeNavBar = () => {
         if(user){
             toast.success('view job')
         }
-
         if(!user){
             alert("log in to view job")
             navigate('/login')
@@ -59,8 +58,9 @@ const HomeNavBar = () => {
             
             <Link to='/'>
                 <div className='jobsy-logo'>
-                    <img src='https://www.clipartmax.com/png/middle/413-4139811_transparent-background-cool-logo.png' alt='jobsy-logo' />
-                    <h1>JOBSY</h1>
+                    <img src='https://firebasestorage.googleapis.com/v0/b/fir-api-7421d.appspot.com/o/test%2Flogo-design-49584.png?alt=media&token=ff285738-75e8-47a4-9e9a-66f421c9dd40' alt='jobsy-logo' />
+                    <Link to='/'>Find jobs</Link>
+                    <Link to='/'>Find talent</Link>
                 </div>
             </Link>
             <div className={isNavExpanded ?  'nav-links mobile' : 'nav-links'}>
@@ -71,8 +71,7 @@ const HomeNavBar = () => {
                             </>
                             ):(
                                 ' '
-                            )}
-                            
+                            )}                           
                             {employer ? (
                                 <>
                                 <NavLink onClick={postJob} to='/post' style={{textDecoration: 'none'}}><li>Post</li></NavLink>
@@ -82,8 +81,6 @@ const HomeNavBar = () => {
                                 )
                                 }
 
-                            
-                        
                         <NavLink to='/aboutus' style={{textDecoration: 'none'}}><li>About Us</li></NavLink>
                         {user || employer ? (
                         <>

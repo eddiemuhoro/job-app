@@ -23,14 +23,20 @@
     border-radius: 50%;
 }
 
-.profile-complete{
+.profile-complete, .profile-balance{
     color: #5e6d55;
     background-color: #e4ebe4;
-    margin: 0 5px 0 0;
+    margin: 10px 0;
     padding: 5px;
     border-radius: 5px;
 }
 
+.profile-balance header, .balance{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
 .profile-complete h4{
     margin: 0 0 10px 0;
 }
