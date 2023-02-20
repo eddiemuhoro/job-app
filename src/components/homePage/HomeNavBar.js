@@ -95,7 +95,7 @@ const HomeNavBar = () => {
                         </>
                             ): (  
                                 <div style={{display:"flex", flexDirection:'column', alignItems:'center'}}>
-                                     <Link style={{ margin: '3px', background:"#1976d2", padding:'3px', color:"white"}} to='/joinas'>Register</Link>
+                                     <Link style={{ margin: '3px', background:"#green", padding:'3px', color:"green"}} to='/joinas'>Register</Link>
                                 <div className='signup-section'>
 
                                 </div>
