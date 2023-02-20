@@ -9,6 +9,7 @@ import { ThumbDown, ThumbUp } from '@mui/icons-material'
 import Profile from '../profile/Profile'
 import BestMatch from './categories/BestMatch'
 import MostRecent from './categories/MostRecent'
+import SlidingImages from './SlidingImages'
 
 const Home = () => {
   const [bestMatches, setBestMatches] = React.useState(true)
@@ -79,8 +80,8 @@ const Home = () => {
             </div>
           </section>) :
           (
-            <div style={{height:'90vh'}} className='unregestered'>
-              <div>
+            <div className='unregestered'>
+              <div className='unreg-right'>
                 <section className='advert'>
                   <h1>
                   Hire the best freelancers for any job, online.
@@ -96,10 +97,19 @@ const Home = () => {
                 </section>
                 <Link to='/joinas'> <Button style={{backgroundColor:'green'}} variant='contained' color='primary'>Get Started</Button></Link>
 
+                <section className='trustees'>
+                  <p>Trusted By</p>
+                  <div className='trusted-by'>
+                    <img src='https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload//c_fit/general/logobar/colored/microsoft.svg' alt='freelancer' />
+                    <img src='https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload//c_fit/general/logobar/colored/airbnb.svg' alt='freelancer' />
+                    <img src='https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload//c_fit/general/logobar/colored/bissell.svg' alt='freelancer' />
+                  </div>
+                </section>
+
               </div>
-              <div>
+              <div className='unreg-left'>
                 <section className='image-home'>
-                    <img src={Imagee} alt='kenya' />
+                   <SlidingImages/>
                 </section> 
               </div>
              
