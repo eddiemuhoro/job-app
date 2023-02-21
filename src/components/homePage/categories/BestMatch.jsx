@@ -1,6 +1,8 @@
-import { ThumbDown, ThumbUp } from '@mui/icons-material'
+import {  ThumbDown, ThumbUp } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import {GoVerified} from 'react-icons/go'
+import { Link } from 'react-router-dom'
 const BestMatch = () => {
   //solutiom
   const [jobs, setJobs] = useState([])
@@ -22,10 +24,14 @@ const BestMatch = () => {
       }
       )
   }, [])
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
+} 
   return (
     <>
       {loading ? <h1>Loading...</h1> : jobs.map((job) => (
-        <div key={job.id} className='job-card'>
+        <Link onClick={scrollToTop} to={`/job/${job.id}`} key={job.id}>
+        <div className='job-card'>
           <div className='card-title'>
             <h3>{job.title}</h3>
             <div style={{ display: 'flex' }}>
@@ -35,7 +41,7 @@ const BestMatch = () => {
           </div>
           <div className='card-content'>
             <div className='card-content-left'>
-              <p>{job.description}</p>
+              <p>We are seeking a talented React Developer with extensive experience in Typescript and Tailwind CSS to join our development team. The successful candidate will work on an ongoing project to develop new features and maintain existing codebases.</p>
             </div>
           </div>
           
@@ -47,9 +53,15 @@ const BestMatch = () => {
                   ))
                 }
               </div>
-           
-         
+
+              <div className='payment-verification'>
+                <div className='payment'>
+                  <GoVerified style={{marginRight:"5px"}} />
+                  <p> Payment Verified</p>
+                </div>
+              </div>
         </div>
+        </Link>
       ))
       }
 
