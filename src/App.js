@@ -17,6 +17,7 @@ import SocialMedia from './components/SocialMedia/Instagram';
 import RegisterEmployer from './components/authenticatioin/RegisterEmployer';
 import LoginEmployer from './components/authenticatioin/LoginEmployer';
 import Joinas from './components/authenticatioin/Joinas';
+import SingleJob from './components/homePage/categories/SingleJob';
 
 
 
@@ -37,6 +38,9 @@ function App() {
           <Route path='/loginEmployer' element={<><LoginEmployer /></>} />
           <Route path='/login' element={<><Login /></>} />
           <Route path='aboutus/instagram/jobsydekut' element={<SocialMedia />} />
+
+          
+          <Route path='/job/:id' element={<SingleJob />} />
 
         </Routes>
 
