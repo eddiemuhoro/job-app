@@ -21,7 +21,7 @@ footer{
     font-size: 13px;
     margin-bottom: 10px;
   }
-  footer a, h3{
+  footer a, footer h3{
     text-decoration: none;
     color: white;
   }
