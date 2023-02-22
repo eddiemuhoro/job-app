@@ -48,7 +48,7 @@ const Joinas = () => {
 
             </div>
 
-            <p>Already have an account? <Link style={{color:'green'}} to='/login'>Login</Link> </p>
+            <p>Already have an account? <Link style={{color:'green', textDecoration:"underline"}} to='/login'>Login</Link> </p>
             </div>
         
         </div>
