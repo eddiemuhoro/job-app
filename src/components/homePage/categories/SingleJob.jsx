@@ -23,6 +23,16 @@ const SingleJob = () => {
             }
             )
     }, [])
+    const scrollToTop = () => {
+        window.scrollTo(0, 0)
+        //reload page 2 seconds after clicking on the button
+        setTimeout(() => {
+            window.location.reload()
+        }
+            , 500)
+            
+        
+      }
 
 const test = job.employerId
     const [employerJobs, setEmployerJobs] = useState([])
@@ -80,7 +90,7 @@ const test = job.employerId
                 </section>
                 <section className='app-right'>
                     <div className='apply-btns'>
-                        <button className='btn btn-primary'>Apply Now</button>
+                        <Link t to={`/job/${job.id}/apply`}><button className='btn btn-primary'>Apply Now</button></Link>
                         <button className='btn btn-secondary'><AiOutlineHeart/>Save Job</button>
                         <p><BsFlagFill />Flag as inappropriate</p>
                     </div>
@@ -101,16 +111,18 @@ const test = job.employerId
                     {
                        loadingJobs ? <h2>Loading...</h2>: (employerJobs.map((ejob) => {
                             return (
-                                <div key={ejob.id} className='single-job'>
-                                    <div className=''>
-                                        <h3>{ejob.title}</h3>
-                                        <p>{ejob.description}</p>
+                                <Link key={ejob.id} onClick={scrollToTop} to={`/job/${ejob.id}`} style={{textDecoration:'none', color:'black'}}>
+                                    <div className='single-job'>
+                                        <div className=''>
+                                            <h3>{ejob.title}</h3>
+                                            <p>{ejob.description}</p>
+                                        </div>
+                                        <div className='job-price'>
+                                            <p><strong>Ksh 500</strong></p>
+                                            <p>Fixed-price</p>
+                                        </div>
                                     </div>
-                                    <div className='job-price'>
-                                        <p><strong>Ksh 500</strong></p>
-                                        <p>Fixed-price</p>
-                                    </div>
-                                </div>
+                                </Link>
                             )
                         })
                         )
