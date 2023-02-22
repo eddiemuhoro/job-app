@@ -13,6 +13,36 @@ body{
     sans-serif;
 }
 
+select{
+  width: 50%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: #2a323d;
+  margin-bottom: 20px;
+}
+
+textarea{
+  width: 100%;
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: #2a323d;
+  margin-bottom: 20px;
+  margin : 10px 0;
+}
+select:focus, textarea:focus{
+  outline: none;
+}
+
 .App h1,h2,h3,h4,h5,h6{
   color: #244810;
   margin: 0;
@@ -94,14 +124,7 @@ h2,h3,h4,h5,h6{
 }
 
 /* FORM STYLES. */
-.form-input{
-  display: flex;
-  align-items: center;
-  width: 100%;
-  flex-direction: column;
-  margin-bottom: 20px;
-  z-index: -1;
-}
+
 
 /* SIGNUP SECTION */
 .signup-form{
@@ -463,6 +486,18 @@ input[type=search]{
 
 }
 
+.application-container button{
+  padding: 10px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  margin: 20px 0;
+}
+
 
 
 .application-wrapper, .similar-jobs{
@@ -595,6 +630,41 @@ strong:hover{
   cursor: pointer;
 }
 
+.button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  background-color: #ffffff;
+ box-shadow : 0 0 10px 0 rgba(0,0,0,0.2);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.tooltip p {
+  margin: 0;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #555 transparent;
+}
+
+
 .home-page h3{
   color: #375d06;
 }
@@ -659,5 +729,10 @@ strong:hover{
   .home-2-sections .home-content{
     width: 100%;
   }
-  
+  select{
+    width: 100%;
+  }
+  .application-wrapper, .similar-jobs{
+    width: 100%;
+  }
 }
