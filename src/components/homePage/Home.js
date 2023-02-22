@@ -49,7 +49,7 @@ const Home = () => {
            <PopUp />
         </div> */}
       {
-        employer || user ?
+         user ?
           (<section className='home-2-sections'>
             <div className='home-content'>
               <Paper style={{ margin: '0 0 20px 0', textAlign: 'left' }}>
@@ -95,7 +95,10 @@ const Home = () => {
                     <li>Any budget you can possibly think of</li>
                   </ul>
                 </section>
-                <Link to='/joinas'> <Button style={{backgroundColor:'green'}} variant='contained' color='primary'>Get Started</Button></Link>
+                {
+                  employer ? '': <Link to='/joinas'> <Button style={{backgroundColor:'green'}} variant='contained' color='primary'>Get Started</Button></Link>
+                }
+                
 
                 <section className='trustees'>
                   <p>Trusted By</p>
