@@ -11,7 +11,7 @@ const register = async(userData)=>{
 }
 
 const registerEmployer = async(userData)=>{
-    const response = await axios.post(API_URL + 'register/employer', userData)
+    const response = await axios.post(API_URL + '/employer/register', userData)
     if(response.data){
         localStorage.setItem('employer', JSON.stringify(response.data));
     }
@@ -19,7 +19,7 @@ const registerEmployer = async(userData)=>{
 }
 
 const loginEmployer = async (userData)=>{
-    const response = await axios.post(API_URL + 'login/employer', userData)
+    const response = await axios.post(API_URL + 'employer/login', userData)
 
     if(response.data){
         localStorage.setItem('employer', JSON.stringify(response.data));
