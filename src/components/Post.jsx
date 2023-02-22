@@ -3,10 +3,36 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button, FormControl } from '@mui/material';
 import axios from 'axios';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { createJob } from '../react-redux/features/jobs/jobSlice';
+import '../styles/post.css'
+import { margin } from '@mui/system';
+
+function SkillInput({ onSkillsChange }) {
+  const [skills, setSkills] = useState([]);
+
+  function handleChange(event) {
+    const newValue = event.target.value;
+    const newSkills = newValue.split(',').map(skill => skill.trim());
+    setSkills(newSkills);
+    onSkillsChange(newSkills);
+  }
+
+  return (
+    <div>
+      <label htmlFor="skills">Skills:</label>
+      <input
+        type="text"
+        id="skills"
+        placeholder='e.g. "HTML, CSS, JavaScript"'
+        value={skills.join(', ')}
+        onChange={handleChange}
+      />
+    </div>
+  );
+}
 
 
 const Post = () => {
@@ -19,26 +45,42 @@ const Post = () => {
     title: '',
     description: '',
     employerId: '',
-    location: '',
-    salary:'',
+    skills: [],
   }
-)
+  )
 
-  const handleClick =async (e) => {
+  const [value, setValue] = useState('');
+  const [skills, setSkills] = useState([]);
 
-    
+  function handleSkillsChange(newSkills) {
+    setSkills(newSkills);
+  }
+
+
+  function handleChange(event) {
+    const newValue = event.target.value;
+    if (newValue.length >= 30) {
+      setValue(newValue);
+    } else {
+      setValue(newValue);
+    }
+  }
+
+  const handleClick = async (e) => {
+
+
     e.preventDefault();
     const newjob = {
       title: postjob.title,
-      description: postjob.description,
-      employerId:  (employer.id),
-      location: postjob.location,
-      salary: postjob.salary,
+      description: value,
+      employerId: (employer.id),
+      skills: skills,
     }
 
-   
-    dispatch(createJob(newjob))
-  
+//display skills
+    console.log(skills);
+    console.log(newjob);
+
     // await axios.post('http://localhost:5000/jobs/new',   newjob)
     // setpostjob({
     //   title: '',
@@ -49,43 +91,40 @@ const Post = () => {
 
     // })
     alert('job posted')
-  
+
     toast.success('job posted')
     navigate('/myprofile')
 
   }
-//sdfsf
-  return (
-    <div className='form-input'>
   
-         <FormControl component="form" noValidate autoComplete="off"
-         sx={{
-           border:'1px solid grey',
-           borderRadius:'5px',
-           padding:'20px',
-           '& .MuiTextField-root': { m: 1, width: {md:'50ch', lg:'70ch'}},
-         }}>
-           <h2>JOB POSTING FORM</h2>
-         <TextField id="outlined-basic" label="job title" value={postjob.title} variant="filled"
-           onChange={(e) => setpostjob({ ...postjob, title: e.target.value })} />
-         <TextField id="filled-basic" label="description" value={postjob.description} variant="filled"
-           onChange={(e) => setpostjob({ ...postjob, description: e.target.value })} />
-         <TextField sx={{display:'none'}}  id="standard-basic" label="name" defaultValue={(employer.id)} variant="filled"
-           onChange={(e) => setpostjob({ ...postjob, employerId: (employer.id)})} />
+  //sdfsf
+  return (
+    <div className='post-container'>
+      <div className='post-wrapper'>
+        <section className='top'>
+          <h1>Tell us what you need done</h1>
+          <p>Contact skilled freelancers within minutes. View profiles, ratings, portfolios and chat with them. Pay the freelancer only when you are 100% satisfied with their work.</p>
+        </section>
 
-   
-           <TextField id="filled-basic" label="location/ remote" value={postjob.location} variant="filled"
-           onChange={(e) => setpostjob({ ...postjob, location: e.target.value })} />
+        <section className='form-inputs'>
+          <form className='form' onSubmit={handleClick}>
+            <label htmlFor='title'>Choose a name for your project</label> <br />  <br />
+            <input type='text' name='title' id='title' placeholder='e.g. Build me a website' value={postjob.title} onChange={(e) => setpostjob({ ...postjob, title: e.target.value })} /><br/> <br/>
+            <label htmlFor='description'>Tell us more about your project</label>
+            <textarea name='description' id='description' placeholder='Start your project description here' value = {value} onChange={handleChange} />
+            {value.length < 30 && (
+                <div style={{ color: 'red', margin:'0', textAlign:'right'}}>
+                  Please enter at least 30 characters.
+                </div>
+            )}
+            {/* SKILLS REQUIRED */}
+            <SkillInput onSkillsChange={handleSkillsChange} />
 
-          <TextField id="filled-basic" label="salary" 
-           value={postjob.salary} variant="filled"
-           onChange={(e) => setpostjob({ ...postjob, salary: e.target.value })} />
+            <button type='submit' className='btn'>Post Job</button>
+          </form>
+        </section>
+      </div>
 
-        
-         <Button variant='contained' onClick={handleClick}>SUBMIT</Button>
-       </FormControl>
-      
-     
     </div>
   )
 }
