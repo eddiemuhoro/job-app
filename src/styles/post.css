@@ -1,9 +1,4 @@
-.post-container{
-    background-image: url(https://img.freepik.com/premium-vector/green-curve-frame-template-vector_53876-162220.jpg);
-    background-size: cover;
-    background-position: center;
 
-}
 .post-wrapper{
     margin: 0 auto;
     width: 60%;
@@ -31,4 +26,17 @@ label{
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
+}
+
+.from .dark button{
+    background-color: white;
+    color: white;
+}
+
+.post-btn{
+    background-color: gray;
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+    outline: none;
 }

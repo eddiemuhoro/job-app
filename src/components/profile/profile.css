@@ -24,8 +24,8 @@
 }
 
 .profile-complete, .profile-balance{
-    color: #5e6d55;
-    background-color: #e4ebe4;
+    
+    /* background-color: #e4ebe4; */
     margin: 10px 0;
     padding: 5px;
     border-radius: 5px;
@@ -51,7 +51,7 @@
     bottom: 20px;
     right: 0;
     background-color: rgb(43, 43, 207) ;
-    color: white;
+   
     padding: 0 2px;
     border-radius: 5px;
 }
