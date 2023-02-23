@@ -2,15 +2,22 @@
 *{
   box-sizing: border-box;
 }
-body{
+.App{
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #f5f5f5;
-  
   font-family: "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+}
+
+a{
+  color: green;
+}
+
+.dark a{
+  color: #4f79b3;
 }
 
 select{
@@ -32,22 +39,74 @@ textarea{
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
-  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 0.6px;
   color: #2a323d;
   margin-bottom: 20px;
   margin : 10px 0;
 }
 select:focus, textarea:focus{
   outline: none;
+  
 }
+
+.dark textarea, .dark input{
+  background-color: #14171c;
+  color: #ccc;
+}
+
+
 
 .App h1,h2,h3,h4,h5,h6{
   color: #244810;
   margin: 0;
   padding: 0;
 }
+
+.App p{
+  color: #2a323d;
+}
+
+.App{
+  width: 100%;
+  margin: auto;
+  position: relative;
+  max-width: 1200px;
+}
+
+.dark{
+  background-color: #000;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  max-width: 1200px;
+  max-width: 1200px;
+}
+
+.dark h1,h2,h3,h4,h5,h6{
+  color: #f7f4f4;
+}
+
+.dark p{
+  color: #ccc;
+}
+
+.dark label{
+  color: #f7f4f4;
+}
+
+.dark a{
+  color: #ccc;
+}
+
+.dark li{
+  color: #ccc;
+}
+
+.dark .css-1xe8rb9-MuiPaper-root{
+  background-color: #000;
+}
+
+
 a{
   color:green;
 }
@@ -57,13 +116,8 @@ h2{
   font-weight: 500;
 }
 
-.App{
-  width: 100%;
-  margin: auto;
-  background-color: rgb(255, 255, 255);
-  position: relative;
-  max-width: 1200px;
-}
+
+
 
 /* JOBS STYLES */
 
@@ -99,13 +153,9 @@ h2{
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.6px;
-  color: #2a323d;
+
 }
 
-h2,h3,h4,h5,h6{
-  letter-spacing: 0.6px;
-  color: #083b6e;
-}
 
 .job-bottom span{
   font-size: 10px;
@@ -135,7 +185,6 @@ h2,h3,h4,h5,h6{
 
   margin-top: 30px;
   padding: 20px;
-  background-color: #fff;
   border-radius: 10px;
 }
 
@@ -146,7 +195,6 @@ h2,h3,h4,h5,h6{
   justify-content: center;
   width: 50%;
   padding: 20px;
-  background-color: #fff;
   border-radius: 10px;
 }
 @media screen and (max-width: 768px){
@@ -174,7 +222,6 @@ h2,h3,h4,h5,h6{
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  background-color: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -199,11 +246,9 @@ h2,h3,h4,h5,h6{
 
 .nav-links ul a{
   margin-right: 30px;
-  color: green;
   font-size: 1rem;
   padding: 5px;
   border-radius: 5px;
-
 }
 
 .jobsy-logo{
@@ -222,7 +267,6 @@ h2,h3,h4,h5,h6{
   font-style: italic;
   font-weight: 500;
   letter-spacing: 0.6px;
-  color: #083b6e;
   text-decoration: none;
 }
 
@@ -234,30 +278,36 @@ h2,h3,h4,h5,h6{
     display: block;
     font-size: 1.5rem;
     cursor: pointer;
-    color: black;
     cursor: pointer;
   }
   .nav-links.mobile ul{
     display:flex;
+    border-radius: 10px 0 0 10px;
     flex-direction: column;
     align-items: center;
     position: absolute;
     text-align: center;
    z-index: 999;
     top: 30px;
+    background-color: rgb(238, 235, 235);
     right: -0;
-    background-color: #fff;
     width: 50%;
     height: auto;
     margin-right: 0;
     padding: 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
+
+  .dark .nav-links.mobile ul{
+    background-color: #000;
+  }
+  .dark .menu-icon{
+    color: white;
+  }
   .nav-links.mobile ul a{
     padding: 20px 0;
     margin-right: 0;
     margin-bottom: 20px;
-    color: green;
     font-size: 1rem;
     width: 100%;
   }
@@ -288,13 +338,11 @@ h2,h3,h4,h5,h6{
   padding: 20px ;
 }
 .time h1, h2{
-  color: #244810;
   margin:0 ;
   
 }
 
 .home-page h1,h2,h3,h4,h5,h6{
-  color: #244810;
   margin: 0;
   padding: 0;
 }
@@ -390,7 +438,6 @@ h2,h3,h4,h5,h6{
   font-size: 2.5rem;
   font-weight: 600;
   letter-spacing: 0.6px;
-  color: #244810;
   margin: 0;
   padding: 0;
 }
@@ -428,7 +475,6 @@ input[type=search]{
 }
 
 .job-categories a{
-  color: #4a6e08;
   text-decoration: none;
   margin-right: 8%;
 }
@@ -463,7 +509,6 @@ input[type=search]{
 }
 
 .card-skills p{
-  color: #5e6d55;
   background-color: #e4ebe4;
   margin: 0 5px 0 0;
   padding: 5px;
@@ -522,7 +567,6 @@ input[type=search]{
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.6px;
-  color: #306412;
   margin: 0;
   padding: 0;
 }
@@ -666,11 +710,11 @@ strong:hover{
 
 
 .home-page h3{
-  color: #375d06;
+
 }
 
 .home-page a{
-  color: #375d06;
+
   text-decoration: none;
 }
 
