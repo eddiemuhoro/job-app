@@ -35,7 +35,7 @@ function SkillInput({ onSkillsChange }) {
 }
 
 
-const Post = () => {
+const Post = ({theme}) => {
   const employer = useSelector(state => state.auth.employer)
   console.log(employer.id);
   const dispatch = useDispatch()
@@ -95,8 +95,10 @@ const Post = () => {
     toast.success('job posted')
     navigate('/myprofile')
 
+
   }
-  
+
+
   //sdfsf
   return (
     <div className='post-container'>
@@ -107,7 +109,7 @@ const Post = () => {
         </section>
 
         <section className='form-inputs'>
-          <form className='form' onSubmit={handleClick}>
+          <form className={theme === 'white' ? 'form dark' : 'form'} onSubmit={handleClick}>
             <label htmlFor='title'>Choose a name for your project</label> <br />  <br />
             <input type='text' name='title' id='title' placeholder='e.g. Build me a website' value={postjob.title} onChange={(e) => setpostjob({ ...postjob, title: e.target.value })} /><br/> <br/>
             <label htmlFor='description'>Tell us more about your project</label>
@@ -120,7 +122,7 @@ const Post = () => {
             {/* SKILLS REQUIRED */}
             <SkillInput onSkillsChange={handleSkillsChange} />
 
-            <button type='submit' className='btn'>Post Job</button>
+            <button type='submit' className='post-btn'>Post Job</button>
           </form>
         </section>
       </div>
