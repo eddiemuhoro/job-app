@@ -167,7 +167,7 @@ const RegisterEmployer = () => {
           <button type='submit' className='btn btn-block'>
             Submit
           </button>
-          <p>Already have an account? <Link style={{color:'black'}} to='/loginEmployer'>Login</Link></p>
+          <p>Already have an account? <Link  to='/loginEmployer'>Login</Link></p>
         </div>
       </form>
     </section>
