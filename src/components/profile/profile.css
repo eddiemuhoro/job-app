@@ -6,7 +6,8 @@
 }
 
 .profile-wrapper section{
-    width: 100%;
+    width: 70%;
+    margin: auto;
  
 }
 
@@ -85,9 +86,48 @@
     font-size: 16px;
     cursor: pointer;
   }
-  
+
+  .bid-header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .bid-header h3{
+    margin: 0 0 0 5px;
+  }
+
+  .bid-header p{
+    margin: 0 0 0 5px;
+  }
+
+    .bid-header img{
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .filters{
+        margin: 10px 0;
+        width: 60%;
+    }
+
+    .filters ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+    }
+
+    .filters ul li{
+       border: 1px solid #ccc;
+         padding: 5px;
+            border-radius: 5px;
 
 
+    }
 
 @media (max-width: 768px) {
     .profile-details{
