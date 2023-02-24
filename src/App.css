@@ -54,6 +54,9 @@ select:focus, textarea:focus{
   color: #ccc;
 }
 
+.dark h1,h2,h3,h4,h5,h6{
+  color: #f7f4f4;
+}
 
 
 .App h1,h2,h3,h4,h5,h6{
@@ -82,9 +85,6 @@ select:focus, textarea:focus{
   max-width: 1200px;
 }
 
-.dark h1,h2,h3,h4,h5,h6{
-  color: #f7f4f4;
-}
 
 .dark p{
   color: #ccc;
