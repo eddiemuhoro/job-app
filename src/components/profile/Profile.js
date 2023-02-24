@@ -70,7 +70,9 @@ const Profile = () => {
 
   return (
     <div className='profile-wrapper'>
-      <section className='profile-details'>
+      {
+        user ? (
+          <section className='profile-details'>
         <h2>Account Details</h2>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <img src={((user && user.selectedFile) || (employer && employer.selectedFile)) || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJkC07QFuZvIeLEadibGh6ZkDXshm8PakYYzPMMZywg&s'} alt='profile' />
@@ -127,12 +129,10 @@ const Profile = () => {
             <p>0.00</p>
           </section>
           </section>
-
-
-
       </section>
-
-      {/* 
+        ):''
+      }
+      
        <section>
         { employer ? (
           <>
@@ -158,7 +158,7 @@ const Profile = () => {
               <h3 style={{height:'50vh', color:'black'}}>Only employers can post jobs<span style={{fontSize:'10px'}}>(Create an employer account to post jobs)</span></h3>
             </>
             )}
-        </section> */}
+        </section>
 
 
 
