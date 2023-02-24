@@ -20,6 +20,13 @@ a{
   color: #4f79b3;
 }
 
+nav{
+
+  background-color: #fff;
+  margin: 0 0 10px 0;
+
+}
+
 select{
   width: 50%;
   height: 40px;
@@ -31,6 +38,11 @@ select{
   letter-spacing: 0.6px;
   color: #2a323d;
   margin-bottom: 20px;
+}
+
+section{
+  padding: 20px;
+  background-color: white;
 }
 
 textarea{
