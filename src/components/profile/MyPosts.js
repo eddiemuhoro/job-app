@@ -22,7 +22,7 @@ const MyPosts = () => {
    
     useEffect(() => {
      
-        axios.request(`https://fumbling-amusement-production.up.railway.app/job/employer/${employer.id}`)
+        axios.request(`http://localhost:8000/job/employer/${employer.id}`)
             .then((response) => {
                 setJobs(response.data);
                 console.log(response.data)
@@ -101,52 +101,11 @@ const MyPosts = () => {
                          <h1>{job.title}</h1>
                      </div>
                      <main className='job-description'>
-                         <p>{job.description}</p>
+                         <p>You will download the template on your server to build the website. You will work with a member of our team that will give you images, text, copy, and add them to the shopify template</p>
                      </main>
-                     
-                     <div>
-                         <div className='job-bottom'>
-                             <div style={{display:'flex', alignItems:'center'}}>
-                                 <LocationOn /><p>{job.location}</p>
-                             </div>
-                             <p>Ksh. {job.salary}</p>
-                         </div>
-                         <div  className='job-time'>                         
-                         <Button variant='contained'  onClick={(e, id)=> deleteJob(e, job.id)} >delete</Button>
-                       
-                      
-                         <Popup trigger={<Button variant='contained'>Update</Button> } modal>
-                                 <div className='bid-popup'>
-
-
-                                 <FormControl component="form" noValidate autoComplete="off"
-                                        sx={{
-                                        border:'1px solid grey',
-                                        borderRadius:'5px',
-                                        padding:'20px',
-                                        '& .MuiTextField-root': { m: 1, width: {md:'50ch', lg:'auto'}},
-                                        }}>
-                                        <h2>JOB POSTING FORM</h2>
-                                        <TextField id="outlined-basic" label="job title"  value={newTitle}  onChange={(e)=>{setNewTitle(e.target.value)}} />
-                                        <TextField id="filled-basic" label="description" value={newDescription}  onChange={(e)=>{setNewDescription(e.target.value)}} />
-                                        <TextField id="filled-basic" label="location"  value={newLocation}  onChange={(e)=>{setNewLocation(e.target.value)}} />
-                                        <TextField id="filled-basic" label="salary" 
-                                       value={newSalary}  onChange={(e)=>{setNewSalary(e.target.value)}}/>
-                                        <Button variant='contained' onClick={(e)=> updateTitle(e,job.id)}>SUBMIT</Button>
-                             </FormControl>
-
-                                 </div>
-                             
-                             </Popup>
-                         </div>
-                        
-                     </div>
                  </div>
-                 <Bids job={job.id} />
-             </Paper>
-
-   
-       
+                 <Bids job={job.id} name={job.title}/>
+                 </Paper>
              ))}
         </>
     </div>
