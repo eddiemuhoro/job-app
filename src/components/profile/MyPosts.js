@@ -95,7 +95,7 @@ const MyPosts = () => {
         <h1>My Posts</h1>
         {jobs.length === 0 && <div style={{height:'60vh'}}><h1>No jobs posted</h1></div>}
         {jobs.map(job => (
-                 <Paper sx={{position:'relative', padding:'10px',  width:{xs:'90%', md:'60%'}, m:1}} elevation={4}>
+                 <Paper key={job.id} sx={{position:'relative', padding:'10px',  width:{xs:'90%', md:'60%'}, m:1}} elevation={4}>
                      <div className=''>
                      <div className='job-title'>
                          <h1>{job.title}</h1>
@@ -104,7 +104,7 @@ const MyPosts = () => {
                          <p>You will download the template on your server to build the website. You will work with a member of our team that will give you images, text, copy, and add them to the shopify template</p>
                      </main>
                  </div>
-                 <Bids job={job.id} name={job.title}/>
+                 <Bids job={job.id} />
                  </Paper>
              ))}
         </>
