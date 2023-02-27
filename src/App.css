@@ -118,6 +118,26 @@ select:focus, textarea:focus{
   background-color: #000;
 }
 
+.dark .css-1xe8rb9-MuiPaper-root .css-1xe8rb9-MuiPaper-root{
+  background-color: #000;
+}
+
+.dark .css-1xe8rb9-MuiPaper-root .css-1xe8rb9-MuiPaper-root .css-1xe8rb9-MuiPaper-root{
+  background-color: #000;
+}
+
+.dark .css-1xe8rb9-MuiPaper-root .css-1xe8rb9-MuiPaper-root .css-1xe8rb9-MuiPaper-root .css-1xe8rb9-MuiPaper-root{
+  background-color: #000;
+}
+
+.dark section{
+  background-color: #14171c;
+}
+
+
+
+
+
 
 a{
   color:green;
@@ -382,6 +402,10 @@ h2{
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-info .profile-details, .profile-info .profile-wrapper section{ 
+  width: 100%;
 }
 
 .home-content{
@@ -735,12 +759,16 @@ strong:hover{
 
 /* POPUP */
 .bid-popup{
-  text-align: center;
-  background-color: rgb(255, 255, 255);
+  width: 500px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 10px;
   padding: 20px;
   position: relative;
-  border-radius: 15px;
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .bid-popup h3{
   font-weight: 800;
@@ -766,8 +794,20 @@ strong:hover{
 }
 
 .popup-overlay {
-  background-color: #244810;
+  background-color: #3f5a30b6;
+}
 
+.popup-content {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  max-width: 500px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease-in-out;
+  font-family: sans-serif;
 }
 
 
