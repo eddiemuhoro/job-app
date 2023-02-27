@@ -81,15 +81,15 @@ const Post = ({theme}) => {
     console.log(skills);
     console.log(newjob);
 
-    // await axios.post('http://localhost:5000/jobs/new',   newjob)
-    // setpostjob({
-    //   title: '',
-    //   description: '',
-    //   employer: '',
-    //   location: '',
-    //   salary:'',
+    await axios.post('http://localhost:8000/job',newjob)
+    setpostjob({
+      title: '',
+      description: '',
+      employer: '',
+      location: '',
+      salary:'',
 
-    // })
+    })
     alert('job posted')
 
     toast.success('job posted')
