@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Bids from './Bids'
+import Chat from './Chat'
 import MyPosts from './MyPosts'
 import './profile.css'
 import ProgressBar from './ProgressBar'
@@ -17,7 +18,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (user) {
-      axios.get(`https://fumbling-amusement-production.up.railway.app/bid/employee/${user.id}`)
+      axios.get(`http://localhost:8000/bid/${user.id}`)
         .then(res => {
           setBids(res.data)
           console.log(res.data)
@@ -143,14 +144,15 @@ const Profile = () => {
            <h1>My bids</h1>
             {
               bids.map(bid => (
-                 <div key={bid._id}>
-                  <Paper sx={{position:'relative', padding:'10px', width:{xs: '80%', md:'60%'}, m:1}} elevation={4}>
+                 <div key={bid.id}>
+                  <Paper sx={{position:'relative', padding:'10px', width:{xs: '100%', md:'100%%'}, m:1}} elevation={4}>
                         <h2>{user.name}</h2>
                         <p>job: <span style={{color:'blue'}}>{bid.job}</span></p>
                         <p>{bid.description}</p>
-                        <div  className='job-selected'>
+                        {/* <div  className='job-selected'>
                          {bid.isSelected ? <p >selected</p> : <p>Not selected</p>}
-                     </div>
+                     </div> */}
+                     <Chat bid={bid.id} employee={bid.belongToEmployee} />
                   </Paper>
                 </div>
               ))
