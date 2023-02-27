@@ -5,7 +5,9 @@ import { BsFlagFill } from 'react-icons/bs'
 import { AiOutlineHeart } from 'react-icons/ai'
 import HomeNavBar from '../HomeNavBar'
 import Footer from '../../Footer/Jfooter'
+import { useSelector } from 'react-redux'
 const Apply = () => {
+    const user = useSelector(state => state.auth.user)
     const [job, setJob] = useState([])
     const [loading, setLoading] = useState(false)
     const { id } = useParams()
@@ -14,6 +16,7 @@ const Apply = () => {
         axios.get(`http://localhost:8000/job/${id}`)
             .then((response) => {
                 setJob(response.data);
+               
             }).catch((error) => {
                 console.log(error);
             }).finally(() => {
@@ -21,6 +24,32 @@ const Apply = () => {
             }
             )
     }, [])
+
+   //sending bid description to the backend
+   const [bid, setBid] = useState({
+    name: '',
+    job: '',
+    description: '',
+    employeeId: '',
+    jobId: '',
+    })
+
+    const handleClick= (e) => {
+        e.preventDefault()
+        axios.post('http://localhost:8000/bid', {
+            name: user.name,
+            job: job.title,
+            description: bid.description,
+            belongToEmployee: user.id,
+            belongToJob: job.id,
+        })
+        .then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        })
+    }
+
     return (
         <>
             <HomeNavBar />
@@ -80,14 +109,14 @@ const Apply = () => {
                         <option value="Less than 3 months">Less than 3 months</option>
                     </select>
                 </div>
-
-                <div className='similar-jobs'>
+            <form className='similar-jobs' onSubmit={handleClick} >
+                <div >
                     <h4>Cover Letter</h4>
-                    <textarea name="cover-letter" value='' id="cover-letter" cols="30" rows="10"></textarea>
+                    <textarea name="cover-letter" value={bid.description} onChange={(e) => setBid({ ...bid, description: e.target.value })} id="cover-letter" cols="30" rows="10"></textarea>
                 </div>
 
-                <button>Submit proposal </button>
-
+                <button className='apply-btn' >Apply</button>
+            </form>
             </div>
             <Footer />
         </>
