@@ -10,6 +10,7 @@ import Profile from '../profile/Profile'
 import BestMatch from './categories/BestMatch'
 import MostRecent from './categories/MostRecent'
 import SlidingImages from './SlidingImages'
+import SavedJob from './categories/SavedJob'
 
 const Home = () => {
   const [bestMatches, setBestMatches] = React.useState(true)
@@ -67,8 +68,7 @@ const Home = () => {
                   <div className='job-list'>
                     {bestMatches && <BestMatch />}
                     {mostRecent && <MostRecent />}
-
-
+                    {savedJobs && <SavedJob />}
                   </div>
 
                 </section>

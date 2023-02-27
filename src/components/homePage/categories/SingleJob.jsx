@@ -6,7 +6,9 @@ import Jfooter from '../../Footer/Jfooter'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const SingleJob = () => {
+    const user = useSelector(state => state.auth.user)
     // getting a single job
     const [job, setJob] = useState([])
     const [loading, setLoading] = useState(false)
@@ -30,9 +32,9 @@ const SingleJob = () => {
             window.location.reload()
         }
             , 500)
-            
-        
       }
+
+     
 
 const test = job.employerId
     const [employerJobs, setEmployerJobs] = useState([])
@@ -50,8 +52,53 @@ const test = job.employerId
             )
     }, [test])
 
-    console.log(test);
 
+    const [fav, setFav] = useState({});
+
+  useEffect(() => {
+    // Fetch the current job from the backend when the component mounts
+    async function fetchData() {
+      await axios.get(`http://localhost:8000/job/favorite/${id}`)
+        
+        .then((response) => {
+            setFav(response.data);
+            console.log(response.data);
+            }
+        )
+        .catch((error) => {
+            console.log(error);
+        }
+        )
+    }
+
+    fetchData();
+  }, []);
+
+  async function toggleFavorite() {
+    await axios.put(`http://localhost:8000/job/favorite/${id}`, { isFavorite: !fav.isFavorite , byFreelancer: user.id})
+    setFav({ ...fav, isFavorite: !fav.isFavorite });
+    console.log(fav);
+
+    // try {
+
+    //   const response = await fetch(`http://localhost:8000/job/favorite/${job.id}`, {
+    //     method: 'PUT',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({ isFavorite: !fav.isFavorite })
+    //   });
+
+    //   if (!response.ok) {
+    //     throw new Error('Error toggling favorite');
+    //   }
+
+    //   setFav({ ...fav, isFavorite: !fav.isFavorite });
+    //   console.log(fav);
+    // } catch (error) {
+    //   console.error(error);
+    // }
+  }
   return (
     <>
      <HomeNavBar/>
@@ -91,7 +138,9 @@ const test = job.employerId
                 <section className='app-right'>
                     <div className='apply-btns'>
                         <Link t to={`/job/${job.id}/apply`}><button className='btn btn-primary'>Apply Now</button></Link>
-                        <button className='btn btn-secondary'><AiOutlineHeart/>Save Job</button>
+                        {
+                            fav.isFavorite ? <button onClick={toggleFavorite} className='btn btn-secondary'><AiOutlineHeart/>Saved</button> : <button onClick={toggleFavorite} className='btn btn-secondary'><AiOutlineHeart/>Save Job</button>
+                        }
                         <p><BsFlagFill />Flag as inappropriate</p>
                     </div>
                     <div className='about-client'>

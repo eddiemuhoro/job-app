@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import {BiHelpCircle} from 'react-icons/bi'
 import { useSelector } from 'react-redux'
 import {useParams } from 'react-router-dom'
-const BestMatch = () => {
+const SavedJob = () => {
   const {id} = useParams();
   const user = useSelector(state => state.auth.user)
   console.log(user.id);
@@ -31,7 +31,7 @@ const BestMatch = () => {
     //         Authorization: `Bearer ${token}`,
     //     },
     // }
-    axios.request('http://localhost:8000/job')
+    axios.request(`http://localhost:8000/job/favorite/${user.id}`)
       .then((response) => {
         setJobs(response.data);
       }).catch((error) => {
@@ -107,4 +107,4 @@ const BestMatch = () => {
   )
 }
 
-export default BestMatch
+export default SavedJob
