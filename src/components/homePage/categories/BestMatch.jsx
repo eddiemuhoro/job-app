@@ -4,7 +4,10 @@ import axios from 'axios'
 import { GoVerified } from 'react-icons/go'
 import { Link } from 'react-router-dom'
 import {BiHelpCircle} from 'react-icons/bi'
+import { useSelector } from 'react-redux'
 const BestMatch = () => {
+  const user = useSelector(state => state.auth.user)
+  console.log(user.id);
   const [activeButton, setActiveButton] = useState(null);
 
   const handleButtonHover = (index) => {
@@ -39,18 +42,29 @@ const BestMatch = () => {
   const scrollToTop = () => {
     window.scrollTo(0, 0)
   }
+
+  const [isFavorite, setIsFavorite] = useState(true)
+  const isPicked = (id)=>{
+    axios.put(`http://localhost:8000/favorite/${id}`, {
+      isFavorite: !isFavorite
+    })
+    .then((response) => {
+      setIsFavorite(response.data.isFavorite)
+    }
+    )
+  }
   return (
     <>
       {loading ? <h1>Loading...</h1> : jobs.map((job, index) => (
-        <Link onClick={scrollToTop} to={`/job/${job.id}`} key={job.id}>
           <div className='job-card'>
             <div className='card-title'>
               <h3>{job.title}</h3>
               <div style={{ display: 'flex' }}>
-                <ThumbUp style={{ color: '#375d06', border: '1px solid gray', padding: '5px', borderRadius: '50%' }} />
+                <ThumbUp onClick={()=> {isPicked(job.id)}} style={{ color: '#375d06', border: '1px solid gray', padding: '5px', borderRadius: '50%' }} />
                 <ThumbDown style={{ color: '#375d06', border: '1px solid gray', padding: '5px', borderRadius: '50%', marginLeft: "10px" }} />
               </div>
             </div>
+            <Link onClick={scrollToTop} to={`/job/${job.id}`} key={job.id}>
             <div className='card-content'>
               <div className='card-content-left'>
                 <p>We are seeking a talented React Developer with extensive experience in Typescript and Tailwind CSS to join our development team. The successful candidate will work on an ongoing project to develop new features and maintain existing codebases.</p>
@@ -86,8 +100,8 @@ const BestMatch = () => {
                 </div>
               </div>
             </div>
+            </Link>
           </div>
-        </Link>
       ))
       }
 
