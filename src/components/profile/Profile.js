@@ -18,7 +18,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (user) {
-      axios.get(`http://localhost:8000/bid/${user.id}`)
+      axios.get(`https://real-rose-millipede-veil.cyclic.app/bid/${user.id}`)
         .then(res => {
           setBids(res.data)
           console.log(res.data)

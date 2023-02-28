@@ -13,7 +13,7 @@ const Apply = () => {
     const { id } = useParams()
     useEffect(() => {
         setLoading(true)
-        axios.get(`http://localhost:8000/job/${id}`)
+        axios.get(`https://real-rose-millipede-veil.cyclic.app/job/${id}`)
             .then((response) => {
                 setJob(response.data);
                
@@ -36,7 +36,7 @@ const Apply = () => {
 
     const handleClick= (e) => {
         e.preventDefault()
-        axios.post('http://localhost:8000/bid', {
+        axios.post('https://real-rose-millipede-veil.cyclic.app/bid', {
             name: user.name,
             job: job.title,
             description: bid.description,

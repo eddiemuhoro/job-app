@@ -18,7 +18,7 @@ const Chat = ({bid, employee}) => {
     const [messages, setMessages] = useState([])
 
     useEffect(()=>{
-        axios.request(`http://localhost:8000/message/${bid}`)
+        axios.request(`https://real-rose-millipede-veil.cyclic.app/message/${bid}`)
         .then((response) => {
             setMessages(response.data);
             console.log(`data:${response.data}`);

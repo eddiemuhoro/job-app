@@ -15,7 +15,7 @@ const SingleJob = () => {
     const { id } = useParams()
     useEffect(() => {
         setLoading(true)
-        axios.get(`http://localhost:8000/job/${id}`)
+        axios.get(`https://real-rose-millipede-veil.cyclic.app/job/${id}`)
             .then((response) => {
                 setJob(response.data);
             }).catch((error) => {
@@ -41,7 +41,7 @@ const test = job.employerId
     const [loadingJobs, setLoadingJobs] = useState(false)
     useEffect(() => {
         setLoadingJobs(true)
-        axios.request(`http://localhost:8000/employer/${test}/jobs`)
+        axios.request(`https://real-rose-millipede-veil.cyclic.app/employer/${test}/jobs`)
             .then((response) => {
                 setEmployerJobs(response.data);
             }).catch((error) => {
@@ -58,7 +58,7 @@ const test = job.employerId
   useEffect(() => {
     // Fetch the current job from the backend when the component mounts
     async function fetchData() {
-      await axios.get(`http://localhost:8000/job/favorite/${id}`)
+      await axios.get(`https://real-rose-millipede-veil.cyclic.app/job/favorite/${id}`)
         
         .then((response) => {
             setFav(response.data);
@@ -75,7 +75,7 @@ const test = job.employerId
   }, []);
 
   async function toggleFavorite() {
-    await axios.put(`http://localhost:8000/job/favorite/${id}`, { isFavorite: !fav.isFavorite , byFreelancer: user.id})
+    await axios.put(`https://real-rose-millipede-veil.cyclic.app/job/favorite/${id}`, { isFavorite: !fav.isFavorite , byFreelancer: user.id})
     setFav({ ...fav, isFavorite: !fav.isFavorite });
     console.log(fav);
 

@@ -31,7 +31,7 @@ const SavedJob = () => {
     //         Authorization: `Bearer ${token}`,
     //     },
     // }
-    axios.request(`http://localhost:8000/job/favorite/${user.id}`)
+    axios.request(`https://real-rose-millipede-veil.cyclic.app/${user.id}`)
       .then((response) => {
         setJobs(response.data);
       }).catch((error) => {

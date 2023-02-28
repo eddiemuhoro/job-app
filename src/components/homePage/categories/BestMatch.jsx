@@ -31,7 +31,7 @@ const BestMatch = () => {
     //         Authorization: `Bearer ${token}`,
     //     },
     // }
-    axios.request('http://localhost:8000/job')
+    axios.request('https://real-rose-millipede-veil.cyclic.app/job')
       .then((response) => {
         setJobs(response.data);
       }).catch((error) => {

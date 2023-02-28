@@ -8,7 +8,7 @@ const SinglePost = ({id}) => {
  
   useEffect(() => {
    
-      axios.request(`http://localhost:8000/job/${id}`)
+      axios.request(`https://real-rose-millipede-veil.cyclic.app/job/${id}`)
           .then((response) => {
               setJobs(response.data);
               console.log(response.data)

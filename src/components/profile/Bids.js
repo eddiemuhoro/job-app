@@ -11,7 +11,7 @@ const Bids = ({job}) => {
     console.log(`job:${job}`);
         
      useEffect(()=>{
-        axios.request(`http://localhost:8000/bid/job/${job}`)
+        axios.request(`https://real-rose-millipede-veil.cyclic.app/bid/job/${job}`)
         .then((response) => {
             setBids(response.data);
             console.log(`data:${response.data}`);

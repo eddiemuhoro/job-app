@@ -81,7 +81,7 @@ const Post = ({theme}) => {
     console.log(skills);
     console.log(newjob);
 
-    await axios.post('http://localhost:8000/job',newjob)
+    await axios.post('https://real-rose-millipede-veil.cyclic.app/job',newjob)
     setpostjob({
       title: '',
       description: '',
