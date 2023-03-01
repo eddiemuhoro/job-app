@@ -125,9 +125,39 @@
        border: 1px solid #ccc;
          padding: 5px;
             border-radius: 5px;
-
-
     }
+
+    /* MY POST STYLES */
+    .menu-btn{
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 10px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .menu{
+        
+      width: 40%;
+      height: 50px;
+        background-color: rgba(110, 161, 38, 0.787);
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1 px solid #ccc;
+    border-radius: 5px;
+    }
+    .menu button{
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+  
 
 @media (max-width: 768px) {
     .profile-details{
