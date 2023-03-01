@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'https://fumbling-amusement-production.up.railway.app/';
+const API_URL = 'https://real-rose-millipede-veil.cyclic.app/';
 
 const createJob = async(jobData)=>{
   
