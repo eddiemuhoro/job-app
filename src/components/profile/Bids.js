@@ -54,7 +54,7 @@ const Bids = ({job}) => {
                      <header className='bid-header'>
                             <img src='https://www.w3schools.com/howto/img_avatar.png' alt='avatar' className='avatar'/>
                             <div className='bid-header-text'>
-                                <h3>{bid.id}</h3>
+                                <h3>{bid.name}</h3>
                                 <p>eddie@gmail.com</p>
                             </div>
                      </header>
