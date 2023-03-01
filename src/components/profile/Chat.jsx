@@ -44,7 +44,7 @@ const Chat = ({bid, employee}) => {
                 bid: bid,
             }
             console.log(newMessage);
-            axios.post('http://localhost:8000/message', newMessage)
+            axios.post('https://real-rose-millipede-veil.cyclic.app/message', newMessage)
              //clear input field after submit
             setPostMessage({
                 message: '',

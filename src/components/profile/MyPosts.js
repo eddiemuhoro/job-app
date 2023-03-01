@@ -22,7 +22,7 @@ const MyPosts = () => {
    
     useEffect(() => {
      
-        axios.request(`http://localhost:8000/job/employer/${employer.id}`)
+        axios.request(`https://real-rose-millipede-veil.cyclic.app/job/employer/${employer.id}`)
             .then((response) => {
                 setJobs(response.data);
                 console.log(response.data)
@@ -33,18 +33,6 @@ const MyPosts = () => {
             
     }, [])
 
-    const viewBid = (id)=>{
-        
-        console.log(id)
-        axios.request(`https://fumbling-amusement-production.up.railway.app/bid/${id}`)
-        .then((response) => {
-            setBids(response.data);
-            console.log(response.data);
-        }
-        ).catch((error) => {
-            console.log(error);
-        })
-    }
  
 
     const dispatch = useDispatch()
