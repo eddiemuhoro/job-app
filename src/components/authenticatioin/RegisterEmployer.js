@@ -37,7 +37,7 @@ const RegisterEmployer = () => {
   useEffect((dispatch)=>{
     if(isSuccess || user){
       toast.success(message)
-      navigate('/employer')
+      navigate('/')
       window.location.reload()
       dispatch(reset())
     }
