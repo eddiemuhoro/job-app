@@ -59,8 +59,11 @@ const HomeNavBar = () => {
            
                 <div className='jobsy-logo'>
                     <Link to='/'><img src='https://firebasestorage.googleapis.com/v0/b/fir-api-7421d.appspot.com/o/test%2Flogo-design-49584.png?alt=media&token=ff285738-75e8-47a4-9e9a-66f421c9dd40' alt='jobsy-logo' /></Link>
-                    <Link to='/'>Find jobs</Link>
-                    <Link to='/post'>Find talent</Link>
+                    {
+                        user ? (<Link to='/'>Find jobs</Link>): ( <Link to='/post'>Find talent</Link>)
+                    }
+                    
+                   
                 </div>
            
             <div className={isNavExpanded ?  'nav-links mobile' : 'nav-links'}>
