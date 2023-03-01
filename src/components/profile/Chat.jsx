@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import Popup from 'reactjs-popup';
+import '../../styles/chat.css'
+
 
 const Chat = ({bid, employee}) => {
     const user = useSelector (state => state.auth.user);
@@ -91,9 +93,9 @@ const Chat = ({bid, employee}) => {
                 )
             }
 
-            <form onSubmit={handleSubmit}>
-                <input style={{width:'100%'}} type="text" placeholder="message" value={postMessage.message}  onChange={(e) => setPostMessage({...postMessage, message: e.target.value})} />
-            <button>send</button>
+            <form className='chat-box' onSubmit={handleSubmit}>
+                <input className='chat-box-input' style={{width:'100%'}} type="text" placeholder="message" value={postMessage.message}  onChange={(e) => setPostMessage({...postMessage, message: e.target.value})} />
+            <button  className="chat-box-send-button">send</button>
 
             </form>
         </div>
