@@ -9,6 +9,8 @@ import { toast } from 'react-toastify';
 import { createJob } from '../react-redux/features/jobs/jobSlice';
 import '../styles/post.css'
 import { margin } from '@mui/system';
+import { SkipPrevious } from '@mui/icons-material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function SkillInput({ onSkillsChange }) {
   const [skills, setSkills] = useState([]);
@@ -102,6 +104,10 @@ const Post = ({theme}) => {
   //sdfsf
   return (
     <div className='post-container'>
+      {/* BACK BUTTON */}
+      <div className='back-btn' style={{cursor:'pointer', position:"absolute", top:'5px', left:'5px'}}>
+        <ArrowBackIcon fontSize='large' onClick={() => navigate('/myprofile')}/>
+      </div>
       <div className='post-wrapper'>
         <section className='top'>
           <h1>Tell us what you need done</h1>
