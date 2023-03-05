@@ -33,7 +33,8 @@ const Bids = ({job}) => {
     
   return (
     <div>
-        <button onClick={handleShow} style={{backgroundColor:'green', color:'white'}}>{show ? `Close`: `view bids`}</button>
+        
+        <button onClick={handleShow} style={{backgroundColor:'green', color:'white', display: bids.length === 0 ? 'none': 'block'}}>{show ? `Close`: `view bids`}</button>
         <div className='filters' style={{display:show ? 'block' : 'none'}}>
             <h3>Filters</h3>
             <ul>
@@ -41,10 +42,11 @@ const Bids = ({job}) => {
                 <li>Delivery time</li>
                 <li>Rating</li>
                 <li>Price</li>
-
-
             </ul>
         </div>
+
+    
+
         {bids.map((bid) =>  {return (
             <div key={bid.id}>
             <div  style={{display:show ? 'block' : 'none'}}>
