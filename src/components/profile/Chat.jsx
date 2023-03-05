@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import Popup from 'reactjs-popup';
 import '../../styles/chat.css'
-
+import MessageRoundedIcon from '@mui/icons-material/MessageRounded';
 
 const Chat = ({bid, employee}) => {
     const user = useSelector (state => state.auth.user);
@@ -19,18 +19,25 @@ const Chat = ({bid, employee}) => {
     //display messages
     const [messages, setMessages] = useState([])
 
+
+    //only fetch messages when a message is sent
+
+    // useEffect(() => {
+    //     axios.get(`https://real-rose-millipede-veil.cyclic.app/message/${bid}`)
+    //     .then((response) => {
+    //         setMessages(response.data);
+
+    //         console.log(`data:${response.data}`);
+    //     }
+    //     ).catch((error) => {
+    //         console.log(error);
+    //     })
+    // })
+
+
     
 
-    useEffect(()=>{
-        axios.request(`https://real-rose-millipede-veil.cyclic.app/message/${bid}`)
-        .then((response) => {
-            setMessages(response.data);
-            console.log(`data:${response.data}`);
-        }
-        ).catch((error) => {
-            console.log(error);
-        })
-        })
+  
 
         const [postMessage, setPostMessage] = useState({
             message: '',
@@ -38,6 +45,8 @@ const Chat = ({bid, employee}) => {
             receiver: '',
             bid: '',
         })
+
+
 
         const handleSubmit =  (e) => {
             e.preventDefault();
@@ -61,17 +70,46 @@ const Chat = ({bid, employee}) => {
 
         }
 
+        //fetch messages from db when a message is sent
+        //load messages on page load
+        useEffect(() => {
+            axios.get(`https://real-rose-millipede-veil.cyclic.app/message/${bid}`)
+            .then((response) => {
+                setMessages(response.data);
+
+                console.log(`data:${response.data}`);
+            }
+            ).catch((error) => {
+                console.log(error);
+            })
+        })
+
+       
+
+
 
         const [show, setShow] = React.useState(false)
         const handleShow = () => {
             setShow(!show)
         }
 
+       //delete message from db on double click, actual parameter is the id of the message
+        const handleDoubleClick = (id) => {
+            console.log(id);
+            axios.delete(`https://real-rose-millipede-veil.cyclic.app/message/${id}`)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        }
+       
     
 
 
   return (
-    <Popup trigger={<Button variant='contained'>Chat</Button>} modal>
+    <Popup  trigger={<div style={{color:'gray', cursor:"pointer"}}><MessageRoundedIcon /></div>} modal>
         <button onClick={handleShow} style={{backgroundColor:'green', color:'white'}}>{show ? `chat`: `Chat`}</button>
         <div style={{border:"1px solid green", padding:'10px', borderRadius:'10px', }}>
             {
@@ -79,15 +117,23 @@ const Chat = ({bid, employee}) => {
                     return (
                         <div key={message.id} style={{margin:"5px 0", }}>  
                         {
-                                message.sender === postMessage.value ? <div style={{display:'flex', justifyContent:'flex-end', height:'20px'}}>
-                                <div style={{border:"1px solid green", padding:'0 10px', borderRadius:'10px'}}>
-                                    <p style={{margin:"0"}}>{message.message}</p>
+                                message.sender === postMessage.value ?
+                                 <div style={{display:'flex', justifyContent:'flex-end', height:'auto'}}>
+                                    <div>
+                                        <div onDoubleClick={() => handleDoubleClick(message.id)} style={{color:"white", padding:'10px', borderRadius:'10px', backgroundColor:'green'}}>
+                                            <p style={{margin:"0"}}>{message.message}</p>
+                                        </div>
+                                        <p style={{margin:"0", color:'gray', fontSize:'12px'}}>{new Date(message.createdAt).toLocaleString()}</p>
+                                    </div>
+                                 </div> : 
+                                 <div style={{display:'flex', justifyContent:'flex-start',  height:'auto'}}>
+                                    <div>
+                                    <div style={{color:"white", padding:'10px', borderRadius:'10px', backgroundColor:'gray'}}>
+                                        <p style={{margin:"0"}}>{message.message}</p>
+                                    </div>
+                                    <p style={{margin:"0", color:'gray', fontSize:'12px'}}>{new Date(message.createdAt).toLocaleString()}</p>
+                                    </div>
                                 </div>
-                            </div> : <div style={{display:'flex', justifyContent:'flex-start', height:'20px'}}>
-                                <div style={{border:"1px solid green", padding:'0 10px', borderRadius:'10px'}}>
-                                    <p style={{margin:"0"}}>{message.message}</p>
-                                </div>
-                            </div>
                         }
                         </div>
                     )
