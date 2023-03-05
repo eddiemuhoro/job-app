@@ -5,6 +5,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, logoutEmployer, reset } from '../../react-redux/features/auth/authSlice'
 import { toast, ToastContainer } from 'react-toastify'
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 //sad:(
 
 const HomeNavBar = () => {
@@ -91,10 +92,8 @@ const HomeNavBar = () => {
                                 <img style={{borderRadius:'50%'}} src={((user && user.selectedFile) ||((employer && employer.selectedFile)))|| 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJkC07QFuZvIeLEadibGh6ZkDXshm8PakYYzPMMZywg&s'}  alt={user && user.name} width= '46px' height='46px'/>
                             </li></Link>
 
-                            <Button title='logout' sx={{borderRadius:'20px', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}  variant='contained'>
 
-                            <Link onClick={onLogout} style={{color:'white', margin: 0,display:'flex', justifyContent:'center', alignItems:'center'}} to='/'><LogoutOutlined/></Link>
-                            </Button>
+                            <Link title='Log out' onClick={onLogout} style={{ margin: 0,display:'flex', justifyContent:'center', alignItems:'center'}} to='/'><LogoutRoundedIcon/></Link>
                         </>
                             ): (  
                                 <div style={{display:"flex", flexDirection:'column', alignItems:'center'}}>
