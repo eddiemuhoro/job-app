@@ -116,6 +116,8 @@ const LoginEmployer = () => {
             Submit
           </button>
           <p>Don't have an account? <Link to='/registerEmployer'>Sign Up</Link></p>
+          <p>Or</p>
+          <Link to='/register'>Register as freelancer instead</Link>
         </div>
       </form>
     </section>

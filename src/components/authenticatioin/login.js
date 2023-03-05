@@ -84,7 +84,7 @@ const Login = () => {
       <h1>
        Login
       </h1>
-      <p>Please login to view jobs</p>
+      <p>Please login to your freelancer account</p>
       </div>
       <form onSubmit={onSubmit}>
       
@@ -116,6 +116,8 @@ const Login = () => {
             Submit
           </button>
           <p>Don't have an account? <Link  to='/register'>Sign Up</Link></p>
+          <p>Or</p>
+          <p> <Link to='/registerEmployer'>Rgester as a client </Link>instead</p>
         </div>
       </form>
     </section>

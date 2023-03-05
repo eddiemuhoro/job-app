@@ -94,10 +94,11 @@ const Home = () => {
                     <li>Any skill you can possibly think of</li>
                     <li>Any budget you can possibly think of</li>
                   </ul>
-                </section>
-                {
+                  {
                   employer ? '': <Link to='/joinas'> <Button style={{backgroundColor:'green'}} variant='contained' color='primary'>Get Started</Button></Link>
                 }
+                </section>
+              
                 
 
                 <section className='trustees'>
@@ -106,23 +107,20 @@ const Home = () => {
                     <img src='https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload//c_fit/general/logobar/colored/microsoft.svg' alt='freelancer' />
                     <img src='https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload//c_fit/general/logobar/colored/airbnb.svg' alt='freelancer' />
                     <img src='https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload//c_fit/general/logobar/colored/bissell.svg' alt='freelancer' />
+                    <img src='https://www.dkut.ac.ke/images/logo-header.png' alt='freelancer' />
                   </div>
                 </section>
 
               </div>
-              <div className='unreg-left'>
+              {/* <div className='unreg-left'>
                 <section className='image-home'>
                    <SlidingImages/>
                 </section> 
-              </div>
+              </div> */}
              
             </div>
-          
           )
       }
-
-      
-        
     </div>
   )
 }

@@ -93,7 +93,7 @@ const SignUp = () => {
       <h1>
        Register
       </h1>
-      <p>Please create an account</p>
+      <p>Please create a freelancer account</p>
       </div>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
@@ -167,6 +167,7 @@ const SignUp = () => {
             Submit
           </button>
           <p>Already have an account? <Link to='/login'>Login</Link></p>
+          
         </div>
       </form>
     </section>
