@@ -69,7 +69,6 @@ const RegisterEmployer = () => {
         password,
         phone:formData.phone,
         selectedFile:formData.selectedFile
-        
       }
 
       dispatch(registerEmployer(userData))

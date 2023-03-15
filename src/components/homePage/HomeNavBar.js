@@ -7,7 +7,6 @@ import { logout, logoutEmployer, reset } from '../../react-redux/features/auth/a
 import { toast, ToastContainer } from 'react-toastify'
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 //sad:(
-
 const HomeNavBar = () => {
     const [isNavExpanded, setIsNavExpanded] = useState(false)
     
