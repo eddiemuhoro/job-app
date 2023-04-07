@@ -84,9 +84,6 @@ const Chat = ({bid, employee}) => {
             })
         })
 
-       
-
-
 
         const [show, setShow] = React.useState(false)
         const handleShow = () => {

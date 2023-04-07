@@ -161,10 +161,8 @@ export default function Mui() {
                                             <Popup trigger={<Button variant='contained'>Bid</Button>} modal>
                                                 <div className='bid-popup'>
                                                     <h2>{job.title}</h2>
-                                                    
                                              
                                                      <div className='form-input'>
-  
                                                         <FormControl component="form" noValidate autoComplete="off"
                                                         sx={{
                                                             border:'1px solid grey',
